@@ -28,7 +28,6 @@ LLMknowsynth/
 
 Instructions on how to get your project up and running on a local machine for development and testing purposes.
 
-
 ```bash
 git clone https://github.com/yourusername/yourprojectname.git
 cd yourprojectname
