@@ -4,25 +4,26 @@
 
 This project is organized as follows:
 
-LLMknowsynth/
-│
+```
+.
 ├── data/
-│ ├── LTL/
-│ │ ├── unconstrained/
-│ │ │ └── *.json / *.jsonl
-│ │ └── constrained/
-│ │ └── *.json / *.jsonl
+│   └── LTL/
+│       ├── unconstrained/
+│       │   └── *.json / *.jsonl
+│       └── constrained/
+│           └── *.json / *.jsonl
 │
 ├── scripts/
-│ └── prompt_generator.py
+│   └── prompt_generator.py
 │
 ├── config/
-│ ├── api_keys.json.example
+│   └── api_keys.json.example
 │
 ├── requirements.txt
 ├── .gitignore
 ├── README.md
 └── LICENSE
+```
 
 ## Installation
 
@@ -30,7 +31,7 @@ Instructions on how to get your project up and running on a local machine for de
 
 ```bash
 git clone https://github.com/yourusername/yourprojectname.git
-cd yourprojectname
+cd LLMknowsynth
 pip install -r requirements.txt
 ```
 
