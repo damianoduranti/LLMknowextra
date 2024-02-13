@@ -1,0 +1,57 @@
+# Bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+
+# Configuration files with sensitive information
+config/api_keys.json
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+
+# Log files
+*.log
+
+# Data files (if you decide to exclude them)
+# data/
+
+# Dependency directories (commented out if you prefer to include them in your version control)
+# node_modules/
+# vendor/
+
+# Distribution / packaging
+.Python
+build/
+dist/
+eggs/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+# Usually used for creating executables, include if relevant
+*.manifest
+*.spec
+
+# pytest cache
+.pytest_cache/
+
+# mypy cache
+.mypy_cache/
