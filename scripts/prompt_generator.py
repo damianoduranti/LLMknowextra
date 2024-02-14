@@ -32,10 +32,11 @@ def read_json_data(file_path):
 
 def generate_ltl_prompt(data):
     """
-    Generates a prompt for an LTL formula based on provided trace data.
+    Generates a prompt for an LTL formula based on provided trace data, including constraints on propositional letters if available.
+    Unpacks letters singularly, bracketing them and correctly handling singular and plural cases.
 
     Parameters:
-    - data (dict): Trace data containing 'P' for positive trace and 'N' for negative trace.
+    - data (dict): Trace data containing 'P' for positive trace, 'N' for negative trace, and optionally 'S' for propositional letters constraints.
 
     Returns:
     - str: Generated prompt for the LTL formula.
@@ -46,8 +47,19 @@ def generate_ltl_prompt(data):
 
     positive_str = trace_to_str(data.get('P', [[]])[0])
     negative_str = trace_to_str(data.get('N', [[]])[0])
+    
+    # Extract propositional letters if provided and format them
+    propositional_letters = sorted(set(data.get('S', [])))
+    letters_str = ', '.join([f'"{letter}"' for letter in propositional_letters])  # Bracket each letter individually
 
-    return (f"Provide an LTL formula that is satisfied on the following trace:\n\n{positive_str}\n\n"
+    # Handle singular and plural cases
+    letter_or_letters = "letter" if len(propositional_letters) == 1 else "letters"
+    
+    constraint_info = ""
+    if propositional_letters:
+        constraint_info = f", using only the propositional {letter_or_letters} {letters_str}"
+    
+    return (f"Provide an LTL formula{constraint_info} that is satisfied on the following trace:\n\n{positive_str}\n\n"
             f"and falsified on the following trace:\n\n{negative_str}")
 
 def generate_prompts_from_json(file_path):
