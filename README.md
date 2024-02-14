@@ -6,23 +6,26 @@ This project is organized as follows:
 
 ```
 .
+├── config/
+│   └── api_keys.json.example
+│
 ├── data/
-│   └── LTL/
-│       ├── unconstrained/
-│       │   └── *.json / *.jsonl
-│       └── constrained/
-│           └── *.json / *.jsonl
+│   ├── LTL_constrained/
+│   │   └── *.json
+│   │ 
+│   └── LTL_unconstrained/
+│       └── *.json
 │
 ├── scripts/
 │   └── prompt_generator.py
 │
-├── config/
-│   └── api_keys.json.example
+├── tests/
+│   └── prompt_generator_tests.py
 │
-├── requirements.txt
 ├── .gitignore
+├── LICENSE
 ├── README.md
-└── LICENSE
+└── requirements.txt
 ```
 
 ## Installation
