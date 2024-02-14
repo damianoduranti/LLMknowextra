@@ -1,4 +1,7 @@
 {
-  "openai_api_key": "INSERT_YOUR_KEY_HERE",
-  "other_service_api_key": "INSERT_YOUR_KEY_HERE"
+    "OPENAI_API_KEY": "your_openai_api_key_here",
+    "OPENAI_API_BASE": "your_openai_api_base_url_here",
+    "OPENAI_API_TYPE": "your_openai_api_type_here",
+    "OPENAI_API_VERSION": "your_openai_api_version_here",
+    "OPENAI_DEPLOYMENT_NAME": "your_openai_deployment_name_here"
 }

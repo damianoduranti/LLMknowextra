@@ -1,10 +1,11 @@
 import logging
 from scripts.prompt_generator import *
+from scripts.llm_communicator import *
 
 # Setup basic logging configuration
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-def run_tests():
+def generation_tests():
     """
     Runs example test cases demonstrating the functionality with improved print formatting.
     """
@@ -36,4 +37,17 @@ def run_tests():
         logging.error(f"Test with batch files failed: {e}")
 
 if __name__ == "__main__":
-    run_tests()
+    #generation_tests()
+    # Load API keys and set configurations
+    load_api_keys()
+    set_openai_api_configurations()
+
+    # Example test: sending a custom prompt
+    # Replace 'data/LTL_unconstrained/1.json' with the correct path or use another prompt generation method
+    prompt = generate_prompts_from_json('data/LTL_unconstrained/1.json')
+    print(f"Prompt: {prompt}")
+    response = send_prompt(prompt)
+    print(f"Response: {response}")
+
+
+
