@@ -33,7 +33,7 @@ This project is organized as follows:
 Instructions on how to get your project up and running on a local machine for development and testing purposes.
 
 ```bash
-git clone https://github.com/yourusername/yourprojectname.git
+git clone https://github.com/damianoduranti/LLMknowsynth.git
 cd LLMknowsynth
 pip install -r requirements.txt
 ```
