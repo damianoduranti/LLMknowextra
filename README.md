@@ -17,10 +17,11 @@ This project is organized as follows:
 │       └── *.json
 │
 ├── scripts/
+│   ├── llm_communicator.py
 │   └── prompt_generator.py
 │
 ├── tests/
-│   └── prompt_generator_tests.py
+│   └── tests.py
 │
 ├── .gitignore
 ├── LICENSE
