@@ -80,7 +80,7 @@ def send_prompt(prompt):
             messages=phrase,
             max_tokens=100,
         )
-        return response['choices'][0]['message']['content'].replace('\n', '').replace(' .', '.').strip()
+        return response['choices'][0]['message']['content'].strip()
     except Exception as e:
         logging.error(f"Failed to send prompt to API: {e}")
         return None

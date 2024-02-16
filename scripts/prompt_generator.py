@@ -1,3 +1,4 @@
+import pathlib
 import glob
 import json
 import os
@@ -20,15 +21,16 @@ def read_json_data(file_path):
     - FileNotFoundError: If the JSON file cannot be found.
     - json.JSONDecodeError: If there is an error parsing the JSON.
     """
+    if not pathlib.Path(file_path).is_file():
+        logging.error(f"File not found: {file_path}")
+        raise FileNotFoundError(f"File not found: {file_path}")
+    
     try:
         with open(file_path, 'r') as file:
             return json.load(file)
-    except FileNotFoundError:
-        logging.error(f"File not found: {file_path}")
-        raise
     except json.JSONDecodeError:
         logging.error(f"Invalid JSON format: {file_path}")
-        raise
+        raise json.JSONDecodeError(f"Invalid JSON format: {file_path}")
 
 def validate_json_structure(data):
     """
@@ -45,17 +47,9 @@ def validate_json_structure(data):
 
     for key in required_keys:
         if key in data:
-            if not isinstance(data[key], list):
-                return False, f"Expected a list for key: {key}"
-            if len(data[key]) > 0:
-                # Check for valid trace structure
-                for trace in data[key]:
-                    if not isinstance(trace, list):
-                        return False, f"Expected a list of traces for key: {key}"
-                    for event in trace:
-                        if not isinstance(event, list):
-                            return False, f"Expected a list of events in traces for key: {key}"
-                valid_data_found = True  # Valid 'P' or 'N' data found
+            if not isinstance(data[key], list) or any(not isinstance(trace, list) or any(not isinstance(event, list) for event in trace) for trace in data[key]):
+                return False, f"Invalid format for key: {key}"
+            valid_data_found = True  # Valid 'P' or 'N' data found
 
     if not valid_data_found:
         return False, "Both 'P' and 'N' are missing or empty. At least one must be present and non-empty."
@@ -110,13 +104,12 @@ def generate_ltl_prompt(data):
     else:
         constraint_info = ""
 
-    prompt_parts = []
     if positive_str and negative_str:
-        prompt = f"Provide an LTL formula{constraint_info} that is satisfied on:\n\n{positive_str}\nand falsified on:\n\n{negative_str}"
+        prompt = f"Provide an LTL formula{constraint_info} that is satisfied on:\n\n{positive_str}\nand falsified on:\n\n{negative_str}\nProvide the formula only in the form of a string, using the nuXmv syntax."
     elif positive_str:
-        prompt = f"Provide an LTL formula{constraint_info} that is satisfied on:\n\n{positive_str}"
+        prompt = f"Provide an LTL formula{constraint_info} that is satisfied on:\n\n{positive_str}\nProvide the formula only in the form of a string, using the nuXmv syntax."
     elif negative_str:
-        prompt = f"Provide an LTL formula{constraint_info} that is falsified on:\n\n{negative_str}"
+        prompt = f"Provide an LTL formula{constraint_info} that is falsified on:\n\n{negative_str}\nProvide the formula only in the form of a string, using the nuXmv syntax."
     else:
         return "No valid trace data provided."
 
