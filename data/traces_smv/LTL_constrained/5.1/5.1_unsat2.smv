@@ -1,0 +1,35 @@
+MODULE main
+VAR q : boolean;
+VAR End : boolean;
+VAR pc : 1..10;
+
+ASSIGN
+ init(pc) := 1;
+ next(pc) := case
+   pc <= 9 : pc + 1;
+   TRUE    : 10;
+ esac;
+ init(End) := FALSE;
+ next(End) := case
+   pc >= 9 : TRUE;
+   TRUE    : End;
+ esac;
+
+INVAR
+ pc = 1 -> (q)
+INVAR
+ pc = 2 -> (!q)
+INVAR
+ pc = 3 -> (!q)
+INVAR
+ pc = 4 -> (q)
+INVAR
+ pc = 5 -> (!q)
+INVAR
+ pc = 6 -> (!q)
+INVAR
+ pc = 7 -> (q)
+INVAR
+ pc = 8 -> (!q)
+INVAR
+ pc = 9 -> (!q)
