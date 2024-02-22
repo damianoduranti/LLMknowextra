@@ -10,15 +10,22 @@ This project is organized as follows:
 │   └── api_keys.json.example
 │
 ├── data/
-│   ├── LTL_constrained/
-│   │   └── *.json
-│   │ 
-│   └── LTL_unconstrained/
-│       └── *.json
+│   ├── traces_json/
+│   │   ├── LTL_constrained/
+│   │   │   └── *.json
+│   │   └── LTL_unconstrained/
+│   │       └── *.json
+│   │
+│   └── traces_smv/
+│       ├── LTL_constrained/
+│       │   └── *.smv
+│       └── LTL_unconstrained/
+│           └── *.smv
 │
 ├── scripts/
 │   ├── llm_communicator.py
-│   └── prompt_generator.py
+│   ├── prompt_generator.py
+│   └── trace_verifier.py
 │
 ├── tests/
 │   └── tests.py
