@@ -77,9 +77,7 @@ ASSIGN
             except IOError as e:
                 logging.error(f"Failed to write SMV file {full_file_path}: {e}")
 
-# for all files in /Users/damianoduranti/repos/LLMknowsynth/data/traces_json/LTL_unconstrained and in /Users/damianoduranti/repos/LLMknowsynth/data/traces_json/LTL_constrained generate smv files
-for file in os.listdir('/Users/damianoduranti/repos/LLMknowsynth/data/traces_json/LTL_unconstrained'):
-    generate_smv_files_from_json('/Users/damianoduranti/repos/LLMknowsynth/data/traces_json/LTL_unconstrained/' + file, '/Users/damianoduranti/repos/LLMknowsynth/data/traces_smv/LTL_unconstrained')
-
-for file in os.listdir('/Users/damianoduranti/repos/LLMknowsynth/data/traces_json/LTL_constrained'):
-    generate_smv_files_from_json('/Users/damianoduranti/repos/LLMknowsynth/data/traces_json/LTL_constrained/' + file, '/Users/damianoduranti/repos/LLMknowsynth/data/traces_smv/LTL_constrained')
+if __name__ == "__main__":
+    # Generate SMV files from JSON traces
+    for file in os.listdir('/path/to/traces_json'):
+        generate_smv_files_from_json(f'/path/to/traces_json/{file}', '/path/to/traces_smv')
