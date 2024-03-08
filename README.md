@@ -23,12 +23,11 @@ This project is organized as follows:
 │           └── *.smv
 │
 ├── scripts/
-│   ├── llm_communicator.py
+│   ├── formula_translator.py
+│   ├── llm_utils.py
 │   ├── prompt_generator.py
+│   ├── smv_generator.py
 │   └── trace_verifier.py
-│
-├── tests/
-│   └── tests.py
 │
 ├── .gitignore
 ├── LICENSE
