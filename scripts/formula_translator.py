@@ -86,8 +86,20 @@ def f2i(formula):
 
 response = "G (p -> X[!] F q)"
 response1 = "p U (X[!] q)"
-parsed_response = parse_response(response1)
+response2 = "G(G(F(p)))"
+response3 = "(X[!](p U q)) U (r U (G(s)))"
+response4 = "F(p | G(!(q & !r)))"
+parsed_response = parse_response(response)
+parsed_response1 = parse_response(response1)
+parsed_response2 = parse_response(response2)
+parsed_response3 = parse_response(response3)
+parsed_response4 = parse_response(response4)
+
 logging.info(f"Formula: {parsed_response}")
 print(f2i(parsed_response))
+print(f2i(parsed_response1))
+print(f2i(parsed_response2))
+print(f2i(parsed_response3))
+print(f2i(parsed_response4))
 
 
