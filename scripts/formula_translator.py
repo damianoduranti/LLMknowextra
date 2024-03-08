@@ -44,6 +44,27 @@ def f2i(formula):
     elif formula.startswith("(next "):
         subformula = formula[6:-1]
         return f"X({f2i(subformula)} & !End)"
+    elif formula.startswith("(weak_next "):
+        subformula = formula[11:-1]
+        return f"!X!({f2i(subformula)} & !End)"
+    elif formula.startswith("(and "):
+        formula = formula[5:-1]
+        if formula[0] == "(":
+            subformula1 = formula[1:formula.index(") ")]
+            subformula2 = formula[formula.index(") ") + 2:]
+        else:
+            subformula1 = formula[:formula.index(" ")]
+            subformula2 = formula[formula.index(" ") + 1:]
+        return f"({f2i(subformula1)} & {f2i(subformula2)})"
+    elif formula.startswith("(or "):
+        formula = formula[4:-1]
+        if formula[0] == "(":
+            subformula1 = formula[1:formula.index(") ")]
+            subformula2 = formula[formula.index(") ") + 2:]
+        else:
+            subformula1 = formula[:formula.index(" ")]
+            subformula2 = formula[formula.index(" ") + 1:]
+        return f"({f2i(subformula1)} | {f2i(subformula2)})"
     elif formula.startswith("(implies "):
         formula = formula[9:-1]
         if formula[0] == "(":
