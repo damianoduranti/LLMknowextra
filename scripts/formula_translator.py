@@ -1,27 +1,9 @@
-import pylogics
 from pylogics.parsers import parse_ltl
 from llm_utils import *
 from prompt_generator import *
 from smv_generator import *
 
-# drop first WORD from string
-# def drop_first_word(string):
-#     return string.split(' ', 1)[1]
-
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-def sample_prompt():
-    # Generate prompts from JSON files in the 'prompts' directory
-    json_path = "data/traces_json/LTL_unconstrained/3.json"
-    prompt = generate_prompts_from_json(json_path)
-    logging.info(f"Generated prompt: {prompt}")
-
-    # Send prompt to the LLM
-    load_api_keys()
-    set_openai_api_configurations()
-    logging.info(f"Sending prompt to the LLM: {prompt}")
-    logging.info(f"Response: {send_prompt(prompt)}")
-    return prompt
 
 def parse_response(response):
     """
@@ -81,7 +63,6 @@ def f2i(formula):
             subformula2 = formula[formula.index(" ") + 1:]
         return f"({f2i(subformula1)} U ({f2i(subformula2)} & !End))"
 
-#sample_prompt()
 response = "G (p -> X[!] F q)"
 response1 = "p U (X[!] q)"
 parsed_response = parse_response(response1)
