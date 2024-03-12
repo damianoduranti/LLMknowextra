@@ -28,31 +28,6 @@ def _map_operands_to_f2i(operands: Sequence[Formula]):
     """Map a list of operands to a list of strings (with brackets)."""
     return map(lambda sub_formula: f"({to_f2i(sub_formula)})", operands)
 
-@to_f2i.register(And)
-def to_f2i_and(formula: And) -> str:
-    """Transform an And into string."""
-    return " & ".join(_map_operands_to_f2i(formula.operands))
-
-@to_f2i.register(Or)
-def to_f2i_or(formula: Or) -> str:
-    """Transform an Or into string."""
-    return " | ".join(_map_operands_to_f2i(formula.operands))
-
-@to_f2i.register(Not)
-def to_f2i_not(formula: Not) -> str:
-    """Transform a Not into string."""
-    return f"!({to_f2i(formula.argument)})"
-
-@to_f2i.register(Implies)
-def to_f2i_implies(formula: Implies) -> str:
-    """Transform an Implies into string."""
-    return " -> ".join(_map_operands_to_f2i(formula.operands))
-
-@to_f2i.register(Equivalence)
-def to_f2i_equivalence(formula: Equivalence) -> str:
-    """Transform an Equivalence into string."""
-    return " <-> ".join(_map_operands_to_f2i(formula.operands))
-
 @to_f2i.register(AbstractAtomic)
 def to_f2i_atomic(formula: AbstractAtomic) -> str:
     """Transform an atomic formula into string."""
@@ -77,6 +52,31 @@ def to_f2i_ltl_propositional_true(_formula: LTLPropositionalTrue) -> str:
 def to_f2i_ltl_propositional_false(_formula: LTLPropositionalFalse) -> str:
     """Transform the "ff" formula into string."""
     return "false"
+
+@to_f2i.register(And)
+def to_f2i_and(formula: And) -> str:
+    """Transform an And into string."""
+    return " & ".join(_map_operands_to_f2i(formula.operands))
+
+@to_f2i.register(Or)
+def to_f2i_or(formula: Or) -> str:
+    """Transform an Or into string."""
+    return " | ".join(_map_operands_to_f2i(formula.operands))
+
+@to_f2i.register(Not)
+def to_f2i_not(formula: Not) -> str:
+    """Transform a Not into string."""
+    return f"!({to_f2i(formula.argument)})"
+
+@to_f2i.register(Implies)
+def to_f2i_implies(formula: Implies) -> str:
+    """Transform an Implies into string."""
+    return " -> ".join(_map_operands_to_f2i(formula.operands))
+
+@to_f2i.register(Equivalence)
+def to_f2i_equivalence(formula: Equivalence) -> str:
+    """Transform an Equivalence into string."""
+    return " <-> ".join(_map_operands_to_f2i(formula.operands))
 
 @to_f2i.register(Next)
 def to_f2i_next(formula: Next) -> str:
