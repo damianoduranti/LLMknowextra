@@ -81,12 +81,22 @@ def to_f2i_ltl_propositional_false(_formula: LTLPropositionalFalse) -> str:
 @to_f2i.register(Next)
 def to_f2i_next(formula: Next) -> str:
     """Transform a next formula into string."""
-    return f"X({to_f2i(formula.argument)} & !End)"
+    return f"X(({to_f2i(formula.argument)}) & !End)"
 
 @to_f2i.register(WeakNext)
 def to_f2i_weak_next(formula: WeakNext) -> str:
     """Transform a weak next formula into string."""
-    return f"X({to_f2i(formula.argument)} | End)"
+    return f"X(({to_f2i(formula.argument)}) | End)"
+
+@to_f2i.register(Eventually)
+def to_f2i_eventually(formula: Eventually) -> str:
+    """Transform a eventually formula into string with & !End appended."""
+    return f"F(({to_f2i(formula.argument)}) & !End)"
+
+@to_f2i.register(Always)
+def to_f2i_always(formula: Always) -> str:
+    """Transform a always formula into string with | End appended."""
+    return f"G(({to_f2i(formula.argument)}) | End)"
 
 @to_f2i.register(Until)
 def to_f2i_until(formula: Until) -> str:
@@ -113,12 +123,3 @@ def to_f2i_release(formula: Release) -> str:
 #     """Transform a strong release formula into string."""
 #     return " M ".join(_map_operands_to_f2i(formula.operands))
 
-@to_f2i.register(Eventually)
-def to_f2i_eventually(formula: Eventually) -> str:
-    """Transform a eventually formula into string with & !End appended."""
-    return f"F({to_f2i(formula.argument)} & !End)"
-
-@to_f2i.register(Always)
-def to_f2i_always(formula: Always) -> str:
-    """Transform a always formula into string with | End appended."""
-    return f"G({to_f2i(formula.argument)} | End)"
