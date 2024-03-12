@@ -41,7 +41,7 @@ def to_f2i_or(formula: Or) -> str:
 @to_f2i.register(Not)
 def to_f2i_not(formula: Not) -> str:
     """Transform a Not into string."""
-    return f"~({to_f2i(formula.argument)})"
+    return f"!({to_f2i(formula.argument)})"
 
 @to_f2i.register(Implies)
 def to_f2i_implies(formula: Implies) -> str:
@@ -81,12 +81,12 @@ def to_f2i_ltl_propositional_false(_formula: LTLPropositionalFalse) -> str:
 @to_f2i.register(Next)
 def to_f2i_next(formula: Next) -> str:
     """Transform a next formula into string."""
-    return f"X[!]({to_f2i(formula.argument)} & !End)"
+    return f"X({to_f2i(formula.argument)} & !End)"
 
 @to_f2i.register(WeakNext)
 def to_f2i_weak_next(formula: WeakNext) -> str:
     """Transform a weak next formula into string."""
-    return f"X[!]({to_f2i(formula.argument)} | End)"
+    return f"X({to_f2i(formula.argument)} | End)"
 
 @to_f2i.register(Until)
 def to_f2i_until(formula: Until) -> str:
@@ -106,7 +106,7 @@ def to_f2i_release(formula: Release) -> str:
     operands_str = list(_map_operands_to_f2i(formula.operands))
     operands_str[0] = f"({operands_str[0]} & !End)"
     operands_str[1] = f"({operands_str[1]} | End)"
-    return " R ".join(operands_str)
+    return " V ".join(operands_str)
 
 # @to_f2i.register(StrongRelease)
 # def to_f2i_strong_release(formula: StrongRelease) -> str:
