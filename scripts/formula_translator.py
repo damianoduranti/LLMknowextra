@@ -21,7 +21,7 @@ def f2i(response):
 
 response = "G (p -> X[!] F q)"
 response1 = "(F(p) & !(G(s))) U (q & (r -> !(X[!] (F(t)))))"
-response2 = "G(G(F(p)))"
+response2 = "X[!](G(F(p)))"
 response3 = "(X[!](p U q)) U (r U (G(s)))"
 response4 = "G((p & q) -> (p | q))"
 response5 = "(p -> q) U (r U s)"
