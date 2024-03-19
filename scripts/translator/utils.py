@@ -14,10 +14,10 @@ from pylogics.syntax.base import (
     Or,
     TrueFormula,
 )
-from pylogics.syntax.ltl import Always, Eventually, Next
-from pylogics.syntax.ltl import PropositionalFalse as LTLPropositionalFalse
-from pylogics.syntax.ltl import PropositionalTrue as LTLPropositionalTrue
-from pylogics.syntax.ltl import Release, StrongRelease, Until, WeakNext, WeakUntil
+from translator.syntax.ltl import Always, Eventually, Next
+from translator.syntax.ltl import PropositionalFalse as LTLPropositionalFalse
+from translator.syntax.ltl import PropositionalTrue as LTLPropositionalTrue
+from translator.syntax.ltl import Release, StrongRelease, Until, WeakNext, WeakUntil
 
 @functools.singledispatch
 def to_f2i(formula: Formula) -> str:
@@ -81,12 +81,12 @@ def to_f2i_ltl_propositional_false(_formula: LTLPropositionalFalse) -> str:
 @to_f2i.register(Next)
 def to_f2i_next(formula: Next) -> str:
     """Transform a next formula into string."""
-    return f"X[!]({to_f2i(formula.argument)} & !End)"
+    return f"X({to_f2i(formula.argument)} & !End)"
 
 @to_f2i.register(WeakNext)
 def to_f2i_weak_next(formula: WeakNext) -> str:
     """Transform a weak next formula into string."""
-    return f"X[!]({to_f2i(formula.argument)} | End)"
+    return f"N({to_f2i(formula.argument)} | End)"
 
 @to_f2i.register(Until)
 def to_f2i_until(formula: Until) -> str:
