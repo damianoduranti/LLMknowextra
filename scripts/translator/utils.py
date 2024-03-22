@@ -41,7 +41,7 @@ def to_f2i_or(formula: Or) -> str:
 @to_f2i.register(Not)
 def to_f2i_not(formula: Not) -> str:
     """Transform a Not into string."""
-    return f"~({to_f2i(formula.argument)})"
+    return f"!({to_f2i(formula.argument)})"
 
 @to_f2i.register(Implies)
 def to_f2i_implies(formula: Implies) -> str:
