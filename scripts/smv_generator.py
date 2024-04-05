@@ -77,7 +77,49 @@ ASSIGN
             except IOError as e:
                 logging.error(f"Failed to write SMV file {full_file_path}: {e}")
 
+def generate_smv_spec(parsed_response):
+    """
+    Generate SMV specification from parsed response and save it to a specified output file.
+
+    Parameters:
+    - parsed_response (str): Parsed response from the LLM.
+    - output (str): Path to the output file where the SMV specification will be saved.
+    """
+    spec_content = ""
+    spec_content += f"""set on_failure_script_quits;
+unset forward_search;
+unset ltl_tableau_forward_search;
+time;
+echo;
+go;
+time;
+echo;
+check_ltlspec -p "{parsed_response}";
+echo;
+time;
+quit;
+"""
+    # get highest number after filename in the directory
+    spec_directory = os.path.join("data", "spec")
+    if not os.path.exists(spec_directory):
+        os.makedirs(spec_directory)
+    if os.listdir(spec_directory):
+        latest = max([int(f.split(".")[0].split("spec")[1]) for f in os.listdir(spec_directory) if f.startswith("spec")])
+    else:
+        latest = 0
+    filename = f"spec{latest + 1}"
+    output_path = os.path.join("data", "spec", filename)
+    try:
+        with open(output_path, 'w') as spec_file:
+            spec_file.write(spec_content)
+        logging.info(f"Generated SMV specification: {output_path}")
+        return output_path
+    except IOError as e:
+        logging.error(f"Failed to write SMV specification to {output_path}: {e}")
+        return None
+
+def main():
+    generate_smv_spec("G((p) -> (X(F(q & !End) & !End)) | End)")
+
 if __name__ == "__main__":
-    # Generate SMV files from JSON traces
-    for file in os.listdir('/path/to/traces_json'):
-        generate_smv_files_from_json(f'/path/to/traces_json/{file}', '/path/to/traces_smv')
+    main()

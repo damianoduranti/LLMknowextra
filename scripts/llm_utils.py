@@ -6,7 +6,7 @@ import json
 # Initialize logging with a specific format for timestamps, log level, and messages.
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-def load_api_keys(file_path="config/api_keys.json"):
+def load_api_keys(file_path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'api_keys.json')):
     """
     Loads all API keys from a specified JSON file and sets them as environment variables.
     
@@ -84,3 +84,5 @@ def send_prompt(prompt):
     except Exception as e:
         logging.error(f"Failed to send prompt to API: {e}")
         return None
+    
+load_api_keys()

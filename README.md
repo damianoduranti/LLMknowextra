@@ -7,7 +7,11 @@ This project is organized as follows:
 ```
 .
 ├── config/
-│   └── api_keys.json.example
+│   └── api_keys.json
+│
+├── nuXmv/
+│   └── bin/
+│       └── nuXmv
 │
 ├── data/
 │   ├── traces_json/
@@ -24,10 +28,11 @@ This project is organized as follows:
 │
 ├── scripts/
 │   ├── formula_translator.py
+│   ├── formula_verifier.py
 │   ├── llm_utils.py
 │   ├── prompt_generator.py
-│   ├── smv_generator.py
-│   └── trace_verifier.py
+│   └── smv_generator.py
+│
 │
 ├── .gitignore
 ├── LICENSE
@@ -49,5 +54,12 @@ pip install -r requirements.txt
 
 Before running the scripts, you need to set up the necessary API keys:
 
-Copy config/api_keys.json.example to config/api_keys.json.
-Replace the placeholder values in config/api_keys.json with your actual API keys.
+Duplicate the config/api_keys.json.example file and rename the duplicate to config/api_keys.json.
+Open config/api_keys.json and fill in your actual API keys in place of the placeholder values provided.
+
+Additionally, to set up the nuXmv tool:
+
+Download the nuXmv executable from the official source.
+Create a new directory named nuXmv within your project's root directory.
+Inside the nuXmv directory, create a subdirectory named bin.
+Place the downloaded nuXmv executable inside the nuXmv/bin directory.
