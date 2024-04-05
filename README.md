@@ -4,7 +4,7 @@
 
 This project is organized as follows:
 
-```
+```text
 .
 ├── config/
 │   └── api_keys.json
