@@ -84,5 +84,3 @@ def send_prompt(prompt):
     except Exception as e:
         logging.error(f"Failed to send prompt to API: {e}")
         return None
-    
-load_api_keys()

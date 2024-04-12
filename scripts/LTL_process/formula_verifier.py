@@ -2,7 +2,7 @@ import os
 import subprocess
 import resource
 import logging
-from smv_generator import generate_smv_spec
+from scripts.LTL_process.smv_generator import generate_smv_spec
 
 from config import LTLFUCBIN, MAX_VIRTUAL_MEMORY
 

@@ -1,6 +1,6 @@
 from llm_utils import *
 from translator.utils import *
-from smv_generator import *
+from scripts.LTL_process.smv_generator import *
 from translator.parsers.ltl import parse_ltl
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
