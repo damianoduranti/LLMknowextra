@@ -4,7 +4,6 @@ import json
 import os
 import logging
 
-# Setup basic logging configuration
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def read_json_data(file_path):
@@ -115,7 +114,7 @@ def generate_ltl_prompt(data):
 
     return prompt.strip()
 
-def generate_prompts_from_json(file_path):
+def generate_ltl_prompts_from_json(file_path):
     """
     Generates an LTL formula prompt from a JSON file, with added validation.
 
@@ -136,7 +135,7 @@ def generate_prompts_from_json(file_path):
         logging.error(f"Error generating prompt from {file_path}: {e}")
         return None
 
-def generate_prompts_from_json_batch(directory_path):
+def generate_ltl_prompts_from_json_batch(directory_path):
     """
     Generates LTL formula prompts from all JSON files within a specified directory,
     sorted alphabetically.
@@ -150,7 +149,90 @@ def generate_prompts_from_json_batch(directory_path):
     prompts = []
     # Sort the file paths alphabetically
     for file_path in sorted(glob.glob(os.path.join(directory_path, '*.json'))):
-        prompt = generate_prompts_from_json(file_path)
+        prompt = generate_ltl_prompts_from_json(file_path)
+        if prompt:
+            prompts.append(prompt)
+        else:
+            logging.info(f"Skipping file: {file_path}")
+    return prompts
+
+def generate_dl_prompt(data, ontology, separation_type='strong'):
+    """
+    Generates a prompt for a DL concept based on provided instance data and ontology.
+
+    Parameters:
+    - data (dict): Instance data containing 'instances' for concept instances.
+    - ontology (str): OWL ontology content.
+
+    Returns:
+    - str: Generated prompt for the DL concept.
+    """
+
+    if separation_type == 'strong':
+        positive_examples = "\n\n".join([f"K |= C({example})" for example in data['P']])
+        negative_examples = "\n\n".join([f"K |= ¬C({example})" for example in data['N']])
+
+        prompt = (f"Given the following knowledge base K:\n\n{ontology}\n\n"
+                f"Provide an ALCO Description Logic concept C that strongly separates the positive examples: "
+                f"E+ = {{{', '.join(data['P'])}}}, from the negative examples: E- = {{{', '.join(data['N'])}}}.\n\n"
+                "This means that:\n\n"
+                f"{positive_examples}\n\n"
+                "whereas\n\n"
+                f"{negative_examples}")    
+        
+    elif separation_type == 'weak':
+        positive_examples = "\n\n".join([f"K |= C({example})" for example in data['P']])
+        negative_examples = "\n\n".join([f"K \\not |= C({example})" for example in data['N']])
+
+        prompt = (f"Given the following knowledge base K:\n\n{ontology}\n\n"
+                f"Provide an ALCO Description Logic concept C that weakly separates the positive examples: "
+                f"E+ = {{{', '.join(data['P'])}}}, from the negative examples: E- = {{{', '.join(data['N'])}}}.\n\n"
+                "This means that:\n\n"
+                f"{positive_examples}\n\n"
+                "whereas\n\n"
+                f"{negative_examples}")
+    
+    return prompt.strip()
+
+def generate_dl_prompts_from_json(file_path, ontology_path, separation_type='strong'):
+    """
+    Generates a DL concept prompt from a JSON file, with added validation.
+
+    Parameters:
+    - file_path (str): Path to the JSON file.
+    - ontology_path (str): Path to the OWL ontology file.
+    - separation_type (str): Type of separation, either 'strong' or 'weak'.
+
+    Returns:
+    - str: Generated prompt, or None if an error occurs.
+    """
+    try:
+        data = read_json_data(file_path)
+        ontology = ""
+        with open(ontology_path, 'r') as file:
+            ontology = file.read()
+        return generate_dl_prompt(data, ontology, separation_type)
+    except Exception as e:
+        logging.error(f"Error generating prompt from {file_path}: {e}")
+        return None
+    
+def generate_dl_prompts_from_json_batch(directory_path, ontology_path, separation_type='strong'):
+    """
+    Generates DL concept prompts from all JSON files within a specified directory,
+    sorted alphabetically.
+
+    Parameters:
+    - directory_path (str): Directory containing JSON files.
+    - ontology_path (str): Path to the OWL ontology file.
+    - separation_type (str): Type of separation, either 'strong' or 'weak'.
+
+    Returns:
+    - list: List of generated prompts.
+    """
+    prompts = []
+    # Sort the file paths alphabetically
+    for file_path in sorted(glob.glob(os.path.join(directory_path, '*.json'))):
+        prompt = generate_dl_prompts_from_json(file_path, ontology_path, separation_type)
         if prompt:
             prompts.append(prompt)
         else:
