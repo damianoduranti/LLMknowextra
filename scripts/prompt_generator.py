@@ -192,6 +192,8 @@ def generate_dl_prompt(data, ontology, separation_type='strong'):
                 "whereas\n\n"
                 f"{negative_examples}")
     
+    prompt += "\n\nProvide the concept using the Owlready2 syntax, in the form of: \n\nwith onto: \n\tclass C(...): \n\t\tequivalent_to = [...]. Do not include anything else in the response."
+    
     return prompt.strip()
 
 def generate_dl_prompts_from_json(file_path, ontology_path, separation_type='strong'):

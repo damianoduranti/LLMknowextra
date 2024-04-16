@@ -78,7 +78,7 @@ def send_prompt(prompt):
         response = openai.ChatCompletion.create(
             engine=os.environ['OPENAI_DEPLOYMENT_NAME'],
             messages=phrase,
-            max_tokens=100,
+            max_tokens=200,
         )
         return response['choices'][0]['message']['content'].strip()
     except Exception as e:
