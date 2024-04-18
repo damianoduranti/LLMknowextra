@@ -90,6 +90,6 @@ Additionally, to set up the nuXmv tool:
 
 ## Acknowledgements
 
-nuXmv - Symbolic model checker used in this project.
-pylogics - Modified modules for LTL verification
-OpenAI - Language model API used for concept verification.
+- nuXmv - Symbolic model checker used in this project.
+- pylogics - Modified modules for LTL verification
+- OpenAI - Language model API used for concept verification.

@@ -2,7 +2,6 @@ import json
 import os
 import logging
 
-# Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def generate_smv_files_from_json(json_file_path, output_directory):

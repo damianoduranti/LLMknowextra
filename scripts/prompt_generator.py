@@ -33,30 +33,27 @@ def read_json_data(file_path):
 
 def validate_json_structure(data):
     """
-    Validates the structure of the input JSON data, ensuring at least one of 'P' or 'N' is present and non-empty.
+    Validate the structure of JSON data to ensure it contains necessary keys 'P' or 'N'.
 
     Parameters:
-    - data (dict): The JSON data to validate.
+        data (dict): JSON data to validate.
 
     Returns:
-    - (bool, str): A tuple of a boolean indicating whether the data is valid and string message with result.
+        tuple: A boolean indicating validation success and a descriptive message.
     """
     required_keys = ['P', 'N']
-    valid_data_found = False  # Flag to track if valid 'P' or 'N' data is found
+    valid = any(key in data for key in required_keys if isinstance(data.get(key), list) and data[key])
 
-    for key in required_keys:
-        if key in data:
-            if not isinstance(data[key], list) or any(not isinstance(trace, list) or any(not isinstance(event, list) for event in trace) for trace in data[key]):
-                return False, f"Invalid format for key: {key}"
-            valid_data_found = True  # Valid 'P' or 'N' data found
+    if not valid:
+        message = "JSON data must include non-empty 'P' or 'N' lists."
+        logging.error(message)
+        return False, message
 
-    if not valid_data_found:
-        return False, "Both 'P' and 'N' are missing or empty. At least one must be present and non-empty."
+    if 'S' in data and (not isinstance(data['S'], list) or not all(isinstance(item, str) for item in data['S'])):
+        message = "Invalid format for propositional letters in 'S'."
+        logging.error(message)
+        return False, message
 
-    # Validate 'S' if present
-    if 'S' in data and (not isinstance(data['S'], list) or any(not isinstance(letter, str) for letter in data['S'])):
-        return False, "Invalid format for propositional letters in 'S'"
-    
     return True, "JSON structure is valid."
 
 def generate_ltl_prompt(data):
@@ -76,7 +73,7 @@ def generate_ltl_prompt(data):
         traces_str = ""
         trace_index = start_index
         for trace in traces:
-            if trace_index > start_index:  # Add a single newline before subsequent traces, if not the first one
+            if trace_index > start_index:
                 traces_str += "\n"
             traces_str += f"TRACE {trace_index}\n\n"
             for step_index, event in enumerate(trace, start=1):
@@ -89,11 +86,11 @@ def generate_ltl_prompt(data):
     negative_str = ""
     constraint_info = ""
 
-    trace_counter = 1  # Start trace numbering
+    trace_counter = 1
     if 'P' in data and data['P']:
         positive_str, trace_counter = traces_to_str(data['P'], trace_counter)
     if 'N' in data and data['N']:
-        negative_str, _ = traces_to_str(data['N'], trace_counter)  # Continue numbering for negative traces
+        negative_str, _ = traces_to_str(data['N'], trace_counter)
 
     propositional_letters = sorted(set(data.get('S', [])))
     if propositional_letters:
@@ -147,7 +144,6 @@ def generate_ltl_prompts_from_json_batch(directory_path):
     - list: List of generated prompts.
     """
     prompts = []
-    # Sort the file paths alphabetically
     for file_path in sorted(glob.glob(os.path.join(directory_path, '*.json'))):
         prompt = generate_ltl_prompts_from_json(file_path)
         if prompt:
@@ -232,7 +228,6 @@ def generate_dl_prompts_from_json_batch(directory_path, ontology_path, separatio
     - list: List of generated prompts.
     """
     prompts = []
-    # Sort the file paths alphabetically
     for file_path in sorted(glob.glob(os.path.join(directory_path, '*.json'))):
         prompt = generate_dl_prompts_from_json(file_path, ontology_path, separation_type)
         if prompt:

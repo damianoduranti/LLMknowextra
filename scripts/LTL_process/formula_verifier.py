@@ -1,8 +1,7 @@
-import os
 import subprocess
 import resource
 import logging
-from scripts.LTL_process.smv_generator import generate_smv_spec
+from smv_generator import generate_smv_spec
 
 from config import LTLFUCBIN, MAX_VIRTUAL_MEMORY
 
@@ -65,7 +64,7 @@ def run_ltlfuc(fname, script, timeout=None, use_sat=False):
     pass
 
 def main():
-    path = "/Users/damianoduranti/repos/LLMknowsynth/data/traces_smv/LTL_constrained/1.1/1.1_sat1.smv"
+    path = "data/LTL_process/traces_smv/LTL_constrained/1.1/1.1_sat1.smv"
     script_path = generate_smv_spec("G((p) -> (X(F(q & !End) & !End)) | End)")
     run_ltlfuc(path, script_path)
 

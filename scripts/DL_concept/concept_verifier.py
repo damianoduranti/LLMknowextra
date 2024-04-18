@@ -1,59 +1,50 @@
-import os
-import subprocess
-import resource
 import logging
-from owlready2 import *
+from owlready2 import get_ontology, sync_reasoner, Thing, Not
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def load_ontology(ontology_path):
     """
-    Load the specified OWL ontology file.
-
+    Load an OWL ontology from a specified file path.
+    
     Parameters:
-    - ontology_path (str): Path to the OWL ontology file to load.
-
+        ontology_path (str): Path to the OWL ontology file.
+    
     Returns:
-    - owlready2.namespace.Ontology: The loaded ontology.
+        Ontology: The loaded ontology object.
     """
-    return get_ontology(f"file://{ontology_path}").load()
+    try:
+        ontology = get_ontology(f"file://{ontology_path}").load()
+        logging.info(f"Ontology loaded successfully from {ontology_path}")
+        return ontology
+    except Exception as e:
+        logging.error(f"Failed to load ontology: {e}")
+        raise
 
 def create_names_mapping(ontology):
     """
-    Create a mapping of class names to their corresponding OWL classes.
-
+    Creates mappings for classes, properties, and individuals in an ontology.
+    
     Parameters:
-    - ontology (owlready2.namespace.Ontology): The ontology to create the mapping from.
-
+        ontology (Ontology): The ontology to map.
+    
     Returns:
-    - dict: Mapping of class names to owlready2.entity.ThingClass objects.
+        tuple: Mappings for classes, properties, and individuals.
     """
-    class_mapping = {}
-    properties_mapping = {}
-    individuals_mapping = {}
-
-    for cls in ontology.classes():
-        base_name = cls.name.split('.')[-1]
-        class_mapping[base_name] = cls
-
-    for prop in ontology.properties():
-        base_name = prop.name.split('.')[-1]
-        properties_mapping[base_name] = prop
-
-    for inst in ontology.individuals():
-        base_name = inst.name.split('.')[-1]
-        individuals_mapping[base_name] = inst
-
+    class_mapping = {cls.name.split('.')[-1]: cls for cls in ontology.classes()}
+    properties_mapping = {prop.name.split('.')[-1]: prop for prop in ontology.properties()}
+    individuals_mapping = {ind.name.split('.')[-1]: ind for ind in ontology.individuals()}
     return class_mapping, properties_mapping, individuals_mapping
 
 def assign_dynamic_variables(mapping):
     """
-    Assign dynamic variables based on the provided mapping.
+    Dynamically assign variables in the global scope based on the provided mapping.
     """
-    for key, value in mapping.items():
-        globals()[key] = value
-    
+    globals().update(mapping)
+
 def clean_dynamic_variables(mapping):
     """
-    Clean dynamic variables based on the provided mapping.
+    Clean up dynamically assigned variables from the global scope.
     """
     for key in mapping.keys():
         globals().pop(key, None)
@@ -85,50 +76,29 @@ def concept_verifier(ontology, response, separation_type='strong'):
     response = clean_response(response)
 
     class_mapping, properties_mapping, individuals_mapping = create_names_mapping(ontology)
+    relevant_mappings = {k: v for k, v in {**class_mapping, **properties_mapping, **individuals_mapping}.items() if k in response}
+    assign_dynamic_variables(relevant_mappings)
 
-    keys = list(class_mapping.keys())
-    class_match = []
-    for key in keys:
-        if key in response:
-            class_match.append(key)
-
-    keys = list(properties_mapping.keys())
-    property_match = []
-    for key in keys:
-        if key in response:
-            property_match.append(key)
-
-    keys = list(individuals_mapping.keys())
-    individual_match = []
-    for key in keys:
-        if key in response:
-            individual_match.append(key)
-
-    assign_dynamic_variables({k: class_mapping[k] for k in class_mapping if k in response})
-    assign_dynamic_variables({k: properties_mapping[k] for k in properties_mapping if k in response})
-    assign_dynamic_variables({k: individuals_mapping[k] for k in individuals_mapping if k in response})
-
-    with ontology:
-        class C(Thing):
-            equivalent_to = [eval(response)]
-        sync_reasoner()
-
-    if separation_type == 'weak':
-        clean_dynamic_variables(class_mapping)
-        clean_dynamic_variables(properties_mapping)
-        clean_dynamic_variables(individuals_mapping)
-        return list(ontology.get_instances_of(C))
-    
-    else:
+    try:
         with ontology:
-            class NotC(Thing):
-                equivalent_to = [Not(eval(response))]
+            class C(Thing):
+                equivalent_to = [eval(response)]
             sync_reasoner()
 
-        clean_dynamic_variables(class_mapping)
-        clean_dynamic_variables(properties_mapping)
-        clean_dynamic_variables(individuals_mapping)
-        return list(ontology.get_instances_of(C)), list(ontology.get_instances_of(NotC))
+        if separation_type == 'weak':
+            return list(ontology.get_instances_of(C))
+        
+        else:
+            with ontology:
+                class NotC(Thing):
+                    equivalent_to = [Not(eval(response))]
+                sync_reasoner()
+            return list(ontology.get_instances_of(C)), list(ontology.get_instances_of(NotC))
+    except Exception as e:
+        logging.error(f"Failed to evaluate or reason over response: {e}")
+        raise
+    finally:
+        clean_dynamic_variables(relevant_mappings)
 
 def main():
     print(concept_verifier(load_ontology('data/DL_concept/1/1_ontology.owl'), """
