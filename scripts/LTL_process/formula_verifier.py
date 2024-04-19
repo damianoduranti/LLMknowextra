@@ -1,6 +1,8 @@
 import subprocess
 import resource
 import logging
+import os
+import glob
 from smv_generator import generate_smv_spec
 
 from config import LTLFUCBIN, MAX_VIRTUAL_MEMORY
@@ -24,8 +26,7 @@ def limit_virtual_memory():
     except Exception as e:
         logging.error(f"Unexpected error while setting virtual memory limit: {e}")
 
-
-def run_ltlfuc(fname, script, timeout=None, use_sat=False):
+def formula_verifier(fname, script, timeout=None, use_sat=False):
     # subprocess.Popen('ulimit -v 1024; ls', shell=True)
     command = list([LTLFUCBIN])
     command.append("-int")
@@ -60,13 +61,47 @@ def run_ltlfuc(fname, script, timeout=None, use_sat=False):
             o.write("Timeout: {}\n".format(timeout))
         logging.warning("Timeout for {}: {}".format(fname, str(err)))
         return 1
-    return 0
+    return nfn
     pass
+
+def evaluator(directory, script_path):
+    """
+    Verifies LTL formulas in a batch.
+    
+    Parameters:
+    - directory (str): Directory containing smv traces.
+
+    Returns:
+    - list: List of evaluation results.
+    """
+    results_sat = []
+    results_unsat = []
+    for file_path in sorted(glob.glob(os.path.join(directory, '*.smv'))):
+        result_path = formula_verifier(file_path, script_path)
+        if "_sat" in str(file_path):
+            with open(result_path, "r") as f:
+                result = f.read()
+                if "true" in result:
+                    results_sat.append(True)
+                elif "false" in result:
+                    results_sat.append(False)
+        elif "_unsat" in str(file_path):
+            with open(result_path, "r") as f:
+                result = f.read()
+                if "true" in result:
+                    results_unsat.append(True)
+                elif "false" in result:
+                    results_unsat.append(False)
+    if not all(results_sat):
+        logging.error("Candidate evaluation failed [some positive traces do not satisfy the formula].")
+    if any(results_unsat):
+        logging.error("Candidate evaluation failed [some negative traces satisfy the formula].")
+    return all(results_sat) and not any(results_unsat)
 
 def main():
     path = "data/LTL_process/traces_smv/LTL_constrained/1.1/1.1_sat1.smv"
     script_path = generate_smv_spec("G((p) -> (X(F(q & !End) & !End)) | End)")
-    run_ltlfuc(path, script_path)
+    print(evaluator("data/LTL_process/traces_smv/LTL_constrained/1.1", script_path))
 
 if __name__ == "__main__":
     main()

@@ -152,7 +152,7 @@ def generate_ltl_prompts_from_json_batch(directory_path):
             logging.info(f"Skipping file: {file_path}")
     return prompts
 
-def generate_dl_prompt(data, ontology, separation_type='strong'):
+def generate_dl_prompt(data, ontology):
     """
     Generates a prompt for a DL concept based on provided instance data and ontology.
 
@@ -163,6 +163,8 @@ def generate_dl_prompt(data, ontology, separation_type='strong'):
     Returns:
     - str: Generated prompt for the DL concept.
     """
+
+    separation_type = data.get('separation')
 
     if separation_type == 'strong':
         positive_examples = "\n\n".join([f"K |= C({example})" for example in data['P']])
@@ -192,14 +194,13 @@ def generate_dl_prompt(data, ontology, separation_type='strong'):
     
     return prompt.strip()
 
-def generate_dl_prompts_from_json(file_path, ontology_path, separation_type='strong'):
+def generate_dl_prompts_from_json(file_path, ontology_path):
     """
     Generates a DL concept prompt from a JSON file, with added validation.
 
     Parameters:
     - file_path (str): Path to the JSON file.
     - ontology_path (str): Path to the OWL ontology file.
-    - separation_type (str): Type of separation, either 'strong' or 'weak'.
 
     Returns:
     - str: Generated prompt, or None if an error occurs.
@@ -209,12 +210,12 @@ def generate_dl_prompts_from_json(file_path, ontology_path, separation_type='str
         ontology = ""
         with open(ontology_path, 'r') as file:
             ontology = file.read()
-        return generate_dl_prompt(data, ontology, separation_type)
+        return generate_dl_prompt(data, ontology)
     except Exception as e:
         logging.error(f"Error generating prompt from {file_path}: {e}")
         return None
     
-def generate_dl_prompts_from_json_batch(directory_path, ontology_path, separation_type='strong'):
+def generate_dl_prompts_from_json_batch(directory_path, ontology_path):
     """
     Generates DL concept prompts from all JSON files within a specified directory,
     sorted alphabetically.
@@ -222,14 +223,13 @@ def generate_dl_prompts_from_json_batch(directory_path, ontology_path, separatio
     Parameters:
     - directory_path (str): Directory containing JSON files.
     - ontology_path (str): Path to the OWL ontology file.
-    - separation_type (str): Type of separation, either 'strong' or 'weak'.
 
     Returns:
     - list: List of generated prompts.
     """
     prompts = []
     for file_path in sorted(glob.glob(os.path.join(directory_path, '*.json'))):
-        prompt = generate_dl_prompts_from_json(file_path, ontology_path, separation_type)
+        prompt = generate_dl_prompts_from_json(file_path, ontology_path)
         if prompt:
             prompts.append(prompt)
         else:

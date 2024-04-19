@@ -1,4 +1,5 @@
 import logging
+import json
 from owlready2 import get_ontology, sync_reasoner, Thing, Not
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -62,17 +63,19 @@ def clean_response(response):
     response = response[response.find('['):response.rfind(']')]
     return response[1:]
 
-def concept_verifier(ontology, response, separation_type='strong'):
+def concept_verifier(instances, ontology, response):
     """
     Verify a DL concept based on a given response.
 
     Parameters:
+    - instances (str): str containing instances and separation type for the concept.
     - ontology (owlready2.namespace.Ontology): The ontology to use for verification.
     - response (str): The response to verify.
 
     Returns:
     - list: Instances of the verified concept.
     """
+    separation_type = instances.get('separation')
     response = clean_response(response)
 
     class_mapping, properties_mapping, individuals_mapping = create_names_mapping(ontology)
@@ -86,25 +89,65 @@ def concept_verifier(ontology, response, separation_type='strong'):
             sync_reasoner()
 
         if separation_type == 'weak':
-            return list(ontology.get_instances_of(C))
+            instances = list(ontology.get_instances_of(C))
+            return [instance.name.split('.')[-1] for instance in instances], []
         
         else:
             with ontology:
                 class NotC(Thing):
                     equivalent_to = [Not(eval(response))]
                 sync_reasoner()
-            return list(ontology.get_instances_of(C)), list(ontology.get_instances_of(NotC))
+            instances, not_instances = list(ontology.get_instances_of(C)), list(ontology.get_instances_of(NotC))
+            return [instance.name.split('.')[-1] for instance in instances], [instance.name.split('.')[-1] for instance in not_instances]
     except Exception as e:
         logging.error(f"Failed to evaluate or reason over response: {e}")
         raise
     finally:
         clean_dynamic_variables(relevant_mappings)
 
+def evaluator(instances, verified_response):
+    """
+    Evaluate the instances of a verified concept based on the separation type.
+
+    Parameters:
+    - instances (str): str containing instances and separation type for the concept.
+    - verified_response (tuple): Tuple containing the entailed instances of the concept 
+        (and for strong separation also the entailed instances of the negation of the concept).
+
+    Returns:
+    - bool: True if candidate evaluation is successful, False otherwise.
+    """
+    separation_type = instances.get('separation')
+    positive_examples = instances['P']
+    negative_examples = instances['N']
+
+    if all(example in verified_response[0] for example in positive_examples):
+        if separation_type == 'strong':
+            if all(example in verified_response[1] for example in negative_examples):
+                logging.info("Candidate evaluation successful.")
+                return True
+            else:
+                logging.error("Candidate evaluation failed [sep_type=strong - some negative examples not entailed].")
+                return False
+        else:
+            if not any(example in verified_response[0] for example in negative_examples):
+                logging.info("Candidate evaluation successful.")
+                return True
+            else:
+                logging.error("Candidate evaluation failed [sep_type=weak - some negative examples entailed].")
+                return False
+    else:
+        logging.error(f"Candidate evaluation failed [some positive examples not entailed].")
+        return False
+
 def main():
-    print(concept_verifier(load_ontology('data/DL_concept/1/1_ontology.owl'), """
+    verified_response = (concept_verifier(json.load(open('data/DL_concept/strong_sep/1/1_instances.json')),load_ontology('data/DL_concept/strong_sep/1/1_ontology.owl'), """
     with onto:
         class C(Thing):
-                equivalent_to = [Student & (studiesAt.some(EuUni))]""", separation_type='weak'))
+                equivalent_to = [Student & (studiesAt.some(EuUni))]"""))
+    
+    print(f"Verified instances: {(verified_response)}")
+    evaluator(json.load(open('data/DL_concept/strong_sep/1/1_instances.json')), verified_response)
 
 if __name__ == '__main__':
     main()
