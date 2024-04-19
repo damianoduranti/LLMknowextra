@@ -80,7 +80,8 @@ Additionally, to set up the nuXmv tool:
 ## Prerequisites
 
 - Python 3.7+
-- nuXmv executable
+- nuXmv executable for LTL verification
+- Java installed for DL verification
 - Required Python packages listed in requirements.txt
 
 ## Data Formats
