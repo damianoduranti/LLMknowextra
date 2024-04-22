@@ -64,7 +64,7 @@ ASSIGN
                 smv_content += f"INVAR\n pc = {i} -> ({conditions})\n"
 
             file_name = f"{os.path.splitext(os.path.basename(json_file_path))[0]}{'_sat' if trace_type == 'P' else '_unsat'}{index}.smv"
-            output_path = os.path.join(output_directory, os.path.splitext(os.path.basename(json_file_path))[0])
+            output_path = output_directory
 
             os.makedirs(output_path, exist_ok=True)
             full_file_path = os.path.join(output_path, file_name)
@@ -76,7 +76,7 @@ ASSIGN
             except IOError as e:
                 logging.error(f"Failed to write SMV file {full_file_path}: {e}")
 
-def generate_smv_spec(parsed_response):
+def generate_smv_spec(parsed_response, output_path):
     """
     Generate SMV specification from parsed response and save it to a specified output file.
 
@@ -99,22 +99,19 @@ time;
 quit;
 """
     # get highest number after filename in the directory
-    spec_directory = os.path.join("data", "spec")
-    if not os.path.exists(spec_directory):
-        os.makedirs(spec_directory)
-    if os.listdir(spec_directory):
-        latest = max([int(f.split(".")[0].split("spec")[1]) for f in os.listdir(spec_directory) if f.startswith("spec")])
+    if os.listdir(output_path):
+        latest = max([int(f.split(".")[0].split("spec")[1]) for f in os.listdir(output_path) if f.startswith("spec")])
     else:
         latest = 0
     filename = f"spec{latest + 1}"
-    output_path = os.path.join("data", "spec", filename)
+    file_path = os.path.join(output_path, f"{filename}")
     try:
-        with open(output_path, 'w') as spec_file:
+        with open(file_path, 'w') as spec_file:
             spec_file.write(spec_content)
-        logging.info(f"Generated SMV specification: {output_path}")
-        return output_path
+        logging.info(f"Generated SMV specification: {file_path}")
+        return file_path
     except IOError as e:
-        logging.error(f"Failed to write SMV specification to {output_path}: {e}")
+        logging.error(f"Failed to write SMV specification to {file_path}: {e}")
         return None
 
 def main():

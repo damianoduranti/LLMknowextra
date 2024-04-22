@@ -14,10 +14,10 @@ from pylogics.syntax.base import (
     Or,
     TrueFormula,
 )
-from translator.syntax.ltl import Always, Eventually, Next
-from translator.syntax.ltl import PropositionalFalse as LTLPropositionalFalse
-from translator.syntax.ltl import PropositionalTrue as LTLPropositionalTrue
-from translator.syntax.ltl import Release, StrongRelease, Until, WeakNext, WeakUntil
+from LTL_process.translator.syntax.ltl import Always, Eventually, Next
+from LTL_process.translator.syntax.ltl import PropositionalFalse as LTLPropositionalFalse
+from LTL_process.translator.syntax.ltl import PropositionalTrue as LTLPropositionalTrue
+from LTL_process.translator.syntax.ltl import Release, StrongRelease, Until, WeakNext, WeakUntil
 
 @functools.singledispatch
 def to_f2i(formula: Formula) -> str:

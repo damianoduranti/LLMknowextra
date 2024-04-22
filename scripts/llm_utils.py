@@ -84,7 +84,7 @@ def send_prompt(prompt):
             messages=messages,
             max_tokens=200,
         )
-        return response.choices[0].message.content.strip()
+        return str(response.choices[0].message.content.strip())
     except Exception as e:
         logging.error(f"Failed to send prompt to API: {e}")
         return None

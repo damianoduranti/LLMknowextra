@@ -3,9 +3,9 @@ import resource
 import logging
 import os
 import glob
-from smv_generator import generate_smv_spec
+from LTL_process.smv_generator import generate_smv_spec
 
-from config import LTLFUCBIN, MAX_VIRTUAL_MEMORY
+from LTL_process.config import NUXMV, MAX_VIRTUAL_MEMORY
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -28,7 +28,7 @@ def limit_virtual_memory():
 
 def formula_verifier(fname, script, timeout=None, use_sat=False):
     # subprocess.Popen('ulimit -v 1024; ls', shell=True)
-    command = list([LTLFUCBIN])
+    command = list([NUXMV])
     command.append("-int")
     command.append("-source")
     command.append(script)
@@ -92,11 +92,12 @@ def evaluator(directory, script_path):
                     results_unsat.append(True)
                 elif "false" in result:
                     results_unsat.append(False)
+    error = None
     if not all(results_sat):
-        logging.error("Candidate evaluation failed [some positive traces do not satisfy the formula].")
+        error = "Candidate evaluation failed [some positive traces do not satisfy the formula]."
     if any(results_unsat):
-        logging.error("Candidate evaluation failed [some negative traces satisfy the formula].")
-    return all(results_sat) and not any(results_unsat)
+        error = "Candidate evaluation failed [some negative traces satisfy the formula]."
+    return all(results_sat) and not any(results_unsat), error
 
 def main():
     path = "data/LTL_process/traces_smv/LTL_constrained/1.1/1.1_sat1.smv"
