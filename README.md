@@ -15,28 +15,63 @@ This project is organized as follows:
 │
 ├── data/
 │   ├── DL_concept/
-│   │   └── */
-│   │       ├── *_instances.json
-│   │       └── *_ontology.owl
+│   │   ├── strong_sep/
+│   │   │   └── */
+│   │   │       ├── *_ontology.owl
+│   │   │       └── *_instances.json
+│   │   └── weak_sep/
+│   │       └── */
+│   │           ├── *_ontology.owl
+│   │           └── *_instances.json
 │   └── LTL_process/
-│       ├── traces_json/
-│       │   ├── LTL_constrained/
-│       │   │   └── *.json
-│       │   └── LTL_unconstrained/
-│       │       └── *.json
-│       └── traces_smv/
-│           ├── LTL_constrained/
-│           │   └── *.smv
-│           └── LTL_unconstrained/
-│                └── *.smv
+│       ├── unconstrained/
+│       │   └── *.json
+│       └── constrained/
+│           └── *.json
+│
+├── output/
+│   ├── DL_concept/
+│   │   ├── strong_sep/
+│   │   │   └── */
+│   │   │       ├── *_ontology.owl
+│   │   │       └── *_instances.json
+│   │   └── weak_sep/
+│   │       └── */
+│   │           ├── *_ontology.owl
+│   │           └── *_instances.json
+│   └── LTL_process/
+│       ├── unconstrained/
+│       │   └── */
+│       │       ├── results/
+│       │       │   └── attempt.txt
+│       │       ├── spec/
+│       │       │   └── spec
+│       │       └── traces_smv/
+│       │           └── *.smv
+│       └── constrained/
+│           └── */
+│               ├── results/
+│               │   └── attempt.txt
+│               ├── spec/
+│               │   └── spec
+│               └── traces_smv/
+│                   └── *.smv
 │
 ├── scripts/
 │   ├── DL_concept/
 │   │   └── concept_verifier.py
 │   ├── LTL_process/
 │   │   ├── translator/
+│   │   │   ├── parsers/
+│   │   │   │   ├── base.py
+│   │   │   │   ├── ltl.lark
+│   │   │   │   ├── ltl.py
+│   │   │   │   └── pl.lark
+│   │   │   ├── syntax/
+│   │   │   │   └── ltl.py
+│   │   │   ├── formula_translator.py
+│   │   │   └── utils.py
 │   │   ├── config.py
-│   │   ├── formula_translator.py
 │   │   ├── formula_verifier.py
 │   │   └── smv_generator.py
 │   ├── llm_utils.py
