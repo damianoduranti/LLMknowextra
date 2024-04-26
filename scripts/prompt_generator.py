@@ -111,6 +111,18 @@ def generate_ltl_prompt(data):
 
     return prompt.strip()
 
+def get_ltl_constraints(data):
+    """
+    Extracts propositional letters constraints from LTL trace data.
+
+    Parameters:
+    - data (dict): Trace data containing 'S' for propositional letters constraints.
+
+    Returns:
+    - list: List of propositional letters constraints.
+    """
+    return sorted(set(data.get('S', [])))
+
 def generate_ltl_prompts_from_json(file_path):
     """
     Generates an LTL formula prompt from a JSON file, with added validation.

@@ -61,6 +61,7 @@ def clean_response(response):
     - str: The cleaned response.
     """
     response = response[response.find('['):response.rfind(']')]
+    response = response.replace('onto.', '')
     return response[1:]
 
 def concept_verifier(instances, ontology, response):
@@ -70,7 +71,7 @@ def concept_verifier(instances, ontology, response):
     Parameters:
     - instances (str): str containing instances and separation type for the concept.
     - ontology (owlready2.namespace.Ontology): The ontology to use for verification.
-    - response (str): The response to verify.
+    - response (str): The response from the LLM.
 
     Returns:
     - list: Instances of the verified concept.
@@ -116,29 +117,32 @@ def evaluator(instances, verified_response):
 
     Returns:
     - bool: True if candidate evaluation is successful, False otherwise.
+    - error: Error message if candidate evaluation fails.
     """
     separation_type = instances.get('separation')
     positive_examples = instances['P']
     negative_examples = instances['N']
 
+    error = None
+
     if all(example in verified_response[0] for example in positive_examples):
         if separation_type == 'strong':
             if all(example in verified_response[1] for example in negative_examples):
                 logging.info("Candidate evaluation successful.")
-                return True
+                return True, error
             else:
-                logging.error("Candidate evaluation failed [sep_type=strong - some negative examples not entailed].")
-                return False
+                error = ("Candidate evaluation failed [sep_type=strong - some negative examples not entailed].")
+                return False, error
         else:
             if not any(example in verified_response[0] for example in negative_examples):
                 logging.info("Candidate evaluation successful.")
-                return True
+                return True, error
             else:
-                logging.error("Candidate evaluation failed [sep_type=weak - some negative examples entailed].")
-                return False
+                error = ("Candidate evaluation failed [sep_type=weak - some negative examples entailed].")
+                return False, error
     else:
-        logging.error(f"Candidate evaluation failed [some positive examples not entailed].")
-        return False
+        error = (f"Candidate evaluation failed [some positive examples not entailed].")
+        return False, error
 
 def main():
     verified_response = (concept_verifier(json.load(open('data/DL_concept/strong_sep/1/1_instances.json')),load_ontology('data/DL_concept/strong_sep/1/1_ontology.owl'), """

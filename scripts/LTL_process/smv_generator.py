@@ -32,12 +32,14 @@ def generate_smv_files_from_json(json_file_path, output_directory):
         logging.error(f"Failed to process JSON file: {e}")
         return
 
+    variables = set()
     for trace_type in ['P', 'N']:
         for index, trace in enumerate(traces[trace_type], start=1):
-            variables = set()
             for step in trace:
                 variables.update(step)
 
+    for trace_type in ['P', 'N']:
+        for index, trace in enumerate(traces[trace_type], start=1):
             smv_content = "MODULE main"
             for var in sorted(variables):
                 smv_content += f"\nVAR {var} : boolean;"
@@ -115,7 +117,7 @@ quit;
         return None
 
 def main():
-    generate_smv_spec("G((p) -> (X(F(q & !End) & !End)) | End)")
+    generate_smv_files_from_json("data/LTL_process/constrained/5.1.json", "output/test")
 
 if __name__ == "__main__":
     main()
