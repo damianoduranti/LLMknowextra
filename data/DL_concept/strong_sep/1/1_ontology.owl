@@ -1,115 +1,115 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141"
+     xml:base="http://www.semanticweb.org/andrea/ontologies/2023/10/1_ontology"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141">
-    <Prefix name="" IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141"/>
+     ontologyIRI="http://www.semanticweb.org/andrea/ontologies/2023/10/1_ontology">
+    <Prefix name="" IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/1_ontology"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#EuUni"/>
+        <Class IRI="#EuUni"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#OcUni"/>
+        <Class IRI="#OcUni"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#Student"/>
+        <Class IRI="#Student"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#Uni"/>
+        <Class IRI="#Uni"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#studiesAt"/>
+        <ObjectProperty IRI="#studiesAt"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#s1"/>
+        <NamedIndividual IRI="#s1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#s2"/>
+        <NamedIndividual IRI="#s2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#s3"/>
+        <NamedIndividual IRI="#s3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#uniBo"/>
+        <NamedIndividual IRI="#uniBo"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#uniSi"/>
+        <NamedIndividual IRI="#uniSi"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#uniVi"/>
+        <NamedIndividual IRI="#uniVi"/>
     </Declaration>
     <SubClassOf>
         <ObjectUnionOf>
-            <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#EuUni"/>
-            <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#OcUni"/>
+            <Class IRI="#EuUni"/>
+            <Class IRI="#OcUni"/>
         </ObjectUnionOf>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#Uni"/>
+        <Class IRI="#Uni"/>
     </SubClassOf>
     <SubClassOf>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#studiesAt"/>
-            <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#Uni"/>
+            <ObjectProperty IRI="#studiesAt"/>
+            <Class IRI="#Uni"/>
         </ObjectSomeValuesFrom>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#Student"/>
+        <Class IRI="#Student"/>
     </SubClassOf>
     <SubClassOf>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#studiesAt"/>
+            <ObjectProperty IRI="#studiesAt"/>
             <ObjectOneOf>
-                <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#uniVi"/>
+                <NamedIndividual IRI="#uniVi"/>
             </ObjectOneOf>
         </ObjectSomeValuesFrom>
         <ObjectComplementOf>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#studiesAt"/>
-                <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#EuUni"/>
+                <ObjectProperty IRI="#studiesAt"/>
+                <Class IRI="#EuUni"/>
             </ObjectSomeValuesFrom>
         </ObjectComplementOf>
     </SubClassOf>
     <ClassAssertion>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#Student"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#s1"/>
+        <Class IRI="#Student"/>
+        <NamedIndividual IRI="#s1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#Student"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#s2"/>
+        <Class IRI="#Student"/>
+        <NamedIndividual IRI="#s2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#EuUni"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#uniBo"/>
+        <Class IRI="#EuUni"/>
+        <NamedIndividual IRI="#uniBo"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#EuUni"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#uniSi"/>
+        <Class IRI="#EuUni"/>
+        <NamedIndividual IRI="#uniSi"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#OcUni"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#uniVi"/>
+        <Class IRI="#OcUni"/>
+        <NamedIndividual IRI="#uniVi"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#studiesAt"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#s1"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#uniBo"/>
+        <ObjectProperty IRI="#studiesAt"/>
+        <NamedIndividual IRI="#s1"/>
+        <NamedIndividual IRI="#uniBo"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#studiesAt"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#s2"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#uniSi"/>
+        <ObjectProperty IRI="#studiesAt"/>
+        <NamedIndividual IRI="#s2"/>
+        <NamedIndividual IRI="#uniSi"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#studiesAt"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#s3"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#uniVi"/>
+        <ObjectProperty IRI="#studiesAt"/>
+        <NamedIndividual IRI="#s3"/>
+        <NamedIndividual IRI="#uniVi"/>
     </ObjectPropertyAssertion>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/untitled-ontology-141#studiesAt"/>
+        <ObjectProperty IRI="#studiesAt"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
 </Ontology>
@@ -117,4 +117,3 @@
 
 
 <!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
-
