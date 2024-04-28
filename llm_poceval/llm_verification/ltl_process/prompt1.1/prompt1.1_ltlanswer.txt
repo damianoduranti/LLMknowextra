@@ -1,0 +1,104 @@
+-- GPT3.5
+-- ANS 1
+-- INCORRECT on TRACE P1
+-- ANS 1' - Flexible regime (X := !X!)
+-- CORRECT
+
+-- GPT3.5
+-- ANS 2
+-- SYNTACTICALLY INCORRECT (wrong signature)
+-- ANS 2' - Flexible regime (ignoring signature restriction)
+-- SYNTACTICALLY CORRECT
+-- INCORRECT on TRACE N1
+
+-- GPT3.5
+-- ANS 3
+-- SYNTACTICALLY INCORRECT - Rigid regime (wrong signature)
+-- ANS 3'
+-- SYNTACTICALLY CORRECT - Flexible regime (ignoring signature restriction)
+-- INCORRECT on TRACE P1
+
+-- GPT3.5
+-- ANS 4
+-- SYNTACTICALLY INCORRECT - Rigid regime (wrong signature)
+-- ANS 4'
+-- SYNTACTICALLY CORRECT - Flexible regime (ignoring signature restriction)
+-- INCORRECT on TRACE P1
+
+-- GPT3.5
+-- ANS 5
+-- INCORRECT on TRACE P1
+-- ANS 5' - Flexible regime (X := !X!)
+-- CORRECT
+
+
+
+-- GPT4
+-- ANS 1
+-- CORRECT
+
+-- GPT4
+-- ANS 2
+-- CORRECT
+
+-- GPT4
+-- ANS 3
+-- CORRECT
+
+-- GPT4
+-- ANS 4
+-- CORRECT
+
+-- GPT4
+-- ANS 5
+-- CORRECT
+
+
+
+-- BARD
+-- ANS 1
+-- CORRECT
+
+-- BARD
+-- ANS 2
+-- SYNTACTICALLY INCORRECT - Rigid regime: not in the right signature
+-- ANS 2'
+-- SYNTACTICALLY CORRECT - Flexible regime: ignoring signature restriction
+-- CORRECT
+
+-- BARD
+-- ANS 3
+-- CORRECT
+
+-- BARD
+-- ANS 4
+-- INCORRECT on TRACE N1
+
+-- BARD
+-- ANS 5
+-- INCORRECT on TRACE N1
+
+
+
+
+
+-- GEMINI
+-- ANS 1
+-- INCORRECT on TRACE P1, TRACE N1
+
+-- GEMINI
+-- ANS 2
+-- INCORRECT on TRACE P1, TRACE N1
+
+-- GEMINI
+-- ANS 3
+-- SYNTACTICALLY INCORRECT (not in the right signature)
+-- under flexible regime (ignoring signature restrictions): CORRECT
+
+-- GEMINI
+-- ANS 4
+-- INCORRECT on TRACE P1, TRACE N1
+
+-- GEMINI
+-- ANS 5
+-- INCORRECT on TRACE P1, TRACE N1

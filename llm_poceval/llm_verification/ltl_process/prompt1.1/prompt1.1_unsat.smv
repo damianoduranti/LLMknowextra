@@ -1,0 +1,152 @@
+MODULE main
+VAR r : boolean;
+VAR p : boolean;
+VAR q : boolean;
+VAR End : boolean;
+VAR pc : 1..10;
+
+ASSIGN
+ init(pc) := 1;
+ next(pc) := case
+   pc <= 9 : pc + 1;
+   TRUE    : 10;
+   esac;
+  init(End) := FALSE;
+  next(End) := case
+    pc >= 9 : TRUE;
+    TRUE    : End;
+  esac;
+
+INVAR
+ pc = 1 -> (r & !p & !q)
+INVAR
+ pc = 2 -> (r & !p & !q)
+INVAR
+ pc = 3 -> (r & !p & !q)
+INVAR
+ pc = 4 -> (r & p & !q)
+INVAR
+ pc = 5 -> (r & !p & !q)
+INVAR
+ pc = 6 -> (r & !p & q)
+INVAR
+ pc = 7 -> (!r & !p & !q)
+INVAR
+ pc = 8 -> (r & !p & !q)
+INVAR
+ pc = 9 -> (r & !p & !q)
+
+
+
+-- GPT3.5 LTLSPEC
+-- ANS 1 (correct, under "rigid" regime - finite trace semantics, X\phi != !X!\phi = N\phi))
+-- G(r -> X(r))
+LTLSPEC G ( (r -> X (r & !End)) | End);
+-- ANS 1' (correct, under "flexible" regime -- infinite trace semantics, X\phi = !X!\phi = N\phi)
+-- G(r -> !X!(r))
+LTLSPEC G ( (r -> !X ((!r) & !End) ) | End);
+
+-- GPT3.5 LTLSPEC
+-- ANS 2 (incorrect)
+-- F(r & G(!q))
+LTLSPEC F ( (r & G(!q | End)) & !End);
+
+-- GPT3.5 LTLSPEC
+-- ANS 3 (syntactically incorrect; under flexible regime (ignoring signature restrictions): correct)
+-- G(r & F(p) & F(!q))
+LTLSPEC G ( (r & F(p & !End) & F(!q & !End)) | End);
+
+-- GPT3.5 LTLSPEC
+-- ANS 4 (correct)
+-- G(r -> F(q))
+LTLSPEC G ( (r -> F (q & !End)) | End);
+
+-- GPT3.5 LTLSPEC
+-- ANS 5 (correct -- under "rigid" regime, with finite trace semantics, X\phi != !X!\phi = N\phi)
+-- G(r -> X(r))
+LTLSPEC G ( (r -> X (r & !End)) | End);
+-- ANS 5' (correct -- under "flexible" regime, with infinite trace semantics, X\phi = !X!\phi = N\phi)
+-- G(r -> !X!(r))
+LTLSPEC G ( (r -> !X ((!r) & !End) ) | End);
+
+
+
+-- GPT4 LTLSPEC
+-- ANS 1 (correct)
+-- G(r)
+LTLSPEC G (r | End);
+
+-- GPT4 LTLSPEC
+-- ANS 2 (correct)
+-- G(r)
+LTLSPEC G (r | End);
+
+-- GPT4 LTLSPEC
+-- ANS 3 (correct)
+-- G(r)
+LTLSPEC G (r | End);
+
+-- GPT4 LTLSPEC
+-- ANS 4 (correct)
+-- X X X X X X r
+LTLSPEC X (X (X (X (X (X (r) & !End) & !End) & !End) & !End) & !End) & !End;
+
+-- GPT4 LTLSPEC
+-- ANS 5 (correct)
+-- G(r)
+LTLSPEC G (r | End);
+
+
+
+-- BARD LTLSPEC
+-- ANS 1 (correct)
+-- G(r)
+LTLSPEC G (r | End);
+
+-- BARD LTLSPEC
+-- ANS 2 (correct)
+-- G(r) & F((r U p) | G(r)) & F(r R q)
+LTLSPEC G (r | End) & F( ( (r U (p & !End) | G (r | End)) & !End)) & F((r & !End) V (q | End));
+
+-- BARD LTLSPEC
+-- ANS 3 (correct)
+-- G(r U r)
+LTLSPEC G((r U (r & !End)) | End);
+
+-- BARD LTLSPEC
+-- ANS 4 (incorrect)
+-- G(F(r))
+LTLSPEC G( F(r & !End) | End);
+
+-- BARD LTLSPEC
+-- ANS 5 (incorrect)
+-- !X(r V !r)
+LTLSPEC !X( ( (r & !End) V (!r | End) ) & !End);
+
+
+
+
+-- GEMINI
+-- ANS 1 (incorrect)
+-- F (r ∧ X (¬r))
+LTLSPEC F ((r & X (!r & !End)) & !End);
+
+-- GEMINI
+-- ANS 2 (incorrect)
+-- F (r ∧ X (¬r))
+LTLSPEC F ((r & X (!r & !End)) & !End);
+
+-- GEMINI
+-- ANS 3 (correct)
+-- F (p ∧ G r)
+LTLSPEC F ((p & G (r | End)) & !End);
+
+-- GEMINI
+-- ANS 4 (incorrect)
+-- F (r ∧ X (¬r))
+LTLSPEC F ((r & X (!r & !End)) & !End);
+
+-- GEMINI
+-- ANS 5 (incorrect)
+-- F (r ∧ X (¬r))
+LTLSPEC F ((r & X (!r & !End)) & !End);
