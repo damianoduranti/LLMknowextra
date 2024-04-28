@@ -1,0 +1,10 @@
+BARD ANSWER 4
+
+-- SYNTACTICALLY INCORRECT - under rigid regime (not in the right signature)
+-- ANS 4'
+-- SYNTACTICALLY CORRECT - under flexible regime (ignoring the signature restriction)
+-- INCORRECT on TRACE P2, TRACE N1
+
+https://g.co/bard/share/98a069ed47ef
+
+[](p U r)

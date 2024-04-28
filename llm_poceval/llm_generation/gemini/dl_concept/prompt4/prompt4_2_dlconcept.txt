@@ -1,0 +1,6 @@
+-------
+GEMINI ANSWER 2
+
+https://g.co/gemini/share/be07f6e4c8c8
+
+C = {alc} ⊓ (¬∃hasOperator.DLOperator ⊔ ¬∃hasOperator.MLOperator)

@@ -1,0 +1,39 @@
+Given the following ALC Description Logic ontology:
+
+O = {
+EuUni ⊔ OcUni ⊑ Uni,
+∃studiesAt.OcUni ⊑ ¬∃studiesAt.EuUni
+}
+
+and the following dataset:
+
+D = {
+studiesAt(s1, uniBo),
+studiesAt(s2, uniSi),
+studiesAt (s3, uniVi),
+EuUni(uniBo),
+EuUni(uniSi),
+OcUni(uniVi),
+Student(s1),
+Student(s2)
+}
+
+provide an ALC Description Logic concept C that weakly separates the positive examples:
+
+E+ = {s1, s2}
+
+from the negative examples:
+
+E− = {s3}
+
+meaning that
+
+(O, D) |= C(s1)
+
+and
+
+(O, D) |= C(s2)
+
+whereas
+
+(O, D) \not |= C(s3)

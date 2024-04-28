@@ -1,0 +1,8 @@
+BARD ANSWER 3
+syntactically incorrect - under "rigid" regime, ambiguous application of binary operators;
+syntactically correct - under "flexible" regime, with added parentheses "(p W q) U r = ((p U q) | G(p)) U r" + (semantically) incorrect on TRACE N1;
+syntactically correct - under "flexible" regime, with added parentheses "p W (q U r) = p U (q U r) | G(p)" + (semantically) incorrect on TRACE N1)
+
+https://g.co/bard/share/fe2f92a20085
+
+p W q U r

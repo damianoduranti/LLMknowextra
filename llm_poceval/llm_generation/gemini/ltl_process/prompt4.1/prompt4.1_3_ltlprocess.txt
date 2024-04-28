@@ -1,0 +1,6 @@
+GEMINI ANSWER 3
+CORRECT
+
+https://g.co/gemini/share/89c8057811d4
+
+F (p ∧ X ¬p)

@@ -1,0 +1,75 @@
+Provide an LTL formula, using only the propositional letters "p" and "q", that is satisfied on the following trace:
+
+1. { p }
+2. { p }
+3. { p }
+4. { p }
+5. { p }
+6. { q }
+7. { r }
+8. { r }
+9. { r }
+
+and falsified on the following trace:
+
+1. { p }
+2. { p }
+3. { p }
+4. { p }
+5. { }
+6. { q }
+7. { r }
+8. { r }
+9. { r }
+
+
+%%% EXPECTED ANSWER: p U q -- "Eventually, p until q"
+
+
+-----------
+GPT3.5 Answer (incorrect on TRACE 2)
+
+https://chat.openai.com/share/a66e514a-6301-429d-a1fd-c321dea5c63b
+
+G(p → Fq)
+
+-----------
+
+
+
+-----------
+GPT3.5 Answer (old conversation -- Answer 1, Prompt 7 conversation)
+
+Certainly, an LTL formula that captures the properties you described could be:
+
+F(p∧X(q))
+
+This formula asserts that it's always in the future (eventually, denoted by F) that p is true, and the next state (X) after that q is true. This holds for the first trace where q appears after p and is not satisfied in the second trace where q appears but not immediately after p.
+
+-----------
+
+
+-----------
+GPT3.5 Answer (Answer 1, new conversation; prompt misunderstood)
+
+For the trace where the formula should be satisfied:
+
+F(p∧G(q))
+
+Explanation:
+
+  * F denotes "finally," meaning that at some point in the future, the proposition inside the parentheses will be true.
+  * G denotes "globally," meaning that the proposition inside the parentheses is true for all future states.
+
+So, the formula states that eventually, pp will be true, and from that point onwards, q will always be true.
+
+For the trace where the formula should be falsified:
+
+F(p∧G(¬q))
+
+Explanation:
+
+  * ¬ denotes negation.
+  * This formula states that eventually, pp will be true, and from that point onwards, qq will not always be true.
+
+-----------

@@ -1,0 +1,5 @@
+BARD ANSWER 5 (syntactically incorrect -- under "rigid" regime (not an LTL formula); semantically correct -- under "flexible" regime (converting CTL* formulas into LTL formulas))
+
+https://g.co/bard/share/b8d4b760b1dd
+
+EFp

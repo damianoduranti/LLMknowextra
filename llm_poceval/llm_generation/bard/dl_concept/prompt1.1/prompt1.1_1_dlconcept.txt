@@ -1,0 +1,14 @@
+-------
+BARD
+-- ANS 1
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALCO concept)
+-- EuUni ⊓ ¬∃studiesAt.uniVi
+
+https://g.co/bard/share/1f0c802e24f0
+
+C = EuUni ⊓ ¬∃studiesAt.uniVi
+
+-- ANS 1'
+-- SYNTACTICALLY CORRECT - under "flexible" regime (converted in an ALCO concept according to textual explanation)
+-- INCORRECT on s1, s2 in E+
+EuUni and not (studiesAt some {uniVi})

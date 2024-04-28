@@ -1,0 +1,6 @@
+GEMINI ANSWER 5
+SYNTACTICALLY INCORRECT -- not in the right signature
+
+https://g.co/gemini/share/0f6a9642f762
+
+F (p ∧ G (q U r))

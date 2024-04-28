@@ -1,0 +1,6 @@
+----------
+GPT3.5
+
+https://chat.openai.com/share/baa5ff3a-8ff9-4fc9-95bc-07cd44ac89c6
+
+C≡DLog⊓∃hasOperator.(¬MLOperator⊓¬DLOperator)⊓¬HuLog⊓¬HLog⊓∀EnjoysCIP.(¬EnjoysPBDP)⊓∀EnjoysPBDP.(¬EnjoysBDP)

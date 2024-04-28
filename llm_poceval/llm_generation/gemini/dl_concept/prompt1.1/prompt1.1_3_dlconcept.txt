@@ -1,0 +1,6 @@
+-- GEMINI
+-- ANS 3
+
+https://g.co/gemini/share/98f1949a3f9e
+
+C = Student ⊓ (∃studiesAt.{uniBo ⊔ uniSi})

@@ -1,0 +1,17 @@
+----------
+GPT4 ANSWER 1 (incorrect on TRACE P1; under "flexible" regime (strict linear order semantics), correct)
+
+To create an LTL formula that is satisfied by the first trace and not the second, we need to identify a pattern that differentiates the two.
+
+In the first trace, after a series of `p`, we eventually get `q` followed by `r` consistently until the end. However, in the second trace, after `p`, there is a gap before `q` and gaps after `r`. So, we need a formula that asserts the existence of `p` followed eventually by `q` and then by `r` which should remain true continuously after `q` has appeared.
+
+The LTL formula capturing this pattern could be:
+
+\[ F(p \land F(q \land G(r))) \]
+
+This formula uses the following LTL operators:
+- `F` (Finally) asserts that at some point in the future, the enclosed formula must hold.
+- `G` (Globally) asserts that the enclosed formula must hold from that point forward at every step.
+
+This formula can be read as "Eventually `p` will happen, and after that, eventually `q` will happen, and once `q` happens, `r` will hold globally (forever after `q`)." This is satisfied by the first trace and falsified by the second trace because in the second trace, `r` does not hold globally after `q` happens — there is a point after `q` where `r` is no longer true.
+------------

@@ -1,0 +1,3 @@
+https://chat.openai.com/share/b328d7ed-7e6b-45a4-84c4-e95ec2f74c9e
+
+C=∃competesIn.PremierLeague⊓∃competesIn.Bundesliga 

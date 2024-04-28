@@ -1,0 +1,43 @@
+Given the following ALC Description Logic ontology:
+
+O = {
+∃competesIn.PremierLeague ⊑ Footballclub,
+∃competesIn.Bundesliga ⊑ ¬∃competesIn.PremierLeague
+}
+
+and the following dataset:
+
+D = {
+competesIn(c1, b),
+competesIn(c2, b),
+competesIn(c3, p),
+competesIn(c4, p),
+Bundesliga(b),
+PremierLeague(p),
+Footballclub(c1),
+Footballclub(c2)
+}
+
+provide an ALC Description Logic concept C that strongly separates the positive examples:
+
+E+ = {c1, c2}
+
+from the negative examples:
+
+E− = {c3, c4}
+
+meaning that
+
+(O, D) |= C(c1)
+
+and
+
+(O, D) |= C(c2)
+
+whereas
+
+(O, D) |= ¬C(c3)
+
+and
+
+(O, D) |= ¬C(c4)

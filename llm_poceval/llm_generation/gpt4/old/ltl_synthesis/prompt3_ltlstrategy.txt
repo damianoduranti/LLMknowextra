@@ -1,0 +1,1 @@
+Generate a controller strategy to synthesize the LTL formula p U q, given that the controllable variable is p and the uncontrollable variable is q.

@@ -1,0 +1,16 @@
+-------
+GPT3.5 ANSWER 1
+-- SYNTACTICALLY INCORRECT (not with the right signature)
+
+https://chat.openai.com/share/e1c1de5e-540b-4580-8f3a-a99fd5c65956
+
+C≡∃studiesAt.{uni}⊓¬∃studiesAt.EuUni
+
+GPT3.5 ANSWER 1'
+
+-- SYNTACTICALLY CORRECT - under "flexible" regime, adjusting the signature
+-- INCORRECT on s1, s2 in E+
+-- INCORRECT on s3 in E-
+-- N.B. Correct if swapped
+
+(studiesAt some Uni) and not (studiesAt some EuUni)

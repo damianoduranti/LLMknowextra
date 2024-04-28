@@ -1,0 +1,6 @@
+-------
+GEMINI ANSWER 4
+
+https://g.co/gemini/share/afd511c2ab80
+
+C = ∃competesIn.Bundesliga ⊓ ¬Footballclub

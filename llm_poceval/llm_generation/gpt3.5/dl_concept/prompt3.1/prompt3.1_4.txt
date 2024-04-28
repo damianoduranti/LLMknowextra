@@ -1,0 +1,3 @@
+https://chat.openai.com/share/b27378ab-2d7d-415d-8045-ef56714aa708
+
+C=∃competesIn.{b}⊓∀competesIn.¬{p}

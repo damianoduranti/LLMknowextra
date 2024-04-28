@@ -1,0 +1,8 @@
+BARD ANSWER 3
+INCORRECT on TRACE N1
+
+https://g.co/bard/share/fe2f92a20085
+
+p W q U r
+
+N.B. Interpreted as: (p W q) U r = ((p U q) | G(p)) U r

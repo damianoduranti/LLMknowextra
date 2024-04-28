@@ -1,0 +1,5 @@
+BARD ANSWER 4 (incorrect on TRACE N1)
+
+https://g.co/bard/share/8524fbbae8ae
+
+(p ∧ Fq) ∨ (Fp ∧ Gq)

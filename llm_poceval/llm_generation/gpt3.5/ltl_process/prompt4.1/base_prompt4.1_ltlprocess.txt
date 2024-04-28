@@ -1,0 +1,23 @@
+Provide an LTL formula, using only the propositional letter "p", that is satisfied on the following trace:
+
+1. { r }
+2. { r }
+3. { r }
+4. { r }
+5. { r, p }
+6. { r }
+7. { r }
+8. { r }
+9. { r }
+
+and falsified on the following trace:
+
+1. { r }
+2. { r }
+3. { r }
+4. { r }
+5. { r }
+6. { r }
+7. { r }
+8. { r }
+9. { r }

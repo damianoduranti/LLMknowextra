@@ -1,0 +1,6 @@
+------
+GPT3.5
+
+https://chat.openai.com/share/269d2842-c73d-457b-b627-18330fe14c5e
+
+C=Student⊓∃studiesAt.EuUni⊓¬∃studiesAt.OcUni

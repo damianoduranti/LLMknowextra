@@ -1,0 +1,3 @@
+https://chat.openai.com/share/cc52c0bd-fdb5-413f-9f2d-255ad5746ed1
+
+C=∃studiesAt.Uni⊓∀studiesAt.¬EuUni

@@ -1,0 +1,6 @@
+BARD ANSWER 3 (syntactically incorrect - under "rigid" regime, CTL instead of LTL formula;
+syntactically correct - under "flexible" regime, converting CTL into LTL formulas: "p -> AF(q U r) => p -> F(q U r)" & (semantically) incorrect on TRACE N1)
+
+https://g.co/bard/share/d1496af0d986
+
+p -> AF(q U r)

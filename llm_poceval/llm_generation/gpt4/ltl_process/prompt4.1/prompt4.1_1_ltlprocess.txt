@@ -1,0 +1,11 @@
+---------------
+GPT4 ANSWER 1 (correct)
+
+To construct an LTL formula using only the propositional letter "p" that is satisfied by the first trace but not the second, we can focus on the occurrence of "p" in the first trace, which is absent in the second.
+
+The appropriate formula would be simply:
+
+\[ F(p) \]
+
+This formula states that eventually "p" should be true at some point in the trace. This is satisfied by the first trace where "p" appears at the 5th position, and it is falsified by the second trace where "p" does not appear at all.
+---------------

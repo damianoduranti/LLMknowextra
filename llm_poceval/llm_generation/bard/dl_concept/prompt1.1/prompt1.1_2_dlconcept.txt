@@ -1,0 +1,7 @@
+-- BARD
+-- ANS 2
+-- INCORRECT on s2 in E+
+
+https://g.co/bard/share/6cd8fc165fb6
+
+C = ∃studiesAt.{uniBo} ⊓ ¬∃studiesAt.{uniVi}

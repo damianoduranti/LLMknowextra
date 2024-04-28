@@ -1,0 +1,7 @@
+-- GPT3.5
+-- ANS 3
+-- INCORRECT on s1, s2 in E+
+
+https://chat.openai.com/share/aac49434-c38b-439e-872e-84765debb9c2
+
+C = ∃studiesAt.{uniBo} ⊓ ∃studiesAt.{uniSi} ⊓ ∃studiesAt.{¬uniVi} ⊓ Student

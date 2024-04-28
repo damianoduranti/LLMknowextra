@@ -1,0 +1,15 @@
+BARD ANSWER 3
+PROMPT MISUNDERSTOOD - 2 answers provided
+ANS 3.A: incorrect on TRACE N1
+
+-- ANS 3.B
+-- SYNTACTICALLY INCORRECT - under rigid regime (not in the right signature)
+-- ANS 3.B'
+-- SYNTACTICALLY CORRECT - under flexible regime (ignoring the signature restriction)
+-- INCORRECT on TRACE N1
+
+https://g.co/bard/share/20c01ccc545b
+
+ANS 3.A: ◇(p → q)
+
+ANS 3.B: X(q → ¬r)

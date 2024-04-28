@@ -1,0 +1,9 @@
+BARD ANSWER 2
+SYNTACTICALLY INCORRECT -- under "rigid" regime, not an LTL formula;
+ANS 2'
+SYNTACTICALLY CORRECT -- under "flexible" regime, converting CTL* into LTL formulas
+CORRECT
+
+https://g.co/bard/share/25847649d3da
+
+AG (p -> F q) ∧ EF (¬p ∨ F q)

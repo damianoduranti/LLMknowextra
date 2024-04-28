@@ -1,0 +1,5 @@
+https://chat.openai.com/share/408495b3-c35c-4395-abf1-305e0e8b75cc
+
+C≡∃hasOperator.CLOperator⊓∀hasOperator.CLOperator⊓∃hasOperator.MLOperator⊓∀hasOperator.MLOperator⊓∃EnjoysCIP⊓∀EnjoysCIP⊓∃EnjoysPBDP⊓∀EnjoysPBDP⊓∃EnjoysBDP⊓∀EnjoysBDP
+
+C′≡C⊓¬(∃hasOperator.CLOperator⊓∃hasOperator.MLOperator⊓∃EnjoysBDP)

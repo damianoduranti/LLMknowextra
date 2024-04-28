@@ -1,0 +1,5 @@
+GPT4 ANSWER 5 (incorrect on TRACE P1)
+
+https://chat.openai.com/share/1f2f68fc-f2ab-4591-860e-e70b55ad59c0
+
+G(p→X(¬qUp))

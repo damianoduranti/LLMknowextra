@@ -1,0 +1,33 @@
+Given the following ALCO Description Logic ontology:
+
+O = {
+{alc} ⊔ {alco} ⊔ {alcou} ⊑ ∃hasOperator.CLOperator ⊓ ∀hasOperator.CLOperator,
+{ml} ⊔ {mln} ⊔ {mlnu} ⊑ ∃hasOperator.CLOperator ⊓ ∃hasOperator.MLOperator,
+{alc} ⊔ {ml} ⊑ EnjoysCIP,
+EnjoysCIP ⊑ EnjoysPBDP,
+EnjoysPBDP ⊑ EnjoysBDP,
+{alcou} ⊔ {mlnu} ⊑ EnjoysBDP ⊓ ¬EnjoysPBDP,
+{alco} ⊔ {mln} ⊑ ¬EnjoysBDP
+}
+
+and the following dataset:
+
+D = { }
+
+provide an ALCO Description Logic concept C that weakly separates the positive examples:
+
+E+ = {alc}
+
+from the negative examples:
+
+E− = {alco, alcou, ml, mln, mlnu}
+
+meaning that
+
+(O, D) |= C(alc)
+
+whereas
+
+(O, D) \not |= C(d)
+
+for every d ∈ E−

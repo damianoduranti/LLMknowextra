@@ -1,0 +1,8 @@
+---------
+GEMINI ANSWER 1
+
+-- INCORRECT on s3 in E-
+
+https://g.co/gemini/share/39cc51b3cd3b
+
+C = Student ⊓ (∃studiesAt.Uni ⊔ ¬∃studiesAt.{uniVi})

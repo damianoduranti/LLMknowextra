@@ -1,0 +1,6 @@
+------
+GEMINI ANSWER 4
+
+https://g.co/gemini/share/3f4b2d96b1b4
+
+C = ∃studiesAt.EuUni ⊓ Student

@@ -1,0 +1,7 @@
+-----------
+GEMINI ANSWER 1
+INCORRECT on TRACE P1, TRACE P2
+
+https://g.co/gemini/share/ae2934c665f8
+
+(Fp ∧ Fq)  U (Gp ∧ Gq)

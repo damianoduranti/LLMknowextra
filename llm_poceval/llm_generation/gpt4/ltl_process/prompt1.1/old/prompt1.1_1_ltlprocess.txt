@@ -1,0 +1,46 @@
+Provide an LTL formula, using only the propositional letter "r", that is satisfied on the following trace:
+
+1. { r }
+2. { r }
+3. { r }
+4. { r, p }
+5. { r }
+6. { r, q }
+7. { r }
+8. { r }
+9. { r }
+
+and falsified on the following trace:
+
+1. { r }
+2. { r }
+3. { r }
+4. { r, p }
+5. { r }
+6. { r, q }
+7. { }
+8. { r }
+9. { r }
+
+
+%%% EXPECTED ANSWER: G(r)  -- "Always r"
+
+
+--------------
+GPT4 Answer
+
+Given that we can only use the propositional letter "r" in our LTL formula, and that the only difference between the two traces is that "r" is missing at the 7th position of the second trace, we can infer that the LTL formula should express that "r" must be present at all times without interruption.
+
+The simplest LTL formula using only the letter "r" that satisfies this requirement is:
+
+\[ G(r) \]
+
+This formula asserts that "r" must be true globally, at every step of the trace. It is satisfied by the first trace because "r" is indeed present at every step. The formula is falsified by the second trace because there is a step (step 7) where "r" is not present.
+
+In LTL:
+
+- \( G \) is the "globally" operator, which means that the property must hold at every point along the trace.
+- \( r \) is the propositional letter that we are required to use.
+
+So, \( G(r) \) will be true for a trace if and only if "r" is true in every state of the trace.
+---------------

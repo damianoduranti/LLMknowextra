@@ -1,0 +1,8 @@
+-----------
+GPT3.5 ANSWER 1 (under "rigid" regime (non-strict linear order semantics) incorrect on TRACE P1; under "flexible" regime (strict linear order semantics), correct)
+
+https://chat.openai.com/share/f99a8b78-d104-404c-96af-141085d9b716
+
+◊(p ∧ □¬p)
+
+-----------

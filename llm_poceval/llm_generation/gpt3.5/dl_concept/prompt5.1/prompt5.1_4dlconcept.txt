@@ -1,0 +1,3 @@
+https://chat.openai.com/share/c320f2f8-6562-4b3a-a694-e1e8009fe002
+
+C≡DLog⊓EnjoysCIP⊓∀hasOperator.(CLOperator⊔¬(DLog⊔EnjoysCIP))

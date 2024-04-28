@@ -1,0 +1,6 @@
+-------
+GEMINI ANSWER 1
+
+https://g.co/gemini/share/bf4f30b3689c
+
+C = ∃studiesAt.Uni ⊓ (EuUni ⊔ OcUni)

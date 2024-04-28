@@ -1,0 +1,8 @@
+-----------
+GEMINI ANSWER 1
+INCORRECT on TRACE P2
+under flexible regime (irreflexive semanics): CORRECT
+
+https://g.co/gemini/share/0ebe255057ee
+
+F (p ∧ G r)

@@ -1,0 +1,5 @@
+GPT4 ANSWER 2 (incorrect on TRACE P1)
+
+https://chat.openai.com/share/0246b8c2-4d03-4cf9-a635-da34a32f4c97
+
+□(p→X(p→X(p→X(p→Xp))))

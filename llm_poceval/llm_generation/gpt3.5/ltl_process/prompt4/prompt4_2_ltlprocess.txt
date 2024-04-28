@@ -1,0 +1,10 @@
+-----------
+GPT3.5 ANSWER 2 (prompt misunderstood, 2 answers provided; ANS 2.A incorrect on TRACE P1; ANS 2.B incorrect on TRACE P1, N1)
+
+https://chat.openai.com/share/811c8b7d-2f96-4355-9f15-e31d5f7f4dee
+
+ANS 2.A: G((p → (X^4¬p)) & X^4p)
+
+ANS 2.B: G(¬p)
+
+-----------

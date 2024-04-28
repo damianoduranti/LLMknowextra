@@ -1,0 +1,6 @@
+BARD ANSWER 2
+CORRECT
+
+https://g.co/bard/share/4d4822accb37
+
+C = ∃studiesAt.Uni ⊓ ¬(∃studiesAt.{uniVi} ⊓ ¬∃studiesAt.EuUni)

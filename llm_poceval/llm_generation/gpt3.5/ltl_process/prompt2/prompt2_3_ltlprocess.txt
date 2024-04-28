@@ -1,0 +1,9 @@
+------------
+GPT3.5 ANSWER 3
+(INCORRECT on TRACE P1, TRACE P2)
+
+https://chat.openai.com/share/ca943dbc-2e18-4006-aeb0-f0be16922910
+
+G(r → (X(p ∨ q)))
+
+------------

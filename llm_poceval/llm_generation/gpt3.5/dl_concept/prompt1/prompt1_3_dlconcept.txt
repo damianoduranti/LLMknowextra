@@ -1,0 +1,6 @@
+GPT3.5 ANSWER 3
+CORRECT
+
+https://chat.openai.com/share/299707b5-d86b-418a-ae31-48c8df84bbe6
+
+C = ∃studiesAt.Uni ⊓ ∃studiesAt.EuUni

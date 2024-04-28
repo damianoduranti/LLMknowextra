@@ -1,0 +1,1 @@
+%%% EXPECTED ANSWER: X(p U q)

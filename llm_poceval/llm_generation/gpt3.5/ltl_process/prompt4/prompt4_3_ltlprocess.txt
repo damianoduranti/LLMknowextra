@@ -1,0 +1,9 @@
+-----------
+GPT3.5 ANSWER 3 (incorrect on TRACE N1)
+
+https://chat.openai.com/share/5364328f-9069-49b5-a4d0-91caebe0b0aa
+
+F((Gr) & (Xp ⇒ Fr))
+
+
+-----------

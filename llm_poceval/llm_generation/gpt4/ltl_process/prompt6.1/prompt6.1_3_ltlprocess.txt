@@ -1,0 +1,5 @@
+GPT4 ANSWER 3 (incorrect on TRACE N1)
+
+https://chat.openai.com/share/e14f4544-06bf-47cc-9bbf-36c5d27fc8c7
+
+G(¬(p∧q))∧(Fp→X(Fq))∧(Fq→X(Fp))

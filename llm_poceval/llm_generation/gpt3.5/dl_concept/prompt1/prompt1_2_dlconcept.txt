@@ -1,0 +1,12 @@
+GPT3.5 ANSWER 2
+PROMPT MISUNDERSTOOD -- 2 options provided
+ANS 2.A: INCORRECT on s1, s2 in E+
+ANS 2.B: INCORRECT on s1, s2 in E+; INCORRECT on s3 in E-
+
+
+https://chat.openai.com/share/5f5a661e-dc63-4700-b194-9aa83d5c1da8
+
+
+C = ∃studiesAt.Uni ⊓ ∀studiesAt.EuUni
+
+C = ∃studiesAt.Uni ⊓ ¬∃studiesAt.EuUni

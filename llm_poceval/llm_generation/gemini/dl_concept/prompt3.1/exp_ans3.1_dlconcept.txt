@@ -1,0 +1,1 @@
+%%% EXPECTED ANSWER: ∃competesIn.Bundesliga -- "competes in some Bundesliga competition"

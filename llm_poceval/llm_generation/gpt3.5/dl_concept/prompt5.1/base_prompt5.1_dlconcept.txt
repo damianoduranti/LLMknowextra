@@ -1,0 +1,57 @@
+Given the following ALC Description Logic ontology:
+
+O = {
+DLog ⊑ ∀hasOperator.CLOperator,
+EnjoysCIP ⊑ EnjoysPBDP,
+EnjoysPBDP ⊑ EnjoysBDP,
+HuLog ⊑ ¬EnjoysPBDP,
+HLog ⊑ ¬EnjoysBDP
+}
+
+and the following dataset:
+
+D = {
+DLog(alc),
+DLog(alco),
+DLog(alcou),
+MLog(ml),
+MLog(mln),
+MLog(mlnu),
+HuLog(alcou),
+HuLog(mlnu),
+HLog(alco),
+HLog(mln),
+CLOperator(conj),
+hasOperator(alc, conj),
+hasOperator(alco, conj),
+hasOperator(alcou, conj),
+hasOperator(ml, conj),
+hasOperator(mln, conj),
+hasOperator(mlnu, conj),
+MLOperator(diamond),
+hasOperator(ml, diamond),
+hasOperator(mln, diamond),
+hasOperator(mlnu, diamond),
+EnjoysCIP(alc),
+EnjoysCIP(ml),
+EnjoysBDP(alcou),
+EnjoysBDP(mlnu)
+}
+
+provide an ALC Description Logic concept C that weakly separates the positive examples:
+
+E+ = {alc}
+
+from the negative examples:
+
+E− = {alco, alcou, ml, mln, mlnu}
+
+meaning that
+
+(O, D) |= C(alc)
+
+whereas
+
+(O, D) \not |= C(d)
+
+for every d ∈ E−

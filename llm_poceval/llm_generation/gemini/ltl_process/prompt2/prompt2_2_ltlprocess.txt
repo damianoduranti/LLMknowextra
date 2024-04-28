@@ -1,0 +1,7 @@
+------------
+GEMINI Answer 2
+CORRECT
+
+https://g.co/gemini/share/4f2c73fade93
+
+(F (p U q)) ∧ (G r)

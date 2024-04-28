@@ -1,0 +1,6 @@
+----------
+GEMINI ANSWER 4
+
+https://g.co/gemini/share/0e24b2c70506
+
+C = DLog ⊓ ¬MLog ⊓ ¬∃hasOperator.¬DLOperator

@@ -1,0 +1,7 @@
+---------
+GPT3.5 ANSWER 1
+INCORRECT on s1, s2 in E+
+
+https://chat.openai.com/share/3380114d-1051-4171-8769-315d96cd7ed4
+
+C ≡ ∃studiesAt.Uni ⊓ ¬∃studiesAt.EuUni

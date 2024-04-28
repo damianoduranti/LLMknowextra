@@ -1,0 +1,8 @@
+-----------
+GPT3.5 Answer ()
+
+https://chat.openai.com/share/5bed0fd4-cba7-482b-8f5a-fa7c2031ac11
+
+F(G(p ∧ X(q∧r)))
+
+-----------

@@ -1,0 +1,8 @@
+----------
+GPT3.5 ANSWER 5 (correct)
+
+https://chat.openai.com/share/0f2b7091-5710-4221-8685-37eb7d3b498a
+
+F(p ∧ Xq ∧ ¬Xr)
+
+----------

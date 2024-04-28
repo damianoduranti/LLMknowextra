@@ -1,0 +1,6 @@
+-----------
+GPT4 ANSWER 2 (incorrect on TRACE P1)
+
+https://chat.openai.com/share/4ab47888-4709-4bf2-9fb9-80bd9604c484
+
+G(p → X(G(p W q)))

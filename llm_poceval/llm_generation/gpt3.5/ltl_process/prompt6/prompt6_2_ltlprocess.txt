@@ -1,0 +1,8 @@
+-----------
+GPT3.5 ANSWER 2 (incorrect on TRACE P1, TRACE P2)
+
+https://chat.openai.com/share/493ea8df-5b30-40b8-97b8-c1f49c041e11
+
+F(p∧Fq)∧F(q∧Fp)∧G(Fr∧(G¬p∨G¬q))
+
+-----------

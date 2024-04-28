@@ -1,0 +1,7 @@
+------------
+GEMINI Answer 4
+INCORRECT on TRACE N1, TRACE N2
+
+https://g.co/gemini/share/c34294516dd5
+
+(F (p U q)) ∧ GF(r)

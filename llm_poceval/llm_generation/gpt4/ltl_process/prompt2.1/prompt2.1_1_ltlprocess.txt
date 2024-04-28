@@ -1,0 +1,12 @@
+---------
+GPT4 ANSWER 1
+(CORRECT)
+
+To create an LTL formula using only the propositional letter "r" that is satisfied by Trace 1 and Trace 2 but falsified by Trace 3 and Trace 4, we need to focus on the fact that "r" must be present throughout the entire sequence without interruption. This is because Trace 3 and Trace 4 have at least one point where "r" is not present.
+
+The LTL formula that satisfies this condition is:
+
+\[ G(r) \]
+
+This formula states that globally (at all points in the trace) "r" must hold true. It is satisfied by Trace 1 and Trace 2, where "r" is indeed present at every step, and it is falsified by Trace 3 and Trace 4 where "r" is absent in one or more steps.
+-------------

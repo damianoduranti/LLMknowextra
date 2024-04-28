@@ -1,0 +1,6 @@
+GPT3.5 ANSWER 5
+INCORRECT on s1, s2 in E+
+
+https://chat.openai.com/share/9507eecf-ee9f-4f3e-b0d2-2ed65600ae95
+
+C = \exists studiesAt.(\{uniBo\} \sqcap \{uniSi\})

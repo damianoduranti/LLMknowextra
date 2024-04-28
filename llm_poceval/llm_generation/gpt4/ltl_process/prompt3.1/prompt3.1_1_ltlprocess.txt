@@ -1,0 +1,20 @@
+-----------
+GPT4 ANSWER 1 (correct)
+
+For an LTL formula using only the propositional letters "p" and "q" that is satisfied by the first trace and not the second, we need to identify the occurrence pattern of "p" and "q" in both traces.
+
+In the first trace, "q" eventually follows one or more occurrences of "p". However, in the second trace, there is an interruption in "p" before "q" appears.
+
+A suitable LTL formula could be:
+
+\[ G(p \rightarrow X(p U q)) \]
+
+This formula uses the following operators:
+
+- `G` (Globally) indicates that the property must hold at every point in the trace.
+- `→` (Implies) indicates that whenever the left side of the implication is true, the right side must also be true.
+- `X` (Next) indicates that the property must hold in the next state.
+- `U` (Until) indicates that the property on the left side must hold true until the property on the right side becomes true.
+
+The formula states that globally, if "p" is true then in the next state "p" must hold until "q" happens. This is true in the first trace where "p" happens continuously until "q" appears. The formula is falsified by the second trace because there is a state where "p" is true but not followed by another "p" or by "q" in the next state (state 5 is empty, and state 6 has "q" without "p" before it).
+------------

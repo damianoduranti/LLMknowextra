@@ -1,0 +1,6 @@
+-----------
+GPT4 ANSWER 3 (incorrect on TRACE P1)
+
+https://chat.openai.com/share/70f4361c-564a-4734-9db1-0eab236287bf
+
+G(p → X(p ∧ X(p ∧ X(p))))

@@ -1,0 +1,12 @@
+---------------
+GPT3.5 answer 2
+-- SYNTACTICALLY INCORRECT - under rigid regime (not in the right signature)
+-- ANS 2'
+-- SYNTACTICALLY CORRECT - under flexible regime (ignoring the signature restriction)
+-- INCORRECT  on TRACE P1
+
+https://chat.openai.com/share/44150d12-cc53-400e-90a1-f1cb5bc729dd
+
+G(r→◊p)
+
+---------------

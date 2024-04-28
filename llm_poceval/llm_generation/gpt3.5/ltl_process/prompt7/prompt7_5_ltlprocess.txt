@@ -1,0 +1,13 @@
+-----------
+GPT3.5 ANSWER 5
+PROMPT MISUNDERSTOOD - 2 answers provided
+ANS 5.A: incorrect on TRACE N1;
+ANS 5.B: incorrect on TRACE P1
+
+https://chat.openai.com/share/d8a6c14c-1401-44a3-8ff2-053db5613f42
+
+ANSWER 5.A: □(p→◊q)∧□(q→◊r)
+
+ANSWER 5.B: □(p→◊q)∧□(q→□r)
+
+-----------

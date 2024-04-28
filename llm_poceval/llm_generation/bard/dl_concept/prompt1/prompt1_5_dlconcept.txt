@@ -1,0 +1,6 @@
+BARD ANSWER 5
+CORRECT
+
+https://g.co/bard/share/95cf7eaadbc1
+
+C = ∃studiesAt.{uniBo, uniSi}

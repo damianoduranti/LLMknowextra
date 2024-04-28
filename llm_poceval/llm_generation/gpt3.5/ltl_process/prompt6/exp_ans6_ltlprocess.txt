@@ -1,0 +1,1 @@
+%%% EXPECTED ANSWER: G(p -> F q) -- "Always in the future, if p holds, then eventually q holds"

@@ -1,0 +1,8 @@
+---------------
+GPT3.5 ANSWER 5 (incorrect on TRACE N1)
+
+https://chat.openai.com/share/7fa22a4f-008c-46f7-95aa-34a78c0b5d97
+
+F(¬p ∧ G(¬p))
+
+---------------

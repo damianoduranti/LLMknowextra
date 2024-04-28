@@ -1,0 +1,9 @@
+BARD ANSWER 4
+ANS 4.A: CORRECT;
+ANS 4.B: INCORRECT on TRACE N1
+
+https://g.co/bard/share/d1418374d39f
+
+ANS 4.A: G(r)
+
+ANS 4.B: F(r -> r U q)

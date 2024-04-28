@@ -1,0 +1,6 @@
+-----------
+GPT4 ANSWER 3 (correct)
+
+https://chat.openai.com/share/3e942a37-93e3-4b0b-b9ce-056534e78af6
+
+F(p ∧ XG¬p)

@@ -1,0 +1,7 @@
+------------
+Bard Answer 2
+(INCORRECT on TRACE N1, TRACE N2)
+
+https://g.co/bard/share/ee0c460941a3
+
+G(r -> F(r)) && G(p -> F(p)) && G(q -> F(q))

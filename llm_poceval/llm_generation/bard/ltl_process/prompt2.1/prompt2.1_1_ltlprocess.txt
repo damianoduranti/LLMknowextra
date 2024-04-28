@@ -1,0 +1,9 @@
+------------
+BARD ANSWER 1
+SYNTACTICALLY INCORRECT -- under "rigid" regime (not an LTL formula; not in the right signature);
+SYNTACTICALLY CORRECT -- under "flexible" regime (with CTL* formulas modified into LTL formulas; ignored signature restriction)
+(semantically) INCORRECT on TRACE P1, TRACE P2
+
+https://g.co/bard/share/67793fcc0100
+
+G r ∧ AG (r U p)

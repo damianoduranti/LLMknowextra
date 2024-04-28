@@ -1,0 +1,6 @@
+-----------
+GPT3.5
+
+https://chat.openai.com/share/825308a5-230a-4ee5-bd20-f3ea967d7302
+
+C=∃competesIn.PremierLeague⊓∀competesIn.¬PremierLeague

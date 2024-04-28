@@ -1,0 +1,18 @@
+USER
+
+Can you provide a separating concept that uses only EuUni?
+
+ChatGPT
+
+To provide a separating concept using only "EuUni," you can define the concept as follows:
+
+C = ∃studiesAt.EuUni
+
+This concept indicates that there exists a relationship "studiesAt" with the class EuUni. It effectively distinguishes individuals who study at EuUni (E+) from those who do not (E-).
+
+In the provided dataset:
+
+    For eugenio and guido, (O, D) |= C(eugenio) and (O, D) |= C(guido) because they both study at EuUni (uniBo and uniSi).
+    For giovanna, (O, D) |= ¬C(giovanna) because she does not study at EuUni.
+
+This concept C successfully distinguishes E+ from E- based on the provided dataset, focusing on the "EuUni" concept.

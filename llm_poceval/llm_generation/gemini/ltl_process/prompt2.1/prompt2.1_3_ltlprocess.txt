@@ -1,0 +1,7 @@
+------------
+GEMINI Answer 3
+SYNTACTICALLY INCORRECT (not in the right signature)
+
+https://g.co/gemini/share/91791a6a2076
+
+GF(r ∧ X(¬p ∨ ¬q))

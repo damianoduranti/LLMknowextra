@@ -1,0 +1,6 @@
+GPT3.5
+ANSWER 4
+
+https://chat.openai.com/share/f111d04e-3fe3-4606-9c73-18ee5fc3c5b2
+
+C=∃studiesAt.Uni⊓¬∃studiesAt.EuUni

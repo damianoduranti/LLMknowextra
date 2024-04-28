@@ -1,0 +1,7 @@
+GEMINI ANSWER 5
+SYNTACTICALLY INCORRECT -- not in the right signature
+under flexible regime: INCORRECT on TRACE N1
+
+https://g.co/gemini/share/4ebdc70cca17
+
+GF p U (q -> X (GF r))

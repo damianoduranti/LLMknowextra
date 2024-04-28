@@ -1,0 +1,6 @@
+--------
+Bard ANSWER 1
+
+https://g.co/bard/share/6b0892965657
+
+C = {alc} ⊓ ¬(∃hasOperator.MLOperator ⊓ ¬EnjoysBDP)

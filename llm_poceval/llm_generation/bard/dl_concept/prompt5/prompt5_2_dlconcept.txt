@@ -1,0 +1,3 @@
+https://g.co/bard/share/b610dd958de1
+
+C = DLog ⊓ (¬∃hasOperator.DLOperator ⊓ EnjoysCIP) ⊓¬EnjoysBDP

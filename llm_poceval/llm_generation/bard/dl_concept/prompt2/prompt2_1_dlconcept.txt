@@ -1,0 +1,6 @@
+------
+Bard ANSWER 1
+
+https://g.co/bard/share/edc23a1416ce
+
+C = ∃studiesAt.Uni ⊓ ¬∃studiesAt.OcUni

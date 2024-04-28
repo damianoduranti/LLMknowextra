@@ -1,0 +1,5 @@
+GPT4 ANSWER 4 (incorrect on TRACE N1, TRACE N2)
+
+https://chat.openai.com/share/428d5007-c3d3-4c56-b9e2-b9bff4ad7e7f
+
+◊(p→◊q)

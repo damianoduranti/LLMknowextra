@@ -1,0 +1,3 @@
+https://chat.openai.com/share/2e644ccf-7b92-438e-83ca-b7c7522fdec9
+
+C≡∃hasOperator.(¬EnjoysCIP⊓¬EnjoysBDP)

@@ -1,0 +1,6 @@
+GEMINI ANSWER 4
+SYNTACTICALLY INCORRECT -- not in the right signature
+
+https://g.co/gemini/share/ed112a406365
+
+F (p ∧ G (q U r))

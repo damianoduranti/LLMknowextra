@@ -1,0 +1,8 @@
+-- GPT3.5
+-- ANS 5
+-- INCORRECT on s1, s2 in E+
+-- INCORRECT on s3 in E-
+
+https://chat.openai.com/share/52493b2e-e867-4354-8fa6-707e07cf5195
+
+C=∃studiesAt.EuUni⊓∀studiesAt.¬EuUni

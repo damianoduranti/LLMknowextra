@@ -1,0 +1,6 @@
+GEMINI ANSWER 2
+INCORRECT on TRACE N1
+
+https://g.co/gemini/share/fff5f14b97d7
+
+(F (p ∧ eventually q)) ∧ G (p -> X (r or eventually q))

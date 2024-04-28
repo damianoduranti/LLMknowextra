@@ -1,0 +1,18 @@
+-----------
+GPT3.5
+ANSWER 3
+PROMPT (slightly) MISUNDERSTOOD - 2 (identical) answers provided
+ANS 3.A/B
+SYNTACTICALLY INCORRECT - under "rigid" regime: not in the right signature
+
+ANS 3'.A/B
+SYNTACTICALLY CORRECT - under "flexible" regime: ignoring signature restriction
+INCORRECT on TRACE P1
+
+https://chat.openai.com/share/669da8b5-3121-48f9-8b9a-380580a48de3
+
+ANS 3.A: F(p ∧ G(¬q ∧ ¬r))
+
+ANS 3.B: F(p ∧ G(¬q ∧ ¬r)) (same as ANS 3.A)
+
+-----------

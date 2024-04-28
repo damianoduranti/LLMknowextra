@@ -1,0 +1,1 @@
+%%% EXPECTED ANSWER: EnjoysCIP ⊓ ∀hasOperator.CLOperator -- "EnjoysCIP and has some CL operators"

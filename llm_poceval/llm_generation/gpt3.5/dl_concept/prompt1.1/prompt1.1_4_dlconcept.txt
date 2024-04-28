@@ -1,0 +1,16 @@
+-- GPT3.5
+-- ANS 4
+-- SYNTACTICALLY INCORRECT (not an ALCO concept)
+
+https://chat.openai.com/share/2155cdca-e26b-4fb9-b661-f5a858aa314c
+
+C=∃studiesAt.uni⊓∃studiesAt−.EuUni
+
+-- GPT3.5
+-- ANS 4'
+-- SYNTACTICALLY CORRECT - under "flexible" regime (converted in an ALCO concept according to textual explanation)
+-- INCORRECT on s1, s2 in E+
+-- INCORRECT on s3 in E-
+N.B. correct if swapped
+
+(studiesAt some Uni) and not (studiesAt some EuUni)

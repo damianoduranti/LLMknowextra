@@ -1,0 +1,7 @@
+-- BARD
+-- ANS 3
+-- CORRECT
+
+https://g.co/bard/share/fdc82f116136
+
+C = Student ⊓ (∃studiesAt.{uniBo, uniSi})

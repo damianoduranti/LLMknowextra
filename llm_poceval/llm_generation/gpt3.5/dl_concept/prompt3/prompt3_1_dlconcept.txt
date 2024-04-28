@@ -1,0 +1,6 @@
+-------
+GPT3.5 ANSWER 1
+
+https://chat.openai.com/share/e660bf3b-9c29-4800-b28b-2b8eeeb03201
+
+C=∃competesIn.PremierLeague⊓∃competesIn.Bundesliga

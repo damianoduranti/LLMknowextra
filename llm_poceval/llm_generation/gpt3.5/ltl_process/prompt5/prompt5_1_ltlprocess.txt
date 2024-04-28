@@ -1,0 +1,13 @@
+-----------
+GPT3.5 ANSWER 1
+PROMPT MISUNDERSTOOD - 2 answers provided;
+Answer 1.A incorrect on TRACE P1, TRACE N2;
+Answer 1.B incorrect on TRACE P1, TRACE P2, TRACE N2
+
+https://chat.openai.com/share/8cbfe943-1650-4649-b9dc-57016276d619
+
+Answer 1.A: G(r → F(p))
+
+Answer 1.B: G(¬r ∨ X¬p)
+
+-----------

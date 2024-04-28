@@ -1,0 +1,35 @@
+Provide an LTL formula, using only the propositional letters "p" and "q", that is satisfied on the following trace:
+
+1. { p }
+2. { p }
+3. { p }
+4. { p }
+5. { p }
+6. { q }
+7. { r }
+8. { r }
+9. { r }
+
+and falsified on the following trace:
+
+1. { p }
+2. { p }
+3. { p }
+4. { p }
+5. { }
+6. { q }
+7. { r }
+8. { r }
+9. { r }
+
+
+%%% EXPECTED ANSWER: p U q -- "Eventually, p until q"
+
+-----------
+GPT4 Answer
+
+https://chat.openai.com/share/f34299b9-29ef-4321-b894-8b7dd84d0f4b
+
+G(p U q)
+
+-----------

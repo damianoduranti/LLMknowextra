@@ -1,0 +1,3 @@
+https://g.co/bard/share/f60ae2671254
+
+C = ∃studiesAt.(EuUni ⊓ ¬OcUni)

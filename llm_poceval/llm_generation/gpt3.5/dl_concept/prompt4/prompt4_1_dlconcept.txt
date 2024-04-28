@@ -1,0 +1,6 @@
+-------
+GPT3.5 ANSWER 1
+
+https://chat.openai.com/share/8572b093-c19d-428b-87a6-f79f09c09315
+
+C≡∃hasOperator.DLOperator⊓¬∃hasOperator.MLOperator

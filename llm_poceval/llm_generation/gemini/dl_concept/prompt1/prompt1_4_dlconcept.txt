@@ -1,0 +1,8 @@
+GEMINI ANSWER 4
+
+-- INCORRECT on s1, s2 in E+
+-- INCORRECT on s3 in E-
+
+https://g.co/gemini/share/8f6297d7b497
+
+C = Student ⊓ ∃studiesAt.¬EuUni

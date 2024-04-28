@@ -1,0 +1,6 @@
+-- GEMINI
+-- ANS 5
+
+https://g.co/gemini/share/b48d3fbd8226
+
+C = Student ⊓ (∃studiesAt.Uni ⊔ ∃studiesAt.¬EuUni)

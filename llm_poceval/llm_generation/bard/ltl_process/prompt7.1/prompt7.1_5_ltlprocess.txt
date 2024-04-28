@@ -1,0 +1,16 @@
+BARD ANSWER 5
+-- PROMPT MISUNDERSTOOD - 2 answers provided
+-- ANS 5.A
+-- SYNTACTICALLY INCORRECT - under "rigid" regime, not in the right signature
+-- ANS 5.A'
+-- SYNTACTICALLY CORRECT - under "flexible" regime, ignoring signature restrictions
+-- INCORRECT on TRACE N1;
+-- ANS 5.B
+-- SYNTACTICALLY INCORRECT - under "rigid" regime, not an LTL formula;
+-- ANS 5.B'
+-- SYNTACTICALLY CORRECT - under "flexible" regime, take into account explanation to fix formula
+-- (semantically) INCORRECT on TRACE P1
+
+ANS 5.A: □p∧◊q∧□r
+
+ANS 5.B: □p ∧ \bigwedge_{i=1}^{\infty}​¬q

@@ -1,0 +1,7 @@
+GEMINI ANSWER 3
+SYNTACTICALLY INCORRECT (not in the right signature)
+under flexible regime (ignoring signature restrictions): CORRECT
+
+https://g.co/gemini/share/e4f080a81152
+
+F (p ∧ G r)

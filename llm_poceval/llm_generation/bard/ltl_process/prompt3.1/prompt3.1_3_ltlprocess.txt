@@ -1,0 +1,6 @@
+-----------
+BARD ANSWER 3 (incorrect on TRACE N1)
+
+https://g.co/bard/share/8a33a86f8425
+
+(p U q) -> G p

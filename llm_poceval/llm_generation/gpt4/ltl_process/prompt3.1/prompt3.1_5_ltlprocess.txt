@@ -1,0 +1,6 @@
+-----------
+GPT4 ANSWER 5 (correct)
+
+https://chat.openai.com/share/a702750d-e80a-44a0-8b11-a1e0ce5f1cbf
+
+G(p → X(p U q))

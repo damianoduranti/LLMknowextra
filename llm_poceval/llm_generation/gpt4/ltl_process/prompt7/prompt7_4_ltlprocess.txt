@@ -1,0 +1,6 @@
+-----------
+GPT4 ANSWER 4 (incorrect on TRACE P1)
+
+https://chat.openai.com/share/2954a11e-369e-40cd-b633-a214c35e3e45
+
+□(p→□¬q)∧◊q∧◊r∧(r→□¬¬r)

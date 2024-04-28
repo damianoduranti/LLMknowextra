@@ -1,0 +1,8 @@
+---------------
+GPT3.5 ANSWER 3 (correct)
+
+https://chat.openai.com/share/c6deee12-9c8a-42d3-9769-cc60c7419679
+
+F(p ∧ X(¬p))
+
+---------------

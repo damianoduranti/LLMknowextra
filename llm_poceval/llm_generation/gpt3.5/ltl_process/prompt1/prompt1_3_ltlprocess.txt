@@ -1,0 +1,8 @@
+-----------
+GPT3.5 ANSWER 3 (incorrect on TRACE P1)
+
+https://chat.openai.com/share/abd7d130-493c-4d63-8da2-908784901cc2
+
+G(r → (pUq))
+
+-----------

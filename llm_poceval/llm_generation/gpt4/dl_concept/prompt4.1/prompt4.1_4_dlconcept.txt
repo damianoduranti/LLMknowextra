@@ -1,0 +1,3 @@
+C=EnjoysCIP∧¬(¬EnjoysBDP)∧∃hasOperator.CLOperator
+
+https://chat.openai.com/share/a0f5570e-2607-46a5-b4cf-271e4c578821

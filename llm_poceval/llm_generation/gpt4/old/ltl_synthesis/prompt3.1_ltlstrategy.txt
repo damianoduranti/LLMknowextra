@@ -1,0 +1,1 @@
+Generate a controller strategy to synthesize the LTL formula p U q, given that the controllable variable is p and the uncontrollable variable is q. Represent the strategy using a finite state transducer, with the arcs representing the propositions evaluated to true by the controller and the environment at each istant.

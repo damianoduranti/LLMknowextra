@@ -1,0 +1,9 @@
+-----------
+GPT3.5 ANSWER 1
+(incorrect on TRACE P1)
+
+https://chat.openai.com/share/d4e70480-f971-4348-ae05-9c5f174c80b5
+
+G(r → X(q → Fp))
+
+-----------

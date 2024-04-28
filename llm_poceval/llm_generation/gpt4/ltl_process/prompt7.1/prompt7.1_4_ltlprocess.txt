@@ -1,0 +1,5 @@
+GPT4 ANSWER 4 (incorrect on TRACE P1)
+
+https://chat.openai.com/share/577e9551-57d0-490d-86c2-1d98e57c1996
+
+G(p⇒X(p⇒X(p⇒X(p⇒X(p)))))∧Fq

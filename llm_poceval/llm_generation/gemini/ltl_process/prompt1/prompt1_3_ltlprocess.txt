@@ -1,0 +1,6 @@
+GEMINI ANSWER 3
+INCORRECT on TRACE P1
+
+https://g.co/gemini/share/9394bb549c64
+
+F (p ∧ X (q))

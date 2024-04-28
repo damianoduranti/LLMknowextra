@@ -1,0 +1,6 @@
+----------
+GPT4 ANSWER 2 (incorrect on TRACE N1)
+
+G(p→X(p→X(p→X(p→X(p→G(q→Gr))))))
+
+https://chat.openai.com/share/9d731973-2f8a-43ab-810e-63fc6c9ab73d

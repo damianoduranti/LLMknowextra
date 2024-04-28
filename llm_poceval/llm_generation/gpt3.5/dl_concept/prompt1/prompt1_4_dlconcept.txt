@@ -1,0 +1,17 @@
+GPT3.5 ANSWER 4
+
+SYNTACTICALLY INCORRECT - Rigid regime (not an ALCO concept)
+
+ANS 4'
+SYNTACTICALLY CORRECT - Flexible regime (ignoring not well formed elements)
+ANS 4.A: INCORRECT on s3 in E-
+ANS 4.B: SYNTACTICALLY INCORRECT (not an ALCO concept)
+ANS 4.C: SYNTACTICALLY INCORRECT (not an ALCO concept)
+
+https://chat.openai.com/share/1f718d43-b1ad-428a-91ae-a0630e996e06
+
+ANS 4.A: C1​ = ∃studiesAt.Uni ⊓ Student
+
+ANS 4.B: C2​ = C1​ ⊓ studiesAt(s1,uniBo) ⊓ studiesAt(s2,uniSi)
+
+ANS 4.C: C3​ = C2​ ⊓ ¬studiesAt(s3,EuUni)

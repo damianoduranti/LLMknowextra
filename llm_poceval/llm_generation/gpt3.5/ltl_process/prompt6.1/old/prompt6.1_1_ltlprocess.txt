@@ -1,0 +1,132 @@
+Provide an LTL formula, using only the propositional letters "p" and "q", that is satisfied on the following traces:
+
+TRACE 1
+
+1. { r }
+2. { p }
+3. { q }
+4. { }
+5. { p, r }
+6. { r }
+7. { q, r }
+8. { p }
+9. { q, r }
+
+TRACE 2
+
+1. {  }
+2. {  }
+3. { p }
+4. { q }
+5. { }
+6. { }
+7. { p }
+8. {  }
+9. { q }
+
+and falsified on the following traces:
+
+TRACE 3
+
+1. { r }
+2. { p, r }
+3. { r }
+4. { r }
+5. { q, r }
+6. { r }
+7. { r }
+8. { p, r }
+9. { r }
+
+TRACE 4
+
+1. { p, q }
+2. { }
+3. { }
+4. { p, q }
+5. { p }
+6. { p }
+7. { p }
+8. { p }
+9. { p }
+
+
+
+%%% EXPECTED ANSWER: G(p -> F q ) -- "Always in the future, if p holds, then eventually q holds"
+
+
+-----------
+GPT3.5 ANSWER 1 (incorrect on TRACE P1, TRACE P2)
+
+https://chat.openai.com/share/518cc7c0-9de7-4030-8aa3-a7fbe73b0e20
+
+(◊p ∧ ◊q ∧ ◊r) ∧ ¬(◊p ∧ ◊q)
+
+-----------
+
+
+-----------
+GPT3.5 Answer 1 (old conversation -- same conversation as Prompt 6)
+
+Certainly! An LTL formula that captures the described properties could be:
+
+F(r∧(F(p)∨F(q)))
+
+This formula states that eventually (F(r)), it will always be the case that p or q will hold in the future. This holds for TRACE 1 and TRACE 2 but is not satisfied in TRACE 3 and TRACE 4.
+
+-----------
+
+-----------
+GPT3.5 Answer 2 (old conversation -- same conversation as Prompt 6)
+
+Certainly! An LTL formula that captures the described properties could be:
+
+G(r→(F(p)∨F(q)))
+
+This formula states that globally (G), if r holds, then eventually (F) either p or q will hold. This holds for TRACE 1 and TRACE 2 but is not satisfied in TRACE 3 and TRACE 4.
+
+-----------
+
+-----------
+GPT3.5 Answer 3 (new conversation)
+
+To construct a Linear Temporal Logic (LTL) formula that is satisfied on the specified traces and falsified on the others, we can use the following formula:
+
+LTL formula: (◊p∧◊q)∨(□¬r∧□(p∨q))
+
+This formula can be read as follows:
+
+    ◊p∧◊q: Eventually, p and q must both be true.
+    □¬r: Globally, r is never true.
+    □(p∨q): Globally, either p or q is always true.
+
+Now let's check how the formula satisfies and falsifies the given traces:
+
+Satisfied Traces:
+
+    TRACE 1:
+        Eventually, both p and q are true (satisfied by ◊p∧◊q).
+        Globally, r is never true (satisfied by □¬r).
+        Globally, either p or q is always true (satisfied by □(p∨q)).
+        Therefore, TRACE 1 satisfies the formula.
+
+    TRACE 2:
+        Eventually, both pp and qq are true (satisfied by ◊p∧◊q).
+        Globally, rr is never true (satisfied by □¬r□¬r).
+        Globally, either p or q is always true (satisfied by □(p∨q)).
+        Therefore, TRACE 2 satisfies the formula.
+
+Falsified Traces:
+
+    TRACE 3:
+        Eventually, both p and q are true (satisfied by ◊p∧◊q).
+        However, r is always true globally, which contradicts □¬r.
+        Therefore, TRACE 3 falsifies the formula.
+
+    TRACE 4:
+        Eventually, both p and q are true (satisfied by ◊p∧◊q).
+        Globally, r is never true (satisfied by □¬r).
+        However, p is always true globally, which contradicts □(p∨q).
+        Therefore, TRACE 4 falsifies the formula.
+
+-----------

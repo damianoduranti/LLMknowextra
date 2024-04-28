@@ -1,0 +1,9 @@
+------------
+GPT3.5 ANSWER 2
+(INCORRECT on TRACE P1, TRACE P2, TRACE N2)
+
+https://chat.openai.com/share/6f58ef51-f5ab-4eda-8556-19edd66bfee0
+
+G(r → Fp)
+
+------------

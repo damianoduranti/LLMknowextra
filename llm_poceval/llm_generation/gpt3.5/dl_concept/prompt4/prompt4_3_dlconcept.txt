@@ -1,0 +1,3 @@
+https://chat.openai.com/share/2d0da6c8-b33f-468e-9a8f-cd455c8084d2
+
+C=⊤⊓∃hasOperator.DLOperator⊓¬(∃hasOperator.MLOperator⊓(∃hasOperator.DLOperator⊓⊤))

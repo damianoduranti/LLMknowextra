@@ -1,0 +1,6 @@
+----------
+GPT3.5
+
+https://chat.openai.com/share/de1d15d7-9ade-4c27-8625-0b36192e9fbc
+
+C≡∃hasOperator.(¬DLOperator⊓∀hasOperator.(¬MLOperator⊓∃hasOperator.⊤⊓∀EnjoysCIP.(¬HuLog⊓∀EnjoysPBDP.¬HLog)))

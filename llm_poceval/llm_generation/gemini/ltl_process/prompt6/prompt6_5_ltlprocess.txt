@@ -1,0 +1,6 @@
+GEMINI ANSWER 5
+INCORRECT on TRACE P2, TRACE N1
+
+https://g.co/gemini/share/a513f412f85e
+
+(F p ∧ F q)  U (Gr)
