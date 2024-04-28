@@ -1,0 +1,130 @@
+MODULE main
+VAR r : boolean;
+VAR p : boolean;
+VAR q : boolean;
+VAR End : boolean;
+VAR pc : 1..10;
+
+ASSIGN
+ init(pc) := 1;
+ next(pc) := case
+   pc <= 9 : pc + 1;
+   TRUE    : 10;
+   esac;
+  init(End) := FALSE;
+  next(End) := case
+    pc >= 9 : TRUE;
+    TRUE    : End;
+  esac;
+
+INVAR
+ pc = 1 -> (r & !p & !q)
+INVAR
+ pc = 2 -> (r & !p & !q)
+INVAR
+ pc = 3 -> (r & !p & !q)
+INVAR
+ pc = 4 -> (r & p & !q)
+INVAR
+ pc = 5 -> (r & !p & !q)
+INVAR
+ pc = 6 -> (r & !p & q)
+INVAR
+ pc = 7 -> (r & !p & !q)
+INVAR
+ pc = 8 -> (r & !p & !q)
+INVAR
+ pc = 9 -> (r & !p & !q)
+
+
+
+-- GPT3.5 LTLSPEC - ANS 1 (correct)
+LTLSPEC F( (G(r | End) & F(p & !End)) & !End);
+
+-- GPT3.5 LTLSPEC - ANS 2 (incorrect)
+LTLSPEC F(r & !End) & G( (r -> X( (!r U (!p & !End) ) & !End) ) | End);
+
+-- GPT3.5 LTLSPEC - ANS 3 (incorrect)
+LTLSPEC G( (r -> ( X(r & !End) & !(X(p & !End) & X(q & !End) ) ) ) | End);
+
+-- GPT3.5 LTLSPEC - ANS 4 (correct)
+LTLSPEC G( F(r & !End) & F( (p -> F(q & !End) ) & !End) | End);
+
+-- GPT3.5 LTLSPEC - ANS 5 (ANS 5.A correct; ANS 5.B correct)
+LTLSPEC G(r | End);
+LTLSPEC !G(q | End);
+
+
+
+-- GPT4 LTLSPEC - ANS 1 (correct)
+LTLSPEC G (r | End);
+
+-- GPT4 LTLSPEC - ANS 2 (correct)
+LTLSPEC G (r | End);
+
+-- GPT4 LTLSPEC - ANS 3 (correct)
+LTLSPEC G (r | End);
+
+-- GPT4 LTLSPEC - ANS 4 (correct)
+LTLSPEC G (r | End);
+
+-- GPT4 LTLSPEC - ANS 5 (correct)
+LTLSPEC G (r | End);
+
+
+
+-- BARD LTLSPEC
+-- ANS 1 (syntactically incorrect)
+-- G r & AG (r U p)
+-- ANS 1' (incorrect -- under "flexible" regime, with CTL* formulas modified into LTL formulas)
+-- G r & G (r U p)
+LTLSPEC G(r | End) & G( (r U (p & !End) ) | End);
+
+-- BARD LTLSPEC - ANS 2 (correct)
+LTLSPEC G(r | End) & F(r & !End);
+
+-- BARD LTLSPEC - ANS 3 (correct)
+LTLSPEC G( (r | F(r & !End) ) | End);
+
+-- BARD LTLSPEC - ANS 4 (NOT IN RIGHT SIGNATURE; correct)
+LTLSPEC G( ( r -> F( (r | p) & !End) ) | End);
+
+-- BARD LTLSPEC - ANS 5 (NOT IN RIGHT SIGNATURE; correct)
+LTLSPEC G( ( r -> F( (r | q) & !End) ) | End);
+
+
+
+
+-- GEMINI
+-- ANS 1
+-- (SYNTACTICALLY INCORRECT, not in the right signature; )
+-- GF(r ∧ X(¬p ∨ ¬q))
+-- LTLSPEC ;
+
+
+-- GEMINI
+-- ANS 2
+-- (incorrect)
+-- GF (r -> Xr)
+LTLSPEC G( F( (r -> X(r & !End)) & !End) | End);
+
+
+-- GEMINI
+-- ANS 3
+-- (SYNTACTICALLY INCORRECT, not in the right signature; )
+-- GF(r ∧ X(¬p ∨ ¬q))
+-- LTLSPEC ;
+
+
+-- GEMINI
+-- ANS 4
+-- (incorrect)
+-- GF (r -> Xr)
+LTLSPEC G( F( (r -> X(r & !End)) & !End) | End);
+
+
+-- GEMINI
+-- ANS 5
+-- (SYNTACTICALLY INCORRECT, not in the right signature; )
+-- GF(r ∧ X(¬p ∨ ¬q))
+-- LTLSPEC ;
