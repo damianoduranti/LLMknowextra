@@ -1,0 +1,97 @@
+
+-- GPT3.5
+-- ANS 1
+-- PROMPT MISUNDERSTOOD - 2 answers provided;
+-- ANS 1.A
+-- INCORRECT on TRACE P1, TRACE N2
+-- ANS 1.B
+-- INCORRECT on TRACE P1, TRACE P2, TRACE N2
+
+-- GPT3.5
+-- ANS 2
+-- INCORRECT on TRACE N1
+
+-- GPT3.5
+-- ANS 3
+-- INCORRECT on TRACE P1, TRACE P2
+
+-- GPT3.5
+-- ANS 4
+-- INCORRECT on TRACE P1
+
+-- GPT3.5
+-- ANS 5
+-- INCORRECT on TRACE N1
+
+
+
+-- GPT4
+-- ANS 1
+-- CORRECT
+
+-- GPT4
+-- ANS 2
+-- CORRECT
+
+-- GPT4
+-- ANS 3
+-- INCORRECT on TRACE P2
+
+-- GPT4
+-- ANS 4
+-- INCORRECT on TRACE N1
+
+-- GPT4
+-- ANS 5
+-- INCORRECT on TRACE P2
+
+
+
+-- BARD
+-- ANS 1
+-- INCORRECT on TRACE P1, TRACE P2
+
+-- BARD
+-- ANS 2
+-- INCORRECT on TRACE P1
+
+-- BARD
+-- ANS 3
+-- INCORRECT on TRACE P1
+
+-- BARD
+-- ANS 4
+-- INCORRECT on TRACE P1, TRACE P2
+
+-- BARD
+-- ANS 5
+-- INCORRECT on TRACE N1
+
+
+
+
+
+
+
+-- GEMINI
+-- ANS 1
+-- INCORRECT on TRACE P2
+-- under flexible regime (irreflexive semanics): CORRECT
+
+-- GEMINI
+-- ANS 2
+-- INCORRECT on TRACE P2
+-- under flexible regime (irreflexive semanics): CORRECT
+
+-- GEMINI
+-- ANS 3
+-- INCORRECT on TRACE P2
+-- under flexible regime (irreflexive semanics): CORRECT
+
+-- GEMINI
+-- ANS 4
+-- INCORRECT on TRACE N1
+
+-- GEMINI
+-- ANS 5
+-- INCORRECT on TRACE P1

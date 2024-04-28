@@ -1,0 +1,111 @@
+-- GPT3.5
+-- ANS 1
+-- CORRECT
+EnjoysCIP and (hasOperator some CLOperator)
+
+-- GPT3.5
+-- ANS 2
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALCO concept)
+C≡∃hasOperator.CLOperator⊓∀hasOperator.CLOperator⊓∃hasOperator.MLOperator⊓∀hasOperator.MLOperator⊓∃EnjoysCIP⊓∀EnjoysCIP⊓∃EnjoysPBDP⊓∀EnjoysPBDP⊓∃EnjoysBDP⊓∀EnjoysBDP
+C′≡C⊓¬(∃hasOperator.CLOperator⊓∃hasOperator.MLOperator⊓∃EnjoysBDP)
+-- SYNTACTICALLY CORRECT - under "flexible" regime (converted into an ALCO concept, by ignoring syntactically incorrect constructors)
+-- INCORRECT on alc in E+
+(hasOperator some CLOperator) and (hasOperator only CLOperator) and (hasOperator some MLOperator) and (hasOperator only MLOperator) and EnjoysCIP and EnjoysCIP and EnjoysPBDP and EnjoysPBDP and EnjoysBDP and EnjoysBDP and not ((hasOperator some CLOperator) and (hasOperator some MLOperator) and EnjoysBDP)
+
+-- GPT3.5
+-- ANS 3
+-- INCORRECT on alc in E+
+(hasOperator some CLOperator) and (hasOperator only CLOperator) and not (hasOperator some MLOperator)
+
+-- GPT3.5
+-- ANS 4
+-- CORRECT
+EnjoysCIP and (hasOperator some CLOperator)
+
+-- GPT3.5
+-- ANS 5
+-- INCORRECT on alcou, ml, mlnu in E-
+EnjoysBDP
+
+
+
+-- GPT4
+-- ANS 1
+-- CORRECT
+EnjoysCIP and (hasOperator only CLOperator)
+
+-- GPT4
+-- ANS 2
+-- CORRECT
+(hasOperator some CLOperator) and EnjoysCIP
+
+-- GPT4
+-- ANS 3
+-- CORRECT
+EnjoysCIP and (hasOperator some CLOperator)
+
+-- GPT4
+-- ANS 4
+-- CORRECT
+EnjoysCIP and (not (not EnjoysBDP)) and (hasOperator some CLOperator)
+
+-- GPT4
+-- ANS 5
+-- CORRECT
+{alc}
+
+
+
+-- BARD
+-- ANS 1
+-- CORRECT
+{alc} and not ((hasOperator some MLOperator) and not EnjoysBDP)
+
+-- BARD
+-- ANS 2
+-- INCORRECT on alc in E+
+(hasOperator some CLOperator) and (hasOperator only CLOperator) and ((hasOperator only MLOperator) and not EnjoysBDP)
+
+-- BARD
+-- ANS 3
+-- INCORRECT on alc in E+
+-- INCORRECT on alcou, mlnu in E-
+EnjoysBDP and not EnjoysPBDP
+
+-- BARD
+-- ANS 4
+-- INCORRECT on alc in E+
+{alc} and not EnjoysBDP
+
+-- BARD
+-- ANS 5
+-- INCORRECT on ml in E-
+EnjoysPBDP and not ((not EnjoysCIP) and hasOperator some {ml, mln, mlnu})
+
+
+
+
+-- GEMINI
+-- ANS 1
+-- CORRECT
+{alc} and hasOperator some CLOperator
+
+-- GEMINI
+-- ANS 2
+-- CORRECT
+{alc} and hasOperator some CLOperator
+
+-- GEMINI
+-- ANS 3
+-- CORRECT
+{alc} and hasOperator some CLOperator
+
+-- GEMINI
+-- ANS 4
+-- INCORRECT on alc in E+
+{alc} and hasOperator some CLOperator and not (hasOperator some MLOperator)
+
+-- GEMINI
+-- ANS 5
+-- CORRECT
+{alc} and hasOperator some CLOperator

@@ -1,0 +1,165 @@
+MODULE main
+VAR r : boolean;
+VAR p : boolean;
+VAR q : boolean;
+VAR End : boolean;
+VAR pc : 1..10;
+
+ASSIGN
+ init(pc) := 1;
+ next(pc) := case
+   pc <= 9 : pc + 1;
+   TRUE    : 10;
+   esac;
+  init(End) := FALSE;
+  next(End) := case
+    pc >= 9 : TRUE;
+    TRUE    : End;
+  esac;
+
+INVAR
+ pc = 1 -> (!r & !p & !q)
+INVAR
+ pc = 2 -> (!r & !p & !q)
+INVAR
+ pc = 3 -> (!r & p & !q)
+INVAR
+ pc = 4 -> (!r & !p & q)
+INVAR
+ pc = 5 -> (!r & !p & !q)
+INVAR
+ pc = 6 -> (!r & !p & !q)
+INVAR
+ pc = 7 -> (!r & p & !q)
+INVAR
+ pc = 8 -> (!r & !p & !q)
+INVAR
+ pc = 9 -> (!r & !p & q)
+
+
+
+-- GPT3.5 LTLSPEC
+-- ANS 1 (incorrect)
+-- (Fp ∧ Fq ∧ Fr) ∧ !(Fp ∧ Fq)
+LTLSPEC (F(p & !End) & F(q & !End) & F(r & !End)) & !(F(p & !End) & F(q & !End));
+
+-- GPT3.5 LTLSPEC
+-- ANS 2 (incorrect)
+-- G(Fp & Fq) & (Fq -> Fp)
+LTLSPEC G((F(p & !End) & F(q & !End)) | End) & (F(q & !End) -> F(p & !End));
+
+-- GPT3.5 LTLSPEC
+-- ANS 3 (incorrect)
+-- (Fp & Fq) & (Fr & Gp)
+LTLSPEC (F(p & !End) & F(q & !End)) & (F(r & !End) & G(p | End));
+
+-- GPT3.5 LTLSPEC
+-- ANS 4 (incorrect)
+-- G(p & F(q & F(r)))
+LTLSPEC G((p & F( (q & F(r & !End) ) & !End) ) | End);
+
+-- GPT3.5 LTLSPEC
+-- ANS 5 (correct)
+-- F(p & Fq)
+LTLSPEC F((p & F(q & !End)) & !End);
+
+
+
+-- GPT4 LTLSPEC
+-- ANS 1 (correct)
+-- G(p -> Fq)
+LTLSPEC G ( (p -> F (q & !End)) | End );
+
+-- GPT4 LTLSPEC
+-- ANS 2 (correct)
+-- Fp & Fq & !G(p & q)
+LTLSPEC F(p & !End) & F(q & !End) & !G((p & q) | End);
+
+-- GPT4 LTLSPEC
+-- ANS 3 (correct)
+-- G(!(p & q)) & (Fp -> X(Fq)) & (Fq -> X(Fp))
+LTLSPEC G((!(p & q)) | End) & (F(p & !End) -> X((F(q & !End)) & !End)) & (F(q & !End) -> X((F(p & !End)) & !End));
+
+-- GPT4 LTLSPEC
+-- ANS 4 (correct)
+-- F(p -> Fq)
+LTLSPEC F((p -> F(q & !End)) & !End);
+
+-- GPT4 LTLSPEC
+-- ANS 5 (correct)
+-- G!(p & q)
+LTLSPEC G(!(p & q) | End);
+
+
+
+-- BARD LTLSPEC
+-- ANS 1 (correct)
+-- !G(p U q)
+LTLSPEC !G((p U (q & !End)) | End);
+
+-- BARD LTLSPEC
+-- ANS 2 (syntactically incorrect - under "rigid" regime, not an LTL formula;)
+-- AG (p -> F q) & EF (!p | F q)
+-- ANS 2' (syntactically correct -- under "flexible" regime, converting CTL* into LTL formulas; (semantically) correct)
+-- G(p -> F q) & F(!p | F q)
+LTLSPEC G((p -> F(q & !End)) | End) & F((!p | F(q & !End)) & !End);
+
+-- BARD LTLSPEC
+-- ANS 3 (incorrect)
+-- G(p U q) & G(q U p)
+LTLSPEC G((p U (q & !End)) | End) & G((q U (p & !End)) | End);
+
+-- BARD LTLSPEC
+-- ANS 4 (correct)
+-- G(p U (q -> Fq))
+LTLSPEC G((p U ((q -> F(q & !End)) & !End)) | End);
+
+-- BARD LTLSPEC
+-- ANS 5 (correct)
+-- G(p -> Fq)
+LTLSPEC G((p -> F(q & !End)) | End);
+
+
+
+
+
+
+
+-- GEMINI LTLSPEC
+-- ANS 1
+-- INCORRECT
+-- (Fp ∧ Fq)  U (Gp ∧ Gq)
+LTLSPEC (F(p & !End) & F(q & !End))  U ((G(p & !End) & G(q & !End)) & !End);
+
+-- GEMINI LTLSPEC
+-- ANS 2
+-- INCORRECT
+-- (Fp ∧ Fq)  U (Gp ∧ Gq)
+LTLSPEC (F(p & !End) & F(q & !End))  U ((G(p & !End) & G(q & !End)) & !End);
+
+-- GEMINI LTLSPEC
+-- ANS 3
+-- INCORRECT
+-- (Fp ∧ Fq)  U (Gp ∧ Gq)
+LTLSPEC (F(p & !End) & F(q & !End))  U ((G(p & !End) & G(q & !End)) & !End);
+
+-- GEMINI LTLSPEC
+-- ANS 4
+-- SYNTACTICALLY INCORRECT
+-- under flexible regime (ignoring signature restriction): INCORRECT
+-- F (p ∧ G (q U r))
+LTLSPEC F((p & G((q U (r & !End)) | End)) & !End);
+
+-- GEMINI LTLSPEC
+-- ANS 5
+-- SYNTACTICALLY INCORRECT
+-- under flexible regime (ignoring signature restriction): INCORRECT
+-- F (p ∧ G (q U r))
+LTLSPEC F((p & G((q U (r & !End)) | End)) & !End);
+
+
+
+
+
+-- EXPECTED LTLSPEC
+-- LTLSPEC G ( (p -> F (q & !End)) | End );

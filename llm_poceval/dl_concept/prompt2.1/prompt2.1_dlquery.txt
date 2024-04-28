@@ -1,0 +1,118 @@
+-- GPT3.5
+-- ANS 1
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+C=Student ⊓ ∀¬studiesAt.EuUni
+-- ANS 1.A'
+-- SYNTACTICALLY CORRECT - under "flexible" regime (converted into ALC concept, based on textual explanation)
+-- INCORRECT on s1, s2 in E+
+Student and (studiesAt some EuUni) and (studiesAt only (not EuUni))
+
+-- GPT3.5
+-- ANS 2
+-- INCORRECT on s1, s2 in E+
+(studiesAt some EuUni) and (studiesAt only OcUni)
+
+-- GPT3.5
+-- ANS 3
+-- INCORRECT on s1, s2 in E+
+-- INCORRECT on s3 in E+
+studiesAt some (not EuUni)
+-- N.B. correct if E+/E- swapped
+
+-- GPT3.5
+-- ANS 4
+-- INCORRECT on s1, s2 in E+
+-- INCORRECT on s3 in E+
+(studiesAt some Uni) and not (studiesAt some EuUni)
+-- N.B. correct if E+/E- swapped
+
+-- GPT3.5
+-- ANS 5
+-- CORRECT
+Student and (studiesAt some EuUni)
+
+
+
+-- GPT4
+-- ANS 1
+-- CORRECT
+Student and (studiesAt some EuUni)
+
+-- GPT4
+-- ANS 2
+-- CORRECT
+Student and (studiesAt some EuUni)
+
+-- GPT4
+-- ANS 3
+-- CORRECT
+studiesAt some EuUni
+
+-- GPT4
+-- ANS 4
+-- CORRECT
+Student and (studiesAt some EuUni)
+
+-- GPT4
+-- ANS 5
+-- CORRECT
+Student and (studiesAt some EuUni)
+
+
+
+-- BARD
+-- ANS 1
+-- CORRECT
+studiesAt some EuUni
+
+-- BARD
+-- ANS 2
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALCO concept)
+∃studiesAt.Student(¬∃studiesAt.EuUni)
+-- SYNTACTICALLY CORRECT - under "flexible" regime (converted into ALCO concept, based on textual explanation)
+-- INCORRECT on s1, s2 in E+; INCORRECT on s3 in E-;
+studiesAt some (Uni and not EuUni)
+
+-- BARD
+-- ANS 3
+-- INCORRECT on s1, s2 in E+
+EuUni and (studiesAt some Uni)
+
+-- BARD
+-- ANS 4
+-- CORRECT
+(studiesAt some EuUni) and not (studiesAt some OcUni)
+
+-- BARD
+-- ANS 5
+-- CORRECT
+(studiesAt some Uni) and not (studiesAt some OcUni)
+
+
+
+
+
+-- GEMINI
+-- ANS 1
+-- INCORRECT on s1, s2 in E+
+studiesAt some Uni and (EuUni or OcUni)
+
+-- GEMINI
+-- ANS 2
+-- INCORRECT on s1, s2 in E+
+EuUni and studiesAt some (not OcUni)
+
+-- GEMINI
+-- ANS 3
+-- CORRECT
+studiesAt some EuUni and not (studiesAt some OcUni)
+
+-- GEMINI
+-- ANS 4
+-- INCORRECT on s1, s2 in E+
+EuUni and studiesAt some (not OcUni)
+
+-- GEMINI
+-- ANS 5
+-- INCORRECT on s1, s2 in E+
+EuUni and studiesAt some (not OcUni)

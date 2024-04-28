@@ -1,0 +1,147 @@
+MODULE main
+VAR r : boolean;
+VAR p : boolean;
+VAR q : boolean;
+VAR End : boolean;
+VAR pc : 1..10;
+
+ASSIGN
+ init(pc) := 1;
+ next(pc) := case
+   pc <= 9 : pc + 1;
+   TRUE    : 10;
+   esac;
+  init(End) := FALSE;
+  next(End) := case
+    pc >= 9 : TRUE;
+    TRUE    : End;
+  esac;
+
+INVAR
+ pc = 1 -> (r & p & !q)
+INVAR
+ pc = 2 -> (r & p & !q)
+INVAR
+ pc = 3 -> (r & !p & !q)
+INVAR
+ pc = 4 -> (r & p & !q)
+INVAR
+ pc = 5 -> (r & !p & !q)
+INVAR
+ pc = 6 -> (r & !p & q)
+INVAR
+ pc = 7 -> (r & !p & !q)
+INVAR
+ pc = 8 -> (r & p & !q)
+INVAR
+ pc = 9 -> (r & !p & !q)
+
+
+
+-- GPT3.5 LTLSPEC
+-- ANS 1 (correct)
+-- F(r & (X(!p & !q) | (X(p) ∧ X(!r & !p & !q))))
+LTLSPEC F((r & ( X((!p & !q) & !End) | (X(p & !End) & X((!r & !p & !q) & !End) ) ) ) & !End);
+
+-- GPT3.5 LTLSPEC
+-- ANS 2 (incorrect)
+-- G(r -> Fp)
+LTLSPEC G( (r -> F(p & !End)) | End);
+
+-- GPT3.5 LTLSPEC
+-- ANS 3 (incorrect)
+-- G(r -> (X(p | q)))
+LTLSPEC G( (r -> X( (p | q) & !End)) | End);
+
+-- GPT3.5 LTLSPEC
+-- ANS 4 (correct)
+-- F(p & Gr)
+LTLSPEC F( (p & G(r | End)) & !End);
+
+-- GPT3.5 LTLSPEC
+-- ANS 5 (incorrect)
+-- G(Fr & Fp & XG(Fq & G!p))
+LTLSPEC G( (F(r & !End) & F(p & !End) & X( (G (F(q & !End) & G(!p | End) ) | End) & !End) ) | End);
+
+
+
+-- GPT4 LTLSPEC
+-- ANS 1 (correct)
+-- G(r)
+LTLSPEC G (r | End);
+
+-- GPT4 LTLSPEC
+-- ANS 2 (correct)
+-- G(r)
+LTLSPEC G (r | End);
+
+-- GPT4 LTLSPEC
+-- ANS 3 (correct)
+-- G(r)
+LTLSPEC G (r | End);
+
+-- GPT4 LTLSPEC
+-- ANS 4 (correct)
+-- G(r)
+LTLSPEC G (r | End);
+
+-- GPT4 LTLSPEC
+-- ANS 5 (correct)
+-- G(r)
+LTLSPEC G (r | End);
+
+
+
+-- BARD LTLSPEC
+-- ANS 1 (correct)
+-- (G r) & (F p U r)
+LTLSPEC G (r | End) & (F(p & !End) U (r & !End));
+
+-- BARD LTLSPEC
+-- ANS 2 (correct)
+-- G(r -> F(r)) & G(p -> F(p)) & G(q -> F(q))
+LTLSPEC G ( (r -> F(r & !End)) | End) & G ( (p -> F(p & !End)) | End) & G ( (q -> F(q & !End)) | End);
+
+-- BARD LTLSPEC
+-- ANS 3 (correct)
+-- G(r -> F(r))
+LTLSPEC G ( (r -> F(r & !End)) | End);
+
+-- BARD LTLSPEC
+-- ANS 4 (correct)
+-- G(r -> F(r | p))
+LTLSPEC G ( (r -> F( (r | p) & !End)) | End);
+
+-- BARD LTLSPEC
+-- ANS 5 (correct)
+-- G(r) & F(!p U !q)
+LTLSPEC G(r | End) & F( (!p U (!q & !End)) & !End);
+
+
+
+
+
+-- GEMINI LTLSPEC
+-- ANS 1 (correct)
+--  (F  p) U (F  q)
+LTLSPEC (F(p & !End)) U ((F(q & !End)) & !End);
+
+-- GEMINI LTLSPEC
+-- ANS 2 (correct)
+-- (F (p U q)) ∧ (G r)
+LTLSPEC F( (p U (q & !End)) & !End) & G(r | End);
+
+-- GEMINI LTLSPEC
+-- ANS 3 (correct)
+-- F (p U q)
+LTLSPEC F( (p U (q & !End)) & !End);
+
+-- GEMINI LTLSPEC
+-- ANS 4 (correct)
+-- (F (p U q)) ∧ GF(r)
+LTLSPEC F( (p U (q & !End)) & !End) & G( F(r & !End) | End);
+
+-- GEMINI LTLSPEC
+-- ANS 5 (correct)
+-- (F (p U q)) ∧ GF(r)
+LTLSPEC F( (p U (q & !End)) & !End) & G( F(r & !End) | End);
