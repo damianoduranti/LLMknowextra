@@ -1,0 +1,125 @@
+-- GPT3.5
+-- ANS 1
+-- INCORRECT on alco, alcou, ml, mln, mlnu in E-
+DLog and (hasOperator some owl:Thing)
+
+-- GPT3.5
+-- ANS 2
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+DLog⊓∃hasOperator.(¬MLOperator⊓¬DLOperator)⊓¬HuLog⊓¬HLog⊓∀EnjoysCIP.(¬EnjoysPBDP)⊓∀EnjoysPBDP.(¬EnjoysBDP)
+-- SYNTACTICALLY CORRECT - under "flexible" regime (removing syntactically incorrect components)
+-- INCORRECT on alc in E+
+-- INCORRECT on ml in E-
+DLog and hasOperator some ((not MLOperator) and (not DLOperator)) and not HuLog and not HLog
+
+-- GPT3.5
+-- ANS 3
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+∃hasOperator.(¬DLOperator⊓∀hasOperator.(¬MLOperator⊓∃hasOperator.⊤⊓∀EnjoysCIP.(¬HuLog⊓∀EnjoysPBDP.¬HLog)))
+-- SYNTACTICALLY CORRECT - under "flexible" regime (removing syntactically incorrect components)
+-- INCORRECT on alc in E+
+-- INCORRECT on alco, alcou, ml, mln, mlnu in E-
+hasOperator some ((not DLOperator) and hasOperator only (not MLOperator and hasOperator some owl:Thing))
+
+-- GPT3.5
+-- ANS 4
+-- INCORRECT on alc in E+
+DLog and (hasOperator only (not MLOperator)) and (hasOperator only (not DLOperator)) and (not EnjoysCIP) and (not HuLog) and (not HLog)
+
+-- GPT3.5
+-- ANS 5
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+DLog⊓∀hasOperator.¬MLOperator⊓∀hasOperator.¬DLOperator⊓∀EnjoysCIP.¬EnjoysPBDP⊓∀EnjoysPBDP.¬EnjoysBDP⊓∀HuLog.¬EnjoysPBDP⊓∀HLog.¬EnjoysBDP
+-- SYNTACTICALLY CORRECT - under "flexible" regime (removing syntactically incorrect components)
+-- INCORRECT on alc in E+
+DLog and (hasOperator only (not MLOperator)) and (hasOperator only (not DLOperator))
+
+
+
+-- GPT4
+-- ANS 1
+-- CORRECT
+DLog and (hasOperator some DLOperator) and EnjoysCIP
+
+-- GPT4
+-- ANS 2
+-- INCORRECT on alc in E+
+DLog and EnjoysCIP and (not HLog) and (not HuLog) and not (hasOperator some MLOperator)
+
+-- GPT4
+-- ANS 3
+-- CORRECT
+DLog and (hasOperator some DLOperator) and EnjoysCIP
+
+-- GPT4
+-- ANS 4
+-- CORRECT
+DLog and (hasOperator some DLOperator) and EnjoysCIP
+
+-- GPT4
+-- ANS 5
+-- CORRECT
+DLog and EnjoysCIP and (hasOperator some DLOperator)
+
+
+
+-- BARD
+-- ANS 1
+-- INCORRECT on alc in E+
+-- INCORRECT on alco, alcou, mln, mlnu in E-
+DLog and (not EnjoysCIP)
+
+-- BARD
+-- ANS 2
+-- INCORRECT on alc in E+
+DLog and not (hasOperator some DLOperator) and EnjoysCIP and (not EnjoysBDP)
+
+-- BARD
+-- ANS 3
+-- INCORRECT on alco, alcou, ml, mlnu in E-
+DLog and EnjoysBDP
+
+-- BARD
+-- ANS 4
+-- INCORRECT on alc in E+
+-- INCORRECT on ml in E-
+DLog and not (hasOperator some (DLOperator and not MLOperator)) and EnjoysCIP and (not HuLog)
+
+-- BARD
+-- ANS 5
+-- INCORRECT on alc in E+
+-- INCORRECT on ml in E-
+DLog and EnjoysCIP and not (hasOperator some DLOperator)
+
+
+
+
+
+-- GEMINI
+-- ANS 1
+-- INCORRECT on alc in E+
+-- INCORRECT on alco, alcou, ml, mln, mlnu in E-
+ALC CONCEPT C NOT EXISTING
+
+-- GEMINI
+-- ANS 2
+-- INCORRECT on alc in E+
+-- INCORRECT on alco in E-
+DLog and not(MLog or HuLog)
+
+-- GEMINI
+-- ANS 3
+-- INCORRECT on alc in E+
+-- INCORRECT on alco, alcou in E-
+DLog and not (MLog) and not (hasOperator some (not DLOperator))
+
+-- GEMINI
+-- ANS 4
+-- INCORRECT on alc in E+
+-- INCORRECT on alco, alcou in E-
+DLog and not (MLog) and not (hasOperator some (not DLOperator))
+
+-- GEMINI
+-- ANS 5
+-- INCORRECT on alco, alcou in E-
+DLog and (hasOperator only (not MLOperator))

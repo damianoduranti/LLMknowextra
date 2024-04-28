@@ -1,0 +1,119 @@
+-- GPT3.5
+-- ANS 1
+-- INCORRECT on c1, c2 in E+
+(competesIn some PremierLeague) and (competesIn some Bundesliga)
+
+-- GPT3.5
+-- ANS 2
+-- INCORRECT on c1, c2 in E+
+-- INCORRECT on c3, c4 in E-
+competesIn some PremierLeague
+-- N.B. Correct if E+/E- swapped
+
+-- GPT3.5
+-- ANS 3
+-- INCORRECT on c1, c2 in E+
+(competesIn some PremierLeague) and (competesIn only Bundesliga)
+
+-- GPT3.5
+-- ANS 4
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+C=D⊓∃competesIn.PremierLeague⊓∀competesIn.¬∃competesIn.PremierLeague (D dataset)
+-- SYNTACTICALLY CORRECT - under "flexible" regime (converted into ALC concept, by removing syntactically incorrect elements)
+-- INCORRECT on c1, c2 in E+
+-- INCORRECT on c3, c4 in E-
+(competesIn some PremierLeague) and (competesIn only (not (competesIn some PremierLeague)))
+
+-- GPT3.5
+-- ANS 5
+-- INCORRECT on c1, c2 in E+
+(competesIn some PremierLeague) and (competesIn some Bundesliga)
+
+
+
+-- GPT4
+-- ANS 1
+-- CORRECT
+Footballclub and (competesIn some Bundesliga)
+
+-- GPT4
+-- ANS 2
+-- CORRECT
+Footballclub and (competesIn some Bundesliga)
+
+-- GPT4
+-- ANS 3
+-- CORRECT
+Footballclub and not (competesIn some PremierLeague)
+
+-- GPT4
+-- ANS 4
+-- CORRECT
+Footballclub and (competesIn some Bundesliga)
+
+-- GPT4
+-- ANS 5
+-- CORRECT
+Footballclub and (competesIn some Bundesliga)
+
+
+
+-- BARD
+-- ANS 1
+-- CORRECT
+competesIn some Bundesliga
+
+-- BARD
+-- ANS 2
+-- INCORRECT on c3, c4 in E-
+competesIn some (PremierLeague or Bundesliga)
+
+-- BARD
+-- ANS 3
+-- CORRECT
+(competesIn some Bundesliga) and (not (competesIn some PremierLeague))
+
+-- BARD
+-- ANS 4
+-- INCORRECT on c1, c2 in E+
+-- INCORRECT on c3, c4 in E-
+(competesIn some PremierLeague) and not (competesIn some Bundesliga)
+-- N.B. Correct if swapped
+
+-- BARD
+-- ANS 5
+-- INCORRECT on c1, c2 in E+
+-- INCORRECT on c3, c4 in E-
+competesIn some Footballclub
+
+
+
+
+
+
+
+
+-- GEMINI
+-- ANS
+-- INCORRECT on c1, c2 in E+
+competesIn some Bundesliga and not Footballclub
+
+-- GEMINI
+-- ANS 2
+-- INCORRECT on c1, c2 in E+
+competesIn some Bundesliga and not Footballclub
+
+-- GEMINI
+-- ANS 3
+-- INCORRECT on c1, c2 in E+
+competesIn some Bundesliga and not Footballclub
+
+-- GEMINI
+-- ANS 4
+-- INCORRECT on c1, c2 in E+
+competesIn some Bundesliga and not Footballclub
+
+-- GEMINI
+-- ANS 5
+-- INCORRECT on c1, c2 in E+
+competesIn some Bundesliga and not Footballclub

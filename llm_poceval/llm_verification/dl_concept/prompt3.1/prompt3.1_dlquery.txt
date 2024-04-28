@@ -1,0 +1,129 @@
+-- GPT3.5
+-- ANS 1
+-- INCORRECT on c1, c2 in E+
+-- INCORRECT on c3, c4 in E-
+Footballclub and competesIn some PremierLeague
+-- N.B. Correct if E+/E- swapped
+
+-- GPT3.5
+-- ANS 2
+-- INCORRECT on c1, c2 in E+
+(competesIn some PremierLeague) and (competesIn only (not PremierLeague))
+
+-- GPT3.5
+-- ANS 3
+-- INCORRECT on c1, c2 in E+
+-- INCORRECT on c3, c4 in E-
+Footballclub and competesIn some PremierLeague
+-- N.B. Correct if E+/E- swapped
+
+-- GPT3.5
+-- ANS 4
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+∃competesIn.{b}⊓∀competesIn.¬{p}
+-- SYNTACTICALLY CORRECT - under "flexible" regime (allowed as an ALCO concept)
+-- INCORRECT on c1, c2 in E+
+(competesIn some {b}) and (competesIn only (not {p}))
+
+-- GPT3.5
+-- ANS 5
+-- INCORRECT on c1, c2 in E+
+(competesIn some PremierLeague) and not (competesIn some Bundesliga)
+
+
+
+-- GPT4
+-- ANS 1
+-- INCORRECT on c1, c2 in E+
+Footballclub and not (competesIn some PremierLeague)
+
+-- GPT4
+-- ANS 2
+-- CORRECT
+competesIn some Bundesliga
+
+-- GPT4
+-- ANS 3
+-- CORRECT
+Footballclub and (competesIn some Bundesliga)
+
+-- GPT4
+-- ANS 4
+-- INCORRECT on c1, c2 in E+
+Footballclub and not (competesIn some PremierLeague)
+
+-- GPT4
+-- ANS 5
+-- INCORRECT on c1, c2 in E+
+Footballclub and not (competesIn some PremierLeague)
+
+
+
+-- BARD
+-- ANS 1
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+∃competesIn.PremierLeague \/ ¬competesIn(c3) \/ ¬competesIn(c4)
+-- SYNTACTICALLY CORRECT - under "flexible" regime (only the ALC concept part considered)
+-- INCORRECT on c1, c2 in E+
+-- INCORRECT on c3, c4 in E-
+competesIn some PremierLeague
+-- N.B. Correct if E+/E- swapped
+
+
+-- BARD
+-- ANS 2
+-- INCORRECT on c1, c2 in E+
+Footballclub and not (competesIn some Bundesliga)
+
+-- BARD
+-- ANS 3
+-- INCORRECT on c1, c2 in E+
+competesIn some (not Bundesliga)
+
+-- BARD
+-- ANS 4
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+Footballclub ∩ ¬competesIn.PremierLeague
+-- SYNTACTICALLY CORRECT - under "flexible" regime (converted into an ALC concept, based on textual explanation)
+-- INCORRECT on c1, c2 in E+
+Footballclub and not (competesIn some PremierLeague)
+
+-- BARD
+-- ANS 5
+-- INCORRECT on c1, c2 in E+
+(competesIn some PremierLeague) and not Bundesliga
+
+
+
+
+-- GEMINI
+-- ANS 1
+-- INCORRECT on c1, c2 in E+
+Footballclub and competesIn some (not Bundesliga)
+
+
+-- GEMINI
+-- ANS 2
+-- INCORRECT on c1, c2 in E+
+Footballclub and competesIn some (not Bundesliga)
+
+
+-- GEMINI
+-- ANS 3
+-- INCORRECT on c1, c2 in E+
+-- INCORRECT on c3, c4 in E-
+Footballclub and competesIn some PremierLeague
+
+
+-- GEMINI
+-- ANS 4
+-- INCORRECT on c1, c2 in E+
+-- INCORRECT on c3, c4 in E-
+Footballclub and competesIn some PremierLeague
+
+
+-- GEMINI
+-- ANS 5
+-- INCORRECT on c1, c2 in E+
+-- INCORRECT on c3, c4 in E-
+competesIn some PremierLeague

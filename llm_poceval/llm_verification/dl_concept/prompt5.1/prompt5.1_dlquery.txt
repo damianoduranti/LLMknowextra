@@ -1,0 +1,127 @@
+-- GPT3.5
+-- ANS 1
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+DLog ⊓ ∃hasOperator.CLOperator ⊓ ∃EnjoysCIP.∀EnjoysPBDP.∀EnjoysBDP.∀HuLog.∀HLog.(¬∃hasOperator.MLOperator ⊓ ∃EnjoysBDP.HuLog)
+-- SYNTACTICALLY CORRECT - under "flexible" regime (converted into an ALCO concept, by ignoring syntactically incorrect constructors)
+-- INCORRECT on alco, alcou in E-
+DLog and (hasOperator some CLOperator)
+
+-- GPT3.5
+-- ANS 2
+-- INCORRECT on alc in E+
+hasOperator some ((not EnjoysCIP) and (not EnjoysBDP))
+
+-- GPT3.5
+-- ANS 3
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+∃hasOperator.CLOperator⊓∀EnjoysCIP.⊤⊓¬∃EnjoysPBDP.⊤
+-- SYNTACTICALLY CORRECT - under "flexible" regime (converted into an ALCO concept, by ignoring syntactically incorrect constructors)
+-- INCORRECT on alco, alcou, ml, mln, mlnu in E-
+hasOperator some CLOperator
+
+-- GPT3.5
+-- ANS 4
+-- CORRECT
+DLog and EnjoysCIP and hasOperator only (CLOperator or not (DLog or EnjoysCIP))
+
+-- GPT3.5
+-- ANS 5
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+DLog⊓∃hasOperator.{conj,diamond}⊓¬EnjoysPBDP⊓¬EnjoysBDP
+-- SYNTACTICALLY CORRECT - under "flexible" regime (allowed as an ALCO concept)
+-- INCORRECT on alc in E+
+-- INCORRECT on alco in E-
+DLog and (hasOperator some {conj,diamond}) and (not EnjoysPBDP) and (not EnjoysBDP)
+
+
+
+-- GPT4
+-- ANS 1
+-- CORRECT
+DLog and (hasOperator only CLOperator) and EnjoysCIP
+
+-- GPT4
+-- ANS 2
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+DLog⊓∃hasOperator.{conj,diamond}⊓¬EnjoysPBDP⊓¬EnjoysBDP
+-- SYNTACTICALLY CORRECT - under "flexible" regime (allowed as an ALCO concept)
+-- CORRECT
+DLog and (hasOperator some {conj}) and EnjoysCIP
+
+-- GPT4
+-- ANS 3
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+DLog⊓∃hasOperator.{conj,diamond}⊓¬EnjoysPBDP⊓¬EnjoysBDP
+-- SYNTACTICALLY CORRECT - under "flexible" regime (allowed as an ALCO concept)
+-- INCORRECT on alc in E+
+DLog and (hasOperator only {conj}) and EnjoysCIP
+
+-- GPT4
+-- ANS 4
+-- CORRECT
+DLog and EnjoysCIP
+
+-- GPT4
+-- ANS 5
+-- CORRECT
+DLog and EnjoysCIP and (hasOperator only CLOperator)
+
+
+
+-- BARD
+-- ANS 1
+-- INCORRECT on alc in E+
+-- INCORRECT on alco, mln in E-
+(hasOperator some CLOperator) and not EnjoysBDP
+
+-- BARD
+-- ANS 2
+-- INCORRECT on alc in E+
+-- INCORRECT on alco, alcou, mln, mlnu in E-
+(hasOperator some CLOperator) and not EnjoysPBDP
+
+-- BARD
+-- ANS 3
+-- SYNTACTICALLY INCORRECT - under "rigid" regime (not an ALC concept)
+∀hasOperator.CLOperator ⊓ ∃(¬EnjoysPBDP ⊓ EnjoysCIP).¬EnjoysBDP
+-- SYNTACTICALLY CORRECT - under "flexible" regime (converted into an ALCO concept, by ignoring syntactically incorrect constructors)
+-- INCORRECT on alco, alcou in E-
+(hasOperator only CLOperator)
+
+-- BARD
+-- ANS 4
+-- CORRECT
+DLog and EnjoysCIP and (not HuLog) and (not HLog)
+
+-- BARD
+-- ANS 5
+-- INCORRECT on alc in E+
+DLog and (hasOperator some (CLOperator and (not MLOperator)))
+
+
+
+
+-- GEMINI
+-- ANS 1
+-- INCORRECT on alc in E+
+DLog and hasOperator some (not MLOperator)
+
+-- GEMINI
+-- ANS 2
+-- INCORRECT on alc in E+
+DLog and hasOperator some (not MLOperator)
+
+-- GEMINI
+-- ANS 3
+-- INCORRECT on alc in E+
+DLog and hasOperator some (not MLOperator)
+
+-- GEMINI
+-- ANS 4
+-- INCORRECT on alc in E+
+DLog and hasOperator some (not MLOperator)
+
+-- GEMINI
+-- ANS 5
+-- INCORRECT on alc in E+
+DLog and hasOperator some (not MLOperator)
