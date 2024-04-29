@@ -72,14 +72,24 @@ def dl_concept(instances_path, ontology_path, max_attempts=5):
             f.write(f"Prompt: {prompt}\nResponse: {response}\nVerified Response: {verified_response}\nError: {error}\nResult: {result}\n")
             logging.info(f"Attempt {attempt} results saved to: {result_path}")
         if result:
+            time.sleep(20)
             return response, attempt
-        if attempt < max_attempts:
-            time.sleep(10)
+        time.sleep(20)
 
     return None, max_attempts
 
 def main():
-    dl_concept("data/DL_concept/weak_sep/1.1/1.1_instances.json", "data/DL_concept/weak_sep/1.1/1.1_ontology.owl")
+
+    for separation_type in os.listdir("data/DL_concept"):
+        if separation_type == ".DS_Store":
+            continue
+        for trace in os.listdir(f"data/DL_concept/{separation_type}"):
+            if trace == ".DS_Store":
+                continue
+            trace_path = os.path.join("data/DL_concept", separation_type, trace)
+            instances_path = os.path.join(trace_path, f"{trace}_instances.json")
+            ontology_path = os.path.join(trace_path, f"{trace}_ontology.owl")
+            dl_concept(instances_path, ontology_path)
 
 if __name__ == "__main__":
     main()

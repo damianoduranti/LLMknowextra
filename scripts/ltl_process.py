@@ -95,9 +95,20 @@ def ltl_process(trace_path, nuxmv_path=NUXMV, max_attempts=5):
             file.write(f"Attempt: {attempt}\nPrompt: {prompt}\nResponse: {response}\nF2I Response: {f2i_response}\nError: {error}\nSpec Path: {spec_path}\nEvaluated Result: {result}\n")
             logging.info(f"Attempt {attempt} results saved to: {result_path}")
         if result:
+            time.sleep(20)
             return response, attempt
-        if attempt < max_attempts:
-            time.sleep(10)
+        time.sleep(20)
+
+def main():
+
+    for contraint_type in os.listdir("data/LTL_process/"):
+        if contraint_type == ".DS_Store":
+            continue
+        for trace in os.listdir(f"data/LTL_process/{contraint_type}/"):
+            if trace == ".DS_Store":
+                continue
+            trace_path = os.path.join(f"data/LTL_process/{contraint_type}", trace)
+            ltl_process(trace_path)
 
 if __name__ == "__main__":
-    ltl_process("data/LTL_process/constrained/7.1.json")
+    main()
