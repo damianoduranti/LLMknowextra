@@ -58,7 +58,7 @@ def validate_json_structure(data):
 
 def generate_ltl_prompt(data):
     """
-    Generates a prompt for an LTL formula based on provided trace data, including constraints on propositional letters if available.
+    Generates a prompt for LTL process mining based on provided trace data, including constraints on propositional letters if available.
     Adjusts the prompt based on the presence of positive, negative, or both traces, handles singular and plural cases,
     ensures continuous numbering across both sets of traces, and removes excessive spacing between traces of the same type.
 
@@ -66,7 +66,7 @@ def generate_ltl_prompt(data):
     - data (dict): Trace data containing 'P' for positive trace, 'N' for negative trace, and optionally 'S' for propositional letters constraints.
 
     Returns:
-    - str: Generated prompt for the LTL formula.
+    - str: Generated prompt for LTL process mining on the given traces.
     """
     def traces_to_str(traces, start_index=1):
         """Converts trace data to a string format with labeled traces, ensuring continuous numbering and minimal spacing."""
@@ -75,7 +75,7 @@ def generate_ltl_prompt(data):
         for trace in traces:
             if trace_index > start_index:
                 traces_str += "\n"
-            traces_str += f"TRACE {trace_index}\n\n"
+            traces_str += f"FINITE TRACE {trace_index}\n\n"
             for step_index, event in enumerate(trace, start=1):
                 traces_str += f"{step_index}. {{ {', '.join(event)} }}\n"
             trace_index += 1
@@ -101,11 +101,11 @@ def generate_ltl_prompt(data):
         constraint_info = ""
 
     if positive_str and negative_str:
-        prompt = f"Provide an LTL formula{constraint_info} that is satisfied on:\n\n{positive_str}\nand falsified on:\n\n{negative_str}\nProvide the formula only in the form of a string, using the nuXmv syntax."
+        prompt = f"Provide an LTLf formula{constraint_info} that is satisfied on:\n\n{positive_str}\nand falsified on:\n\n{negative_str}\nProvide the formula only in the form of a string, using the nuXmv syntax."
     elif positive_str:
-        prompt = f"Provide an LTL formula{constraint_info} that is satisfied on:\n\n{positive_str}\nProvide the formula only in the form of a string, using the nuXmv syntax."
+        prompt = f"Provide an LTLf formula{constraint_info} that is satisfied on:\n\n{positive_str}\nProvide the formula only in the form of a string, using the nuXmv syntax."
     elif negative_str:
-        prompt = f"Provide an LTL formula{constraint_info} that is falsified on:\n\n{negative_str}\nProvide the formula only in the form of a string, using the nuXmv syntax."
+        prompt = f"Provide an LTLf formula{constraint_info} that is falsified on:\n\n{negative_str}\nProvide the formula only in the form of a string, using the nuXmv syntax."
     else:
         return "No valid trace data provided."
 
@@ -113,7 +113,7 @@ def generate_ltl_prompt(data):
 
 def get_ltl_constraints(data):
     """
-    Extracts propositional letters constraints from LTL trace data.
+    Extracts propositional letters constraints from trace data.
 
     Parameters:
     - data (dict): Trace data containing 'S' for propositional letters constraints.
@@ -125,7 +125,7 @@ def get_ltl_constraints(data):
 
 def generate_ltl_prompts_from_json(file_path):
     """
-    Generates an LTL formula prompt from a JSON file, with added validation.
+    Generates an LTL process mining prompt from a JSON file, with added validation.
 
     Parameters:
     - file_path (str): Path to the JSON file.
@@ -146,7 +146,7 @@ def generate_ltl_prompts_from_json(file_path):
 
 def generate_ltl_prompts_from_json_batch(directory_path):
     """
-    Generates LTL formula prompts from all JSON files within a specified directory,
+    Generates LTL process mining prompts from all JSON files within a specified directory,
     sorted alphabetically.
 
     Parameters:
@@ -166,14 +166,14 @@ def generate_ltl_prompts_from_json_batch(directory_path):
 
 def generate_dl_prompt(data, ontology):
     """
-    Generates a prompt for a DL concept based on provided instance data and ontology.
+    Generates a prompt for DL concept learning based on provided instance data and ontology.
 
     Parameters:
     - data (dict): Instance data containing 'instances' for concept instances.
     - ontology (str): OWL ontology content.
 
     Returns:
-    - str: Generated prompt for the DL concept.
+    - str: Generated prompt for DL concept learning on the given instances and ontology.
     """
 
     separation_type = data.get('separation')
@@ -208,7 +208,7 @@ def generate_dl_prompt(data, ontology):
 
 def generate_dl_prompts_from_json(file_path, ontology_path):
     """
-    Generates a DL concept prompt from a JSON file, with added validation.
+    Generates a DL concept learning prompt from a JSON file, with added validation.
 
     Parameters:
     - file_path (str): Path to the JSON file.
@@ -229,7 +229,7 @@ def generate_dl_prompts_from_json(file_path, ontology_path):
     
 def generate_dl_prompts_from_json_batch(directory_path, ontology_path):
     """
-    Generates DL concept prompts from all JSON files within a specified directory,
+    Generates DL concept learning prompts from all JSON files within a specified directory,
     sorted alphabetically.
 
     Parameters:
