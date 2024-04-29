@@ -13,112 +13,112 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#D"/>
+        <Class IRI="#D"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#E1"/>
+        <Class IRI="#E1"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#E2"/>
+        <Class IRI="#E2"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#E3"/>
+        <Class IRI="#E3"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#M"/>
+        <Class IRI="#M"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#role"/>
+        <ObjectProperty IRI="#role"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#a1"/>
+        <NamedIndividual IRI="#a1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#a2"/>
+        <NamedIndividual IRI="#a2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#a3"/>
+        <NamedIndividual IRI="#a3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#m1"/>
+        <NamedIndividual IRI="#m1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#m2"/>
+        <NamedIndividual IRI="#m2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#m3"/>
+        <NamedIndividual IRI="#m3"/>
     </Declaration>
     <SubClassOf>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#E2"/>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#E1"/>
+        <Class IRI="#E2"/>
+        <Class IRI="#E1"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#E3"/>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#E2"/>
+        <Class IRI="#E3"/>
+        <Class IRI="#E2"/>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#a1"/>
-            <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#a2"/>
-            <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#a3"/>
+            <NamedIndividual IRI="#a1"/>
+            <NamedIndividual IRI="#a2"/>
+            <NamedIndividual IRI="#a3"/>
         </ObjectOneOf>
         <ObjectIntersectionOf>
             <ObjectComplementOf>
                 <ObjectSomeValuesFrom>
-                    <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#role"/>
-                    <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#M"/>
+                    <ObjectProperty IRI="#role"/>
+                    <Class IRI="#M"/>
                 </ObjectSomeValuesFrom>
             </ObjectComplementOf>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#role"/>
-                <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#D"/>
+                <ObjectProperty IRI="#role"/>
+                <Class IRI="#D"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#a1"/>
-            <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#m1"/>
+            <NamedIndividual IRI="#a1"/>
+            <NamedIndividual IRI="#m1"/>
         </ObjectOneOf>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#E3"/>
+        <Class IRI="#E3"/>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#a2"/>
-            <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#m2"/>
+            <NamedIndividual IRI="#a2"/>
+            <NamedIndividual IRI="#m2"/>
         </ObjectOneOf>
         <ObjectComplementOf>
-            <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#E1"/>
+            <Class IRI="#E1"/>
         </ObjectComplementOf>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#a3"/>
-            <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#m3"/>
+            <NamedIndividual IRI="#a3"/>
+            <NamedIndividual IRI="#m3"/>
         </ObjectOneOf>
         <ObjectIntersectionOf>
-            <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#E1"/>
+            <Class IRI="#E1"/>
             <ObjectComplementOf>
-                <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#E2"/>
+                <Class IRI="#E2"/>
             </ObjectComplementOf>
         </ObjectIntersectionOf>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#m1"/>
-            <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#m2"/>
-            <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#m3"/>
+            <NamedIndividual IRI="#m1"/>
+            <NamedIndividual IRI="#m2"/>
+            <NamedIndividual IRI="#m3"/>
         </ObjectOneOf>
         <ObjectIntersectionOf>
             <ObjectComplementOf>
                 <ObjectSomeValuesFrom>
-                    <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#role"/>
-                    <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#D"/>
+                    <ObjectProperty IRI="#role"/>
+                    <Class IRI="#D"/>
                 </ObjectSomeValuesFrom>
             </ObjectComplementOf>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#role"/>
-                <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/4_ontology#M"/>
+                <ObjectProperty IRI="#role"/>
+                <Class IRI="#M"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </SubClassOf>
@@ -127,4 +127,3 @@
 
 
 <!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
-

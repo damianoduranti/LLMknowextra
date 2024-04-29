@@ -6,214 +6,214 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://www.semanticweb.org/andrea/ontologies/2023/10/10_ontology#">
-    <Prefix name="" IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/5_ontology#"/>
+    <Prefix name="" IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/10_ontology#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
-        <Class abbreviatedIRI=":D1"/>
+        <Class IRI="D1"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI=":D2"/>
+        <Class IRI="D2"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI=":E1"/>
+        <Class IRI="E1"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI=":E2"/>
+        <Class IRI="E2"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI=":E3"/>
+        <Class IRI="E3"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI=":H1"/>
+        <Class IRI="H1"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI=":H2"/>
+        <Class IRI="H2"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI=":M1"/>
+        <Class IRI="M1"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI=":M2"/>
+        <Class IRI="M2"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI=":role"/>
+        <ObjectProperty IRI="role"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI=":a1"/>
+        <NamedIndividual IRI="a1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI=":a2"/>
+        <NamedIndividual IRI="a2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI=":a3"/>
+        <NamedIndividual IRI="a3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI=":d"/>
+        <NamedIndividual IRI="d"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI=":e"/>
+        <NamedIndividual IRI="e"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI=":m1"/>
+        <NamedIndividual IRI="m1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI=":m2"/>
+        <NamedIndividual IRI="m2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI=":m3"/>
+        <NamedIndividual IRI="m3"/>
     </Declaration>
     <SubClassOf>
-        <Class abbreviatedIRI=":E2"/>
-        <Class abbreviatedIRI=":E1"/>
+        <Class IRI="E2"/>
+        <Class IRI="E1"/>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI=":E3"/>
-        <Class abbreviatedIRI=":E2"/>
+        <Class IRI="E3"/>
+        <Class IRI="E2"/>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI=":M1"/>
+        <Class IRI="M1"/>
         <ObjectComplementOf>
             <ObjectSomeValuesFrom>
-                <ObjectProperty abbreviatedIRI=":role"/>
-                <Class abbreviatedIRI=":D2"/>
+                <ObjectProperty IRI="role"/>
+                <Class IRI="D2"/>
             </ObjectSomeValuesFrom>
         </ObjectComplementOf>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual abbreviatedIRI=":a1"/>
-            <NamedIndividual abbreviatedIRI=":a2"/>
-            <NamedIndividual abbreviatedIRI=":a3"/>
+            <NamedIndividual IRI="a1"/>
+            <NamedIndividual IRI="a2"/>
+            <NamedIndividual IRI="a3"/>
         </ObjectOneOf>
         <ObjectComplementOf>
             <ObjectSomeValuesFrom>
-                <ObjectProperty abbreviatedIRI=":role"/>
-                <Class abbreviatedIRI=":M2"/>
+                <ObjectProperty IRI="role"/>
+                <Class IRI="M2"/>
             </ObjectSomeValuesFrom>
         </ObjectComplementOf>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual abbreviatedIRI=":a1"/>
-            <NamedIndividual abbreviatedIRI=":m1"/>
+            <NamedIndividual IRI="a1"/>
+            <NamedIndividual IRI="m1"/>
         </ObjectOneOf>
-        <Class abbreviatedIRI=":E3"/>
+        <Class IRI="E3"/>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual abbreviatedIRI=":a2"/>
-            <NamedIndividual abbreviatedIRI=":m2"/>
+            <NamedIndividual IRI="a2"/>
+            <NamedIndividual IRI="m2"/>
         </ObjectOneOf>
         <ObjectComplementOf>
-            <Class abbreviatedIRI=":E1"/>
+            <Class IRI="E1"/>
         </ObjectComplementOf>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual abbreviatedIRI=":a3"/>
-            <NamedIndividual abbreviatedIRI=":m3"/>
+            <NamedIndividual IRI="a3"/>
+            <NamedIndividual IRI="m3"/>
         </ObjectOneOf>
         <ObjectComplementOf>
-            <Class abbreviatedIRI=":E2"/>
+            <Class IRI="E2"/>
         </ObjectComplementOf>
     </SubClassOf>
     <ClassAssertion>
-        <Class abbreviatedIRI=":D1"/>
-        <NamedIndividual abbreviatedIRI=":a1"/>
+        <Class IRI="D1"/>
+        <NamedIndividual IRI="a1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":E3"/>
-        <NamedIndividual abbreviatedIRI=":a1"/>
+        <Class IRI="E3"/>
+        <NamedIndividual IRI="a1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":D1"/>
-        <NamedIndividual abbreviatedIRI=":a2"/>
+        <Class IRI="D1"/>
+        <NamedIndividual IRI="a2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":H1"/>
-        <NamedIndividual abbreviatedIRI=":a2"/>
+        <Class IRI="H1"/>
+        <NamedIndividual IRI="a2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":D1"/>
-        <NamedIndividual abbreviatedIRI=":a3"/>
+        <Class IRI="D1"/>
+        <NamedIndividual IRI="a3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":E1"/>
-        <NamedIndividual abbreviatedIRI=":a3"/>
+        <Class IRI="E1"/>
+        <NamedIndividual IRI="a3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":H2"/>
-        <NamedIndividual abbreviatedIRI=":a3"/>
+        <Class IRI="H2"/>
+        <NamedIndividual IRI="a3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":M2"/>
-        <NamedIndividual abbreviatedIRI=":d"/>
+        <Class IRI="M2"/>
+        <NamedIndividual IRI="d"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":D2"/>
-        <NamedIndividual abbreviatedIRI=":e"/>
+        <Class IRI="D2"/>
+        <NamedIndividual IRI="e"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":E3"/>
-        <NamedIndividual abbreviatedIRI=":m1"/>
+        <Class IRI="E3"/>
+        <NamedIndividual IRI="m1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":M1"/>
-        <NamedIndividual abbreviatedIRI=":m1"/>
+        <Class IRI="M1"/>
+        <NamedIndividual IRI="m1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":H1"/>
-        <NamedIndividual abbreviatedIRI=":m2"/>
+        <Class IRI="H1"/>
+        <NamedIndividual IRI="m2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":M1"/>
-        <NamedIndividual abbreviatedIRI=":m2"/>
+        <Class IRI="M1"/>
+        <NamedIndividual IRI="m2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":E1"/>
-        <NamedIndividual abbreviatedIRI=":m3"/>
+        <Class IRI="E1"/>
+        <NamedIndividual IRI="m3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":H2"/>
-        <NamedIndividual abbreviatedIRI=":m3"/>
+        <Class IRI="H2"/>
+        <NamedIndividual IRI="m3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI=":M1"/>
-        <NamedIndividual abbreviatedIRI=":m3"/>
+        <Class IRI="M1"/>
+        <NamedIndividual IRI="m3"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty abbreviatedIRI=":role"/>
-        <NamedIndividual abbreviatedIRI=":a1"/>
-        <NamedIndividual abbreviatedIRI=":e"/>
+        <ObjectProperty IRI="role"/>
+        <NamedIndividual IRI="a1"/>
+        <NamedIndividual IRI="e"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty abbreviatedIRI=":role"/>
-        <NamedIndividual abbreviatedIRI=":a2"/>
-        <NamedIndividual abbreviatedIRI=":e"/>
+        <ObjectProperty IRI="role"/>
+        <NamedIndividual IRI="a2"/>
+        <NamedIndividual IRI="e"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty abbreviatedIRI=":role"/>
-        <NamedIndividual abbreviatedIRI=":a3"/>
-        <NamedIndividual abbreviatedIRI=":e"/>
+        <ObjectProperty IRI="role"/>
+        <NamedIndividual IRI="a3"/>
+        <NamedIndividual IRI="e"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty abbreviatedIRI=":role"/>
-        <NamedIndividual abbreviatedIRI=":m1"/>
-        <NamedIndividual abbreviatedIRI=":d"/>
+        <ObjectProperty IRI="role"/>
+        <NamedIndividual IRI="m1"/>
+        <NamedIndividual IRI="d"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty abbreviatedIRI=":role"/>
-        <NamedIndividual abbreviatedIRI=":m2"/>
-        <NamedIndividual abbreviatedIRI=":d"/>
+        <ObjectProperty IRI="role"/>
+        <NamedIndividual IRI="m2"/>
+        <NamedIndividual IRI="d"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty abbreviatedIRI=":role"/>
-        <NamedIndividual abbreviatedIRI=":m3"/>
-        <NamedIndividual abbreviatedIRI=":d"/>
+        <ObjectProperty IRI="role"/>
+        <NamedIndividual IRI="m3"/>
+        <NamedIndividual IRI="d"/>
     </ObjectPropertyAssertion>
 </Ontology>
 
