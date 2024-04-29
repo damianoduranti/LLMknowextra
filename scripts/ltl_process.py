@@ -104,7 +104,7 @@ def main():
     for contraint_type in os.listdir("data/LTL_process/"):
         if contraint_type == ".DS_Store":
             continue
-        for trace in os.listdir(f"data/LTL_process/{contraint_type}/"):
+        for trace in sorted(os.listdir(f"data/LTL_process/{contraint_type}/")):
             if trace == ".DS_Store":
                 continue
             trace_path = os.path.join(f"data/LTL_process/{contraint_type}", trace)

@@ -1,5 +1,6 @@
 import logging
 import json
+import re
 from owlready2 import get_ontology, sync_reasoner, Thing, Not
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -61,8 +62,11 @@ def clean_response(response):
     - str: The cleaned response.
     """
     response = response[response.find('['):response.rfind(']')]
+    response = response.replace('\n', '')
+    response = response.replace('"', ' ')
+    response = re.sub(' +', ' ', response)
     response = response.replace('onto.', '')
-    return response[1:]
+    return (response[1:]).strip()
 
 def concept_verifier(instances, ontology, response):
     """
@@ -78,6 +82,8 @@ def concept_verifier(instances, ontology, response):
     """
     separation_type = instances.get('separation')
     response = clean_response(response)
+
+    print(response)
 
     class_mapping, properties_mapping, individuals_mapping = create_names_mapping(ontology)
     relevant_mappings = {k: v for k, v in {**class_mapping, **properties_mapping, **individuals_mapping}.items() if k in response}
@@ -102,7 +108,7 @@ def concept_verifier(instances, ontology, response):
             return [instance.name.split('.')[-1] for instance in instances], [instance.name.split('.')[-1] for instance in not_instances]
     except Exception as e:
         logging.error(f"Failed to evaluate or reason over response: {e}")
-        raise
+        return None
     finally:
         clean_dynamic_variables(relevant_mappings)
 
@@ -145,13 +151,14 @@ def evaluator(instances, verified_response):
         return False, error
 
 def main():
-    verified_response = (concept_verifier(json.load(open('data/DL_concept/strong_sep/1/1_instances.json')),load_ontology('data/DL_concept/strong_sep/1/1_ontology.owl'), """
-    with onto:
-        class C(Thing):
-                equivalent_to = [Student & (studiesAt.some(EuUni))]"""))
+    verified_response = (concept_verifier(json.load(open('data/DL_concept/strong_sep/10/10_instances.json')),load_ontology('data/DL_concept/strong_sep/10/10_ontology.owl'), """
+    class C(Thing):
+        equivalent_to = [
+            D1 & E3
+        ]"""))
     
     print(f"Verified instances: {(verified_response)}")
-    evaluator(json.load(open('data/DL_concept/strong_sep/1/1_instances.json')), verified_response)
+    #evaluator(json.load(open('data/DL_concept/strong_sep/1/1_instances.json')), verified_response)
 
 if __name__ == '__main__':
     main()

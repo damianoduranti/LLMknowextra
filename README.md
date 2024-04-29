@@ -127,8 +127,7 @@ pip install -r requirements.txt
 
 ## Configuration
 
-1. **API keys:** Duplicate ```config/api_keys.json.example``` to ```config/api_keys.json``` and fill in your actual API keys.2. Open ```config/api_keys.json``` and fill in your actual API keys in place of the placeholder values provided.
-
+1. **API keys:** Duplicate ```config/api_keys.json.example``` to ```config/api_keys.json``` and fill in your actual API keys.
 2. **nuXmv setup:** Download the [nuXmv](https://nuxmv.fbk.eu/) and place the nuXmv executable inside the ```nuXmv/bin``` directory.
 
 ## Usage

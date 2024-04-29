@@ -40,19 +40,15 @@ def dl_concept(instances_path, ontology_path, max_attempts=5):
     for attempt in range(1, max_attempts + 1):
         try:
             prompt = generate_dl_prompts_from_json(instances_path, ontology_path)
-            response = str(send_prompt(prompt))
+            response = str(send_prompt(prompt)).strip()
 
             logging.info(f"Attempt {attempt} response: {response}")
 
             instances = json.load(open(instances_path))
             ontology = load_ontology(ontology_path)
 
-            try:
-                verified_response = concept_verifier(instances, ontology, response)
-            except Exception as e:
-                logging.error(f"Error verifying the candidate concept: {e}")
-                verified_response = None
-
+            verified_response = concept_verifier(instances, ontology, response)
+            
             logging.info(f"Attempt {attempt} verified response: {verified_response}")
 
             if verified_response:
@@ -83,7 +79,7 @@ def main():
     for separation_type in os.listdir("data/DL_concept"):
         if separation_type == ".DS_Store":
             continue
-        for trace in os.listdir(f"data/DL_concept/{separation_type}"):
+        for trace in sorted(os.listdir(f"data/DL_concept/{separation_type}")):
             if trace == ".DS_Store":
                 continue
             trace_path = os.path.join("data/DL_concept", separation_type, trace)
