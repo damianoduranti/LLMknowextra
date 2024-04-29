@@ -1,4 +1,19 @@
-# LLMknowsynth
+# LLM-Driven Knowledge Extraction: Results in Temporal and Description Logics
+
+> **Authors:** Damiano Duranti, Paolo Giorgini, Andrea Mazzullo, Marco Robol and Marco Roveri
+
+## Table of Contents
+
+- [Abstract](#abstract)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Acknowledgements](#acknowledgements)
+
+## Abstract
+
+In the quest to surmount the challenges of knowledge extraction which is crucial for the development of autonomous AI agents with integrated learning and reasoning capabilities, we introduce a neuro-symbolic framework for knowledge acquisition systems. This foundational framework combines the functionalities of Large Language Models (LLMs) with symbolic verification modules to process semi-structured data efficiently. Our approach involves leveraging LLMs to generate linear temporal logic specifications from finite trace sets representing event logs in a process mining context. Simultaneously, in a knowledge representation setting, we utilize LLMs to extract description logic concepts, achieving human-readable conceptualizations that distinctively categorize positive and negative data instances. The integration of chat interfaces based on state-of-the-art LLMs with formal verification modules is pivotal in our system. For process mining, we employ model checking tools for linear temporal logic on finite traces, and for description logic concept learning, we perform entailment checks using dedicated reasoning engines. Following a proof-of-concept evaluation, the performance of LLMs on each task was analyzed, leading to the development of a GPT-based toolchain that automates the generation and verification steps in these knowledge extraction processes.
 
 ## Project Structure
 
@@ -83,6 +98,23 @@ This project is organized as follows:
 └── requirements.txt
 ```
 
+### Folders
+
+- **`data/`**:
+  - **`DL_concept/`**: Contains datasets for Description Logic (DL) concept learning. It is divided into:
+    - **`strong_sep/`** and **`weak_sep/`**: These subdirectories store ontology files (`*_ontology.owl`) and instance data (`*_instances.json`) categorized by their conceptual separation strength.
+  - **`LTL_process/`**: Stores data for Linear Temporal Logic (LTL) processes, categorized into:
+    - **`unconstrained/`** and **`constrained/`**: Include JSON files representing sets of finite traces used for generating LTL specifications.
+
+- **`output/`**: This directory mirrors the `data/` structure and stores outputs from the DL concept learning and LTL process analysis, including results, specifications, and SMV files for model checking.
+
+- **`scripts/`**:
+  - **`DL_concept/`**: Scripts for verifying and processing description logic concepts.
+  - **`LTL_process/`**: Utilities and scripts for translating, verifying, and generating specifications for LTL processes.
+    - **`translator/`**:
+      - **`parsers/`**: Contains parsers for different logic formats.
+      - **`syntax/`**: Scripts related to the syntactic elements of logic expressions.
+
 ## Installation
 
 Instructions on how to get your project up and running on a local machine for development and testing purposes.
@@ -95,37 +127,31 @@ pip install -r requirements.txt
 
 ## Configuration
 
-Before running the scripts, you need to set up the necessary API keys:
+1. **API keys:** Duplicate config/api_keys.json.example to config/api_keys.json and fill in your actual API keys.2. Open ```config/api_keys.json``` and fill in your actual API keys in place of the placeholder values provided.
 
-1. Duplicate the config/api_keys.json.example file and rename the duplicate to config/api_keys.json.
-2. Open config/api_keys.json and fill in your actual API keys in place of the placeholder values provided.
-
-Additionally, to set up the nuXmv tool:
-
-1. Download the nuXmv executable from the official source.
-2. Create a new directory named nuXmv within your project's root directory.
-3. Inside the nuXmv directory, create a subdirectory named bin.
-4. Place the downloaded nuXmv executable inside the nuXmv/bin directory.
+2. **nuXmv setup:** Download the [nuXmv](https://nuxmv.fbk.eu/) and place the nuXmv executable inside the ```nuXmv/bin``` directory.
 
 ## Usage
 
-1. Input data files in the appropriate format are in the data/traces_json directory.
-2. Run the desired script from the scripts directory, providing the necessary arguments.
+Run the following scripts within the ```scripts/``` directory to process data on all the input files found in ```data``` folder:
 
-## Prerequisites
+```bash
+python scripts/dl_concept.py
+```
+
+```bash
+python scripts/ltl_process.py
+```
+
+### Prerequisites
 
 - Python 3.7+
 - nuXmv executable for LTL verification
 - Java installed for DL verification
 - Required Python packages listed in requirements.txt
 
-## Data Formats
-
-- JSON files in the data/traces_json directory should follow the specified schema.
-- SMV files in the data/traces_smv directory should adhere to the nuXmv syntax.
-
 ## Acknowledgements
 
-- nuXmv - Symbolic model checker used in this project.
-- pylogics - Modified modules for LTL verification
-- OpenAI - Language model API used for concept verification.
+- [nuXmv](https://nuxmv.fbk.eu/)
+- [Owlready2](https://github.com/pwin/owlready2)
+- [pylogics](https://github.com/whitemech/pylogics)
