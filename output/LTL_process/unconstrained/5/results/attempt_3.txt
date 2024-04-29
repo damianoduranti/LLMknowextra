@@ -1,0 +1,59 @@
+Attempt: 3
+Prompt: Provide an LTL formula that is satisfied on:
+
+TRACE 1
+
+1. { r }
+2. { r }
+3. { r }
+4. { r }
+5. { r, p }
+6. { r }
+7. { r }
+8. { r }
+9. { r }
+
+TRACE 2
+
+1. { r }
+2. { r }
+3. {  }
+4. { r }
+5. { r }
+6. {  }
+7. { r }
+8. { r }
+9. { p }
+
+and falsified on:
+
+TRACE 3
+
+1. { r }
+2. { r }
+3. { r }
+4. { r }
+5. { r }
+6. { r }
+7. { r }
+8. { r }
+9. { r }
+
+TRACE 4
+
+1. { q }
+2. {  }
+3. {  }
+4. { q }
+5. {  }
+6. {  }
+7. { q }
+8. {  }
+9. {  }
+
+Provide the formula only in the form of a string, using the nuXmv syntax.
+Response: G(r) & F(p)
+F2I Response: (G(r | End)) & (F(p & !End))
+Error: Candidate evaluation failed [some positive traces do not satisfy the formula].
+Spec Path: output/LTL_process/unconstrained/5/spec/spec3
+Evaluated Result: False

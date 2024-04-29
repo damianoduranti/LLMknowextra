@@ -2,6 +2,7 @@ import logging
 import os
 import json
 import time
+import csv
 from prompt_generator import generate_dl_prompts_from_json
 from llm_utils import send_prompt, load_api_keys, set_openai_api_configurations
 from DL_concept.concept_verifier import evaluator, concept_verifier, load_ontology
@@ -36,7 +37,7 @@ def dl_concept(instances_path, ontology_path, max_attempts=5):
 
     load_api_keys(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'api_keys.json'))
     set_openai_api_configurations()
-    total_time = 0
+    durations = []
 
     for attempt in range(1, max_attempts + 1):
         start_time = time.time()
@@ -66,36 +67,36 @@ def dl_concept(instances_path, ontology_path, max_attempts=5):
             result = False
             error = f"Error in attempt {attempt}: {e}"
 
-        duration = time.time() - start_time
-        total_time += duration
+        durations.append(time.time() - start_time)
 
         result_path = os.path.join(results_dir, f"result_{attempt}.txt")
         with open(result_path, 'w') as f:
             f.write(f"Prompt: {prompt}\nResponse: {response}\nVerified Response: {verified_response}\nError: {error}\nResult: {result}\n")
             logging.info(f"Attempt {attempt} results saved to: {result_path}")
         if result:
-            average_time = total_time / max_attempts
-            logging.info(f"Average Time per Attempt: {average_time:.2f} seconds")
             time.sleep(10)
-            return response, attempt
-        average_time = total_time / max_attempts
-        logging.info(f"Average Time per Attempt: {average_time:.2f} seconds")
+            return response, durations
         time.sleep(10)
 
-    return None, max_attempts
+    return None, durations
 
 def main():
 
-    for separation_type in os.listdir("data/DL_concept"):
-        if separation_type == ".DS_Store":
-            continue
-        for trace in sorted(os.listdir(f"data/DL_concept/{separation_type}")):
-            if trace == ".DS_Store":
+    with open("dl_times.csv", 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['Separation Type', 'Trace', 'Duration', "Result"])
+
+        for separation_type in os.listdir("data/DL_concept"):
+            if separation_type == ".DS_Store":
                 continue
-            trace_path = os.path.join("data/DL_concept", separation_type, trace)
-            instances_path = os.path.join(trace_path, f"{trace}_instances.json")
-            ontology_path = os.path.join(trace_path, f"{trace}_ontology.owl")
-            dl_concept(instances_path, ontology_path)
+            for trace in sorted(os.listdir(f"data/DL_concept/{separation_type}")):
+                if trace == ".DS_Store":
+                    continue
+                trace_path = os.path.join("data/DL_concept", separation_type, trace)
+                instances_path = os.path.join(trace_path, f"{trace}_instances.json")
+                ontology_path = os.path.join(trace_path, f"{trace}_ontology.owl")
+                response, durations = dl_concept(instances_path, ontology_path)
+                writer.writerow([separation_type, trace, durations, 'Correct' if response else 'Incorrect'])
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,59 @@
+Attempt: 3
+Prompt: Provide an LTL formula, using only the propositional letters "p", "r" that is satisfied on:
+
+TRACE 1
+
+1. {  }
+2. { p }
+3. {  }
+4. { r }
+5. { q }
+6. {  }
+7. { p }
+8. {  }
+9. { r }
+
+TRACE 2
+
+1. { p }
+2. {  }
+3. { r, q }
+4. { p }
+5. {  }
+6. { p, r }
+7. {  }
+8. { r }
+9. {  }
+
+TRACE 3
+
+1. {  }
+2. {  }
+3. {  }
+4. { p }
+5. {  }
+6. { r }
+7. { p }
+8. {  }
+9. { r }
+
+and falsified on:
+
+TRACE 4
+
+1. { p }
+2. { r }
+3. {  }
+4. {  }
+5. { p }
+6. {  }
+7. {  }
+8. { r }
+9. { p, r }
+
+Provide the formula only in the form of a string, using the nuXmv syntax.
+Response: []( (!p U r) & (!r U p) )
+F2I Response: None
+Error: The candidate formula contains a syntax error.
+Spec Path: output/LTL_process/constrained/8.1/spec/spec1
+Evaluated Result: False

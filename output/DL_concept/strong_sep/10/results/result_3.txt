@@ -2,12 +2,12 @@ Prompt: Given the following knowledge base K:
 
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.semanticweb.org/andrea/ontologies/2023/10/10_ontology#"
+     xml:base="http://www.semanticweb.org/andrea/ontologies/2023/10/10_ontology"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.semanticweb.org/andrea/ontologies/2023/10/10_ontology#">
+     ontologyIRI="http://www.semanticweb.org/andrea/ontologies/2023/10/10_ontology">
     <Prefix name="" IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/10_ontology#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
@@ -15,207 +15,207 @@ Prompt: Given the following knowledge base K:
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
-        <Class IRI="D1"/>
+        <Class IRI="#D1"/>
     </Declaration>
     <Declaration>
-        <Class IRI="D2"/>
+        <Class IRI="#D2"/>
     </Declaration>
     <Declaration>
-        <Class IRI="E1"/>
+        <Class IRI="#E1"/>
     </Declaration>
     <Declaration>
-        <Class IRI="E2"/>
+        <Class IRI="#E2"/>
     </Declaration>
     <Declaration>
-        <Class IRI="E3"/>
+        <Class IRI="#E3"/>
     </Declaration>
     <Declaration>
-        <Class IRI="H1"/>
+        <Class IRI="#H1"/>
     </Declaration>
     <Declaration>
-        <Class IRI="H2"/>
+        <Class IRI="#H2"/>
     </Declaration>
     <Declaration>
-        <Class IRI="M1"/>
+        <Class IRI="#M1"/>
     </Declaration>
     <Declaration>
-        <Class IRI="M2"/>
+        <Class IRI="#M2"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="role"/>
+        <ObjectProperty IRI="#role"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="a1"/>
+        <NamedIndividual IRI="#a1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="a2"/>
+        <NamedIndividual IRI="#a2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="a3"/>
+        <NamedIndividual IRI="#a3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="d"/>
+        <NamedIndividual IRI="#d"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="e"/>
+        <NamedIndividual IRI="#e"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="m1"/>
+        <NamedIndividual IRI="#m1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="m2"/>
+        <NamedIndividual IRI="#m2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="m3"/>
+        <NamedIndividual IRI="#m3"/>
     </Declaration>
     <SubClassOf>
-        <Class IRI="E2"/>
-        <Class IRI="E1"/>
+        <Class IRI="#E2"/>
+        <Class IRI="#E1"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="E3"/>
-        <Class IRI="E2"/>
+        <Class IRI="#E3"/>
+        <Class IRI="#E2"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="M1"/>
+        <Class IRI="#M1"/>
         <ObjectComplementOf>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="role"/>
-                <Class IRI="D2"/>
+                <ObjectProperty IRI="#role"/>
+                <Class IRI="#D2"/>
             </ObjectSomeValuesFrom>
         </ObjectComplementOf>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="a1"/>
-            <NamedIndividual IRI="a2"/>
-            <NamedIndividual IRI="a3"/>
+            <NamedIndividual IRI="#a1"/>
+            <NamedIndividual IRI="#a2"/>
+            <NamedIndividual IRI="#a3"/>
         </ObjectOneOf>
         <ObjectComplementOf>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="role"/>
-                <Class IRI="M2"/>
+                <ObjectProperty IRI="#role"/>
+                <Class IRI="#M2"/>
             </ObjectSomeValuesFrom>
         </ObjectComplementOf>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="a1"/>
-            <NamedIndividual IRI="m1"/>
+            <NamedIndividual IRI="#a1"/>
+            <NamedIndividual IRI="#m1"/>
         </ObjectOneOf>
-        <Class IRI="E3"/>
+        <Class IRI="#E3"/>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="a2"/>
-            <NamedIndividual IRI="m2"/>
+            <NamedIndividual IRI="#a2"/>
+            <NamedIndividual IRI="#m2"/>
         </ObjectOneOf>
         <ObjectComplementOf>
-            <Class IRI="E1"/>
+            <Class IRI="#E1"/>
         </ObjectComplementOf>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="a3"/>
-            <NamedIndividual IRI="m3"/>
+            <NamedIndividual IRI="#a3"/>
+            <NamedIndividual IRI="#m3"/>
         </ObjectOneOf>
         <ObjectComplementOf>
-            <Class IRI="E2"/>
+            <Class IRI="#E2"/>
         </ObjectComplementOf>
     </SubClassOf>
     <ClassAssertion>
-        <Class IRI="D1"/>
-        <NamedIndividual IRI="a1"/>
+        <Class IRI="#D1"/>
+        <NamedIndividual IRI="#a1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="E3"/>
-        <NamedIndividual IRI="a1"/>
+        <Class IRI="#E3"/>
+        <NamedIndividual IRI="#a1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="D1"/>
-        <NamedIndividual IRI="a2"/>
+        <Class IRI="#D1"/>
+        <NamedIndividual IRI="#a2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="H1"/>
-        <NamedIndividual IRI="a2"/>
+        <Class IRI="#H1"/>
+        <NamedIndividual IRI="#a2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="D1"/>
-        <NamedIndividual IRI="a3"/>
+        <Class IRI="#D1"/>
+        <NamedIndividual IRI="#a3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="E1"/>
-        <NamedIndividual IRI="a3"/>
+        <Class IRI="#E1"/>
+        <NamedIndividual IRI="#a3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="H2"/>
-        <NamedIndividual IRI="a3"/>
+        <Class IRI="#H2"/>
+        <NamedIndividual IRI="#a3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="M2"/>
-        <NamedIndividual IRI="d"/>
+        <Class IRI="#M2"/>
+        <NamedIndividual IRI="#d"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="D2"/>
-        <NamedIndividual IRI="e"/>
+        <Class IRI="#D2"/>
+        <NamedIndividual IRI="#e"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="E3"/>
-        <NamedIndividual IRI="m1"/>
+        <Class IRI="#E3"/>
+        <NamedIndividual IRI="#m1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="M1"/>
-        <NamedIndividual IRI="m1"/>
+        <Class IRI="#M1"/>
+        <NamedIndividual IRI="#m1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="H1"/>
-        <NamedIndividual IRI="m2"/>
+        <Class IRI="#H1"/>
+        <NamedIndividual IRI="#m2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="M1"/>
-        <NamedIndividual IRI="m2"/>
+        <Class IRI="#M1"/>
+        <NamedIndividual IRI="#m2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="E1"/>
-        <NamedIndividual IRI="m3"/>
+        <Class IRI="#E1"/>
+        <NamedIndividual IRI="#m3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="H2"/>
-        <NamedIndividual IRI="m3"/>
+        <Class IRI="#H2"/>
+        <NamedIndividual IRI="#m3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="M1"/>
-        <NamedIndividual IRI="m3"/>
+        <Class IRI="#M1"/>
+        <NamedIndividual IRI="#m3"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="role"/>
-        <NamedIndividual IRI="a1"/>
-        <NamedIndividual IRI="e"/>
+        <ObjectProperty IRI="#role"/>
+        <NamedIndividual IRI="#a1"/>
+        <NamedIndividual IRI="#e"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="role"/>
-        <NamedIndividual IRI="a2"/>
-        <NamedIndividual IRI="e"/>
+        <ObjectProperty IRI="#role"/>
+        <NamedIndividual IRI="#a2"/>
+        <NamedIndividual IRI="#e"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="role"/>
-        <NamedIndividual IRI="a3"/>
-        <NamedIndividual IRI="e"/>
+        <ObjectProperty IRI="#role"/>
+        <NamedIndividual IRI="#a3"/>
+        <NamedIndividual IRI="#e"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="role"/>
-        <NamedIndividual IRI="m1"/>
-        <NamedIndividual IRI="d"/>
+        <ObjectProperty IRI="#role"/>
+        <NamedIndividual IRI="#m1"/>
+        <NamedIndividual IRI="#d"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="role"/>
-        <NamedIndividual IRI="m2"/>
-        <NamedIndividual IRI="d"/>
+        <ObjectProperty IRI="#role"/>
+        <NamedIndividual IRI="#m2"/>
+        <NamedIndividual IRI="#d"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="role"/>
-        <NamedIndividual IRI="m3"/>
-        <NamedIndividual IRI="d"/>
+        <ObjectProperty IRI="#role"/>
+        <NamedIndividual IRI="#m3"/>
+        <NamedIndividual IRI="#d"/>
     </ObjectPropertyAssertion>
 </Ontology>
 
@@ -250,7 +250,7 @@ with onto:
 		equivalent_to = [...]. Do not include anything else in the response.
 Response: with onto:
 	class C(Thing):
-		equivalent_to = [E3 & D1]
-Verified Response: None
-Error: Error verifying the candidate concept.
+		equivalent_to = [onto.E3 & onto.D1]
+Verified Response: (['a1'], ['a2', 'a3', 'm2', 'm3'])
+Error: Candidate evaluation failed [sep_type=strong - some negative examples not entailed].
 Result: False

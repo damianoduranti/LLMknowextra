@@ -1,6 +1,7 @@
 import logging
 import time
 import os
+import csv
 import re
 from LTL_process.translator.formula_translator import f2i
 from LTL_process.config import NUXMV
@@ -43,7 +44,7 @@ def ltl_process(trace_path, nuxmv_path=NUXMV, max_attempts=5):
 
     load_api_keys(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'api_keys.json'))
     set_openai_api_configurations()
-    total_time = 0
+    durations = []
 
     for attempt in range(1, max_attempts + 1):
         start_time = time.time()
@@ -67,6 +68,7 @@ def ltl_process(trace_path, nuxmv_path=NUXMV, max_attempts=5):
 
             if f2i_response:
                 spec_dir = create_output_dir(trace_path, "spec")
+                spec_path = None
                 spec_path = generate_smv_spec(f2i_response, spec_dir)
 
                 constraints = get_ltl_constraints(read_json_data(trace_path))
@@ -92,32 +94,34 @@ def ltl_process(trace_path, nuxmv_path=NUXMV, max_attempts=5):
             f2i_response = None
             spec_path = None
 
-        duration = time.time() - start_time
-        total_time += duration
+        durations.append(time.time() - start_time)
 
         result_path = os.path.join(results_dir, f"attempt_{attempt}.txt")
         with open(result_path, 'w') as file:
-            file.write(f"Attempt: {attempt}\nPrompt: {prompt}\nResponse: {response}\nF2I Response: {f2i_response}\nError: {error}\nSpec Path: {spec_path}\nEvaluated Result: {result}\n")
+            file.write(f"Attempt: {attempt}\nPrompt: {prompt}\nResponse: {response}\nF2I Response: {f2i_response}\nError: {error}\nSpec Path: {spec_path if spec_path else 'None'}\nEvaluated Result: {result}\n")
             logging.info(f"Attempt {attempt} results saved to: {result_path}")
         if result:
-            average_time = total_time / max_attempts
-            logging.info(f"Average Time per Attempt: {average_time:.2f} seconds")
             time.sleep(10)
-            return response, attempt
-        average_time = total_time / max_attempts
-        logging.info(f"Average Time per Attempt: {average_time:.2f} seconds")
+            return response, durations
         time.sleep(10)
+
+    return None, durations
 
 def main():
 
-    for contraint_type in os.listdir("data/LTL_process/"):
-        if contraint_type == ".DS_Store":
-            continue
-        for trace in sorted(os.listdir(f"data/LTL_process/{contraint_type}/")):
-            if trace == ".DS_Store":
+    with open("dl_times.csv", 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['Constraint Type', 'Trace', 'Duration', "Result"])
+
+        for constraint_type in os.listdir("data/LTL_process/"):
+            if constraint_type == ".DS_Store":
                 continue
-            trace_path = os.path.join(f"data/LTL_process/{contraint_type}", trace)
-            ltl_process(trace_path)
+            for trace in sorted(os.listdir(f"data/LTL_process/{constraint_type}/")):
+                if trace == ".DS_Store":
+                    continue
+                trace_path = os.path.join(f"data/LTL_process/{constraint_type}", trace)
+                response, durations = ltl_process(trace_path)
+                writer.writerow([constraint_type, trace, durations, 'Correct' if response else 'Incorrect'])
 
 if __name__ == "__main__":
     main()

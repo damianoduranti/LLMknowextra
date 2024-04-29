@@ -250,7 +250,9 @@ with onto:
 		equivalent_to = [...]. Do not include anything else in the response.
 Response: with onto:
 	class C(Thing):
-		equivalent_to = [E3 & D1]
+		equivalent_to = [
+		onto.D1 & onto.E3
+		]
 Verified Response: (['a1'], ['a2', 'a3', 'm2', 'm3'])
 Error: Candidate evaluation failed [sep_type=strong - some negative examples not entailed].
 Result: False

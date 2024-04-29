@@ -15,6 +15,8 @@ def load_ontology(ontology_path):
     Returns:
         Ontology: The loaded ontology object.
     """
+    if 'ontology' in globals():
+        ontology.destroy()
     try:
         ontology = get_ontology(f"file://{ontology_path}").load()
         logging.info(f"Ontology loaded successfully from {ontology_path}")
@@ -111,6 +113,7 @@ def concept_verifier(instances, ontology, response):
         return None
     finally:
         clean_dynamic_variables(relevant_mappings)
+        ontology.destroy()
 
 def evaluator(instances, verified_response):
     """
