@@ -1,6 +1,6 @@
 # LLM-Driven Knowledge Extraction: Results in Temporal and Description Logics
 
-> **Authors:** Damiano Duranti, Paolo Giorgini, Andrea Mazzullo, Marco Robol and Marco Roveri
+> Damiano Duranti, Paolo Giorgini, Andrea Mazzullo, Marco Robol and Marco Roveri
 
 ## Table of Contents
 
