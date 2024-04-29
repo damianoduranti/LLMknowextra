@@ -140,7 +140,7 @@ with onto:
 		equivalent_to = [...]. Do not include anything else in the response.
 Response: with onto:
 	class C(Thing):
-		equivalent_to = [Student & (studiesAt.some(EuUni))]
+		equivalent_to = [ onto.Student & (onto.studiesAt.some(onto.EuUni)) ]
 Verified Response: (['s1', 's2'], ['s3'])
 Error: None
 Result: True

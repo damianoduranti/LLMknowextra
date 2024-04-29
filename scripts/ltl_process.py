@@ -43,8 +43,10 @@ def ltl_process(trace_path, nuxmv_path=NUXMV, max_attempts=5):
 
     load_api_keys(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'api_keys.json'))
     set_openai_api_configurations()
+    total_time = 0
 
     for attempt in range(1, max_attempts + 1):
+        start_time = time.time()
         try:
             prompt = generate_ltl_prompts_from_json(trace_path)
             response = str(send_prompt(prompt))
@@ -90,14 +92,21 @@ def ltl_process(trace_path, nuxmv_path=NUXMV, max_attempts=5):
             f2i_response = None
             spec_path = None
 
+        duration = time.time() - start_time
+        total_time += duration
+
         result_path = os.path.join(results_dir, f"attempt_{attempt}.txt")
         with open(result_path, 'w') as file:
             file.write(f"Attempt: {attempt}\nPrompt: {prompt}\nResponse: {response}\nF2I Response: {f2i_response}\nError: {error}\nSpec Path: {spec_path}\nEvaluated Result: {result}\n")
             logging.info(f"Attempt {attempt} results saved to: {result_path}")
         if result:
-            time.sleep(20)
+            average_time = total_time / max_attempts
+            logging.info(f"Average Time per Attempt: {average_time:.2f} seconds")
+            time.sleep(10)
             return response, attempt
-        time.sleep(20)
+        average_time = total_time / max_attempts
+        logging.info(f"Average Time per Attempt: {average_time:.2f} seconds")
+        time.sleep(10)
 
 def main():
 

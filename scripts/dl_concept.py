@@ -36,8 +36,11 @@ def dl_concept(instances_path, ontology_path, max_attempts=5):
 
     load_api_keys(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'api_keys.json'))
     set_openai_api_configurations()
+    total_time = 0
 
     for attempt in range(1, max_attempts + 1):
+        start_time = time.time()
+        
         try:
             prompt = generate_dl_prompts_from_json(instances_path, ontology_path)
             response = str(send_prompt(prompt)).strip()
@@ -63,14 +66,21 @@ def dl_concept(instances_path, ontology_path, max_attempts=5):
             result = False
             error = f"Error in attempt {attempt}: {e}"
 
+        duration = time.time() - start_time
+        total_time += duration
+
         result_path = os.path.join(results_dir, f"result_{attempt}.txt")
         with open(result_path, 'w') as f:
             f.write(f"Prompt: {prompt}\nResponse: {response}\nVerified Response: {verified_response}\nError: {error}\nResult: {result}\n")
             logging.info(f"Attempt {attempt} results saved to: {result_path}")
         if result:
-            time.sleep(20)
+            average_time = total_time / max_attempts
+            logging.info(f"Average Time per Attempt: {average_time:.2f} seconds")
+            time.sleep(10)
             return response, attempt
-        time.sleep(20)
+        average_time = total_time / max_attempts
+        logging.info(f"Average Time per Attempt: {average_time:.2f} seconds")
+        time.sleep(10)
 
     return None, max_attempts
 
