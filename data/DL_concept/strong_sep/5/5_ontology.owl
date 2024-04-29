@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.semanticweb.org/andrea/ontologies/2023/10/5_ontology#"
+     xml:base="http://www.semanticweb.org/andrea/ontologies/2023/10/5_ontology"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.semanticweb.org/andrea/ontologies/2023/10/5_ontology#">
+     ontologyIRI="http://www.semanticweb.org/andrea/ontologies/2023/10/5_ontology">
     <Prefix name="" IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/5_ontology#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
@@ -13,207 +13,207 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
-        <Class IRI="DLOperator"/>
+        <Class IRI="#DLOperator"/>
     </Declaration>
     <Declaration>
-        <Class IRI="DLog"/>
+        <Class IRI="#DLog"/>
     </Declaration>
     <Declaration>
-        <Class IRI="EnjoysBDP"/>
+        <Class IRI="#EnjoysBDP"/>
     </Declaration>
     <Declaration>
-        <Class IRI="EnjoysCIP"/>
+        <Class IRI="#EnjoysCIP"/>
     </Declaration>
     <Declaration>
-        <Class IRI="EnjoysPBDP"/>
+        <Class IRI="#EnjoysPBDP"/>
     </Declaration>
     <Declaration>
-        <Class IRI="HLog"/>
+        <Class IRI="#HLog"/>
     </Declaration>
     <Declaration>
-        <Class IRI="HuLog"/>
+        <Class IRI="#HuLog"/>
     </Declaration>
     <Declaration>
-        <Class IRI="MLOperator"/>
+        <Class IRI="#MLOperator"/>
     </Declaration>
     <Declaration>
-        <Class IRI="MLog"/>
+        <Class IRI="#MLog"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="hasOperator"/>
+        <ObjectProperty IRI="#hasOperator"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="alc"/>
+        <NamedIndividual IRI="#alc"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="alco"/>
+        <NamedIndividual IRI="#alco"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="alcou"/>
+        <NamedIndividual IRI="#alcou"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="diamond"/>
+        <NamedIndividual IRI="#diamond"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="exist_restr"/>
+        <NamedIndividual IRI="#exist_restr"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="ml"/>
+        <NamedIndividual IRI="#ml"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="mln"/>
+        <NamedIndividual IRI="#mln"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="mlnu"/>
+        <NamedIndividual IRI="#mlnu"/>
     </Declaration>
     <SubClassOf>
-        <Class IRI="EnjoysCIP"/>
-        <Class IRI="EnjoysPBDP"/>
+        <Class IRI="#EnjoysCIP"/>
+        <Class IRI="#EnjoysPBDP"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="EnjoysPBDP"/>
-        <Class IRI="EnjoysBDP"/>
+        <Class IRI="#EnjoysPBDP"/>
+        <Class IRI="#EnjoysBDP"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="MLog"/>
+        <Class IRI="#MLog"/>
         <ObjectComplementOf>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="hasOperator"/>
-                <Class IRI="DLOperator"/>
+                <ObjectProperty IRI="#hasOperator"/>
+                <Class IRI="#DLOperator"/>
             </ObjectSomeValuesFrom>
         </ObjectComplementOf>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="alc"/>
-            <NamedIndividual IRI="alco"/>
-            <NamedIndividual IRI="alcou"/>
+            <NamedIndividual IRI="#alc"/>
+            <NamedIndividual IRI="#alco"/>
+            <NamedIndividual IRI="#alcou"/>
         </ObjectOneOf>
         <ObjectComplementOf>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="hasOperator"/>
-                <Class IRI="MLOperator"/>
+                <ObjectProperty IRI="#hasOperator"/>
+                <Class IRI="#MLOperator"/>
             </ObjectSomeValuesFrom>
         </ObjectComplementOf>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="alc"/>
-            <NamedIndividual IRI="ml"/>
+            <NamedIndividual IRI="#alc"/>
+            <NamedIndividual IRI="#ml"/>
         </ObjectOneOf>
-        <Class IRI="EnjoysCIP"/>
+        <Class IRI="#EnjoysCIP"/>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="alco"/>
-            <NamedIndividual IRI="mln"/>
+            <NamedIndividual IRI="#alco"/>
+            <NamedIndividual IRI="#mln"/>
         </ObjectOneOf>
         <ObjectComplementOf>
-            <Class IRI="EnjoysBDP"/>
+            <Class IRI="#EnjoysBDP"/>
         </ObjectComplementOf>
     </SubClassOf>
     <SubClassOf>
         <ObjectOneOf>
-            <NamedIndividual IRI="alcou"/>
-            <NamedIndividual IRI="mlnu"/>
+            <NamedIndividual IRI="#alcou"/>
+            <NamedIndividual IRI="#mlnu"/>
         </ObjectOneOf>
         <ObjectComplementOf>
-            <Class IRI="EnjoysPBDP"/>
+            <Class IRI="#EnjoysPBDP"/>
         </ObjectComplementOf>
     </SubClassOf>
     <ClassAssertion>
-        <Class IRI="DLog"/>
-        <NamedIndividual IRI="alc"/>
+        <Class IRI="#DLog"/>
+        <NamedIndividual IRI="#alc"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="EnjoysCIP"/>
-        <NamedIndividual IRI="alc"/>
+        <Class IRI="#EnjoysCIP"/>
+        <NamedIndividual IRI="#alc"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="DLog"/>
-        <NamedIndividual IRI="alco"/>
+        <Class IRI="#DLog"/>
+        <NamedIndividual IRI="#alco"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="HLog"/>
-        <NamedIndividual IRI="alco"/>
+        <Class IRI="#HLog"/>
+        <NamedIndividual IRI="#alco"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="DLog"/>
-        <NamedIndividual IRI="alcou"/>
+        <Class IRI="#DLog"/>
+        <NamedIndividual IRI="#alcou"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="EnjoysBDP"/>
-        <NamedIndividual IRI="alcou"/>
+        <Class IRI="#EnjoysBDP"/>
+        <NamedIndividual IRI="#alcou"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="HuLog"/>
-        <NamedIndividual IRI="alcou"/>
+        <Class IRI="#HuLog"/>
+        <NamedIndividual IRI="#alcou"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="MLOperator"/>
-        <NamedIndividual IRI="diamond"/>
+        <Class IRI="#MLOperator"/>
+        <NamedIndividual IRI="#diamond"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="DLOperator"/>
-        <NamedIndividual IRI="exist_restr"/>
+        <Class IRI="#DLOperator"/>
+        <NamedIndividual IRI="#exist_restr"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="EnjoysCIP"/>
-        <NamedIndividual IRI="ml"/>
+        <Class IRI="#EnjoysCIP"/>
+        <NamedIndividual IRI="#ml"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="MLog"/>
-        <NamedIndividual IRI="ml"/>
+        <Class IRI="#MLog"/>
+        <NamedIndividual IRI="#ml"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="HLog"/>
-        <NamedIndividual IRI="mln"/>
+        <Class IRI="#HLog"/>
+        <NamedIndividual IRI="#mln"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="MLog"/>
-        <NamedIndividual IRI="mln"/>
+        <Class IRI="#MLog"/>
+        <NamedIndividual IRI="#mln"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="EnjoysBDP"/>
-        <NamedIndividual IRI="mlnu"/>
+        <Class IRI="#EnjoysBDP"/>
+        <NamedIndividual IRI="#mlnu"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="HuLog"/>
-        <NamedIndividual IRI="mlnu"/>
+        <Class IRI="#HuLog"/>
+        <NamedIndividual IRI="#mlnu"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="MLog"/>
-        <NamedIndividual IRI="mlnu"/>
+        <Class IRI="#MLog"/>
+        <NamedIndividual IRI="#mlnu"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="hasOperator"/>
-        <NamedIndividual IRI="alc"/>
-        <NamedIndividual IRI="exist_restr"/>
+        <ObjectProperty IRI="#hasOperator"/>
+        <NamedIndividual IRI="#alc"/>
+        <NamedIndividual IRI="#exist_restr"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="hasOperator"/>
-        <NamedIndividual IRI="alco"/>
-        <NamedIndividual IRI="exist_restr"/>
+        <ObjectProperty IRI="#hasOperator"/>
+        <NamedIndividual IRI="#alco"/>
+        <NamedIndividual IRI="#exist_restr"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="hasOperator"/>
-        <NamedIndividual IRI="alcou"/>
-        <NamedIndividual IRI="exist_restr"/>
+        <ObjectProperty IRI="#hasOperator"/>
+        <NamedIndividual IRI="#alcou"/>
+        <NamedIndividual IRI="#exist_restr"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="hasOperator"/>
-        <NamedIndividual IRI="ml"/>
-        <NamedIndividual IRI="diamond"/>
+        <ObjectProperty IRI="#hasOperator"/>
+        <NamedIndividual IRI="#ml"/>
+        <NamedIndividual IRI="#diamond"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="hasOperator"/>
-        <NamedIndividual IRI="mln"/>
-        <NamedIndividual IRI="diamond"/>
+        <ObjectProperty IRI="#hasOperator"/>
+        <NamedIndividual IRI="#mln"/>
+        <NamedIndividual IRI="#diamond"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="hasOperator"/>
-        <NamedIndividual IRI="mlnu"/>
-        <NamedIndividual IRI="diamond"/>
+        <ObjectProperty IRI="#hasOperator"/>
+        <NamedIndividual IRI="#mlnu"/>
+        <NamedIndividual IRI="#diamond"/>
     </ObjectPropertyAssertion>
 </Ontology>
 
