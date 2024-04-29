@@ -6,84 +6,84 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://www.semanticweb.org/andrea/ontologies/2023/10/8.1_ontology">
-    <Prefix name="" IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology"/>
+    <Prefix name="" IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/8.1_ontology"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#B"/>
+        <Class IRI="#B"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#F"/>
+        <Class IRI="#F"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#P"/>
+        <Class IRI="#P"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#role"/>
+        <ObjectProperty IRI="#role"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#b"/>
+        <NamedIndividual IRI="#b"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#c1"/>
+        <NamedIndividual IRI="#c1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#c2"/>
+        <NamedIndividual IRI="#c2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#c3"/>
+        <NamedIndividual IRI="#c3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#c4"/>
+        <NamedIndividual IRI="#c4"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#p"/>
+        <NamedIndividual IRI="#p"/>
     </Declaration>
     <SubClassOf>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#role"/>
-            <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#P"/>
+            <ObjectProperty IRI="#role"/>
+            <Class IRI="#P"/>
         </ObjectSomeValuesFrom>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#F"/>
+        <Class IRI="#F"/>
     </SubClassOf>
     <ClassAssertion>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#B"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#b"/>
+        <Class IRI="#B"/>
+        <NamedIndividual IRI="#b"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#F"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#c1"/>
+        <Class IRI="#F"/>
+        <NamedIndividual IRI="#c1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#F"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#c2"/>
+        <Class IRI="#F"/>
+        <NamedIndividual IRI="#c2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#P"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#p"/>
+        <Class IRI="#P"/>
+        <NamedIndividual IRI="#p"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#role"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#c1"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#b"/>
+        <ObjectProperty IRI="#role"/>
+        <NamedIndividual IRI="#c1"/>
+        <NamedIndividual IRI="#b"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#role"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#c2"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#b"/>
+        <ObjectProperty IRI="#role"/>
+        <NamedIndividual IRI="#c2"/>
+        <NamedIndividual IRI="#b"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#role"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#c3"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#p"/>
+        <ObjectProperty IRI="#role"/>
+        <NamedIndividual IRI="#c3"/>
+        <NamedIndividual IRI="#p"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#role"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#c4"/>
-        <NamedIndividual IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/3.1_ontology#p"/>
+        <ObjectProperty IRI="#role"/>
+        <NamedIndividual IRI="#c4"/>
+        <NamedIndividual IRI="#p"/>
     </ObjectPropertyAssertion>
 </Ontology>
 
