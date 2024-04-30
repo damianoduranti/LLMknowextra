@@ -131,12 +131,16 @@ pip install -r requirements.txt
 2. **nuXmv setup:** Download the [nuXmv](https://nuxmv.fbk.eu/) and place the nuXmv executable inside the ```nuXmv/bin``` directory.
 
 > **Note:** On Apple Silicon devices, nuXmv may require the x86 version of the GMP library. Follow these steps to install it:
-> 1. Install Homebrew for x86:
-> Open Terminal and run the following command to install the x86 version of Homebrew in /usr/local (native ARM installation is in /opt/brew):
-> ```bash arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"```
-> 2. Install GMP for x86:
-> After the x86 Homebrew installation is complete, install GMP by executing:
-> ```bash arch -x86_64 /bin/bash -c "/usr/local/bin/brew install gmp"```
+1. Install Homebrew for x86:
+Open Terminal and run the following command to install the x86 version of Homebrew in /usr/local (native ARM installation is in /opt/brew):
+```
+bash arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+2. Install GMP for x86:
+After the x86 Homebrew installation is complete, install GMP by executing:
+```
+bash arch -x86_64 /bin/bash -c "/usr/local/bin/brew install gmp"
+```
 
 ## Usage
 
