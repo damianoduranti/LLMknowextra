@@ -6,7 +6,7 @@ echo;
 go;
 time;
 echo;
-check_ltlspec -p "G((p) -> (X(G(p | End) & !End)) | End)";
+check_ltlspec -p "(G(F(p & !End) | End)) & (F(q & !End)) & (G(F(r & !End) | End))";
 echo;
 time;
 quit;

@@ -28,7 +28,7 @@ elapse: 0.00 seconds, total: 0.00 seconds
 
 elapse: -0.00 seconds, total: 0.01 seconds
 
--- specification  G (((!p U (q & !End)) U ( F (r & !End) & !End)) | End)  is false
+-- specification  G ((( F (p & !End) &  F (q & !End)) & !( F (r & !End))) | End)  is false
 -- as demonstrated by the following execution sequence
 Trace Description: LTL Counterexample 
 Trace Type: Counterexample 
@@ -61,14 +61,11 @@ Trace Type: Counterexample
   -> State: 1.9 <-
     q = TRUE
     pc = 9
+  -- Loop starts here
   -> State: 1.10 <-
-    p = TRUE
     q = FALSE
     End = TRUE
     pc = 10
-  -- Loop starts here
   -> State: 1.11 <-
-    p = FALSE
-  -> State: 1.12 <-
 
 elapse: -0.00 seconds, total: 0.01 seconds

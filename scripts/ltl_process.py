@@ -23,7 +23,7 @@ def create_output_dir(trace_path, folder_name):
         os.makedirs(output_dir)
     return output_dir
 
-def ltl_process(trace_path, nuxmv_path=NUXMV, max_attempts=5):
+def ltl_process(trace_path, nuxmv_path='NUXMV', max_attempts=5):
     """
     Generate LTL candidates until a correct LTL process formula is found.
 
@@ -36,80 +36,59 @@ def ltl_process(trace_path, nuxmv_path=NUXMV, max_attempts=5):
         str: A correct LTL process formula if found, None otherwise.
         int: The number of attempts made until a correct formula is found.
     """
-    validate_json_structure(read_json_data(trace_path))
-    traces_smv_dir = create_output_dir(trace_path, "traces_smv")
-    generate_smv_files_from_json(trace_path, traces_smv_dir)
+    try:
+        validate_json_structure(read_json_data(trace_path))
+        traces_smv_dir = create_output_dir(trace_path, "traces_smv")
+        generate_smv_files_from_json(trace_path, traces_smv_dir)
+        results_dir = create_output_dir(trace_path, "results")
+        load_api_keys(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'api_keys.json'))
+        set_openai_api_configurations()
+        durations = []
 
-    results_dir = create_output_dir(trace_path, "results")
-
-    load_api_keys(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'api_keys.json'))
-    set_openai_api_configurations()
-    durations = []
-
-    for attempt in range(1, max_attempts + 1):
-        start_time = time.time()
-        try:
+        for attempt in range(1, max_attempts + 1):
+            start_time = time.time()
+            error = None
+            spec_path = None
             prompt = generate_ltl_prompts_from_json(trace_path)
-            response = str(send_prompt(prompt))
-            response = re.sub(r'\"', '', response)
-
+            response = send_prompt(prompt).strip().replace('"', '')
             logging.info(f"Attempt {attempt} response: {response}")
-
-            syntax_error = None
-
             try:
                 f2i_response = f2i(response)
-            except Exception as e:
-                logging.error(f"Syntax error in the candidate formula: {e}")
-                f2i_response = None
-                syntax_error = "The candidate formula contains a syntax error."
-
-            logging.info(f"Attempt {attempt} f2i: {f2i_response}")
-
-            if f2i_response:
-                spec_dir = create_output_dir(trace_path, "spec")
-                spec_path = None
-                spec_path = generate_smv_spec(f2i_response, spec_dir)
-
-                constraints = get_ltl_constraints(read_json_data(trace_path))
-                if constraints:
-                    lower = [char for char in response if char.islower()]
-                    if not all(char in constraints for char in lower):
-                        syntax_error = "The generated LTL formula does not satisfy the signature restrictions."
-
-                result, error = evaluator(traces_smv_dir, spec_path)
-
-                if syntax_error is not None:
-                    error += syntax_error
+                logging.info(f"Attempt {attempt} f2i: {f2i_response}")
+                if f2i_response:
+                    spec_dir = create_output_dir(trace_path, "spec")
+                    spec_path = generate_smv_spec(f2i_response, spec_dir)
+                    constraints = get_ltl_constraints(read_json_data(trace_path))
+                    if constraints and not all(char in constraints for char in response if char.islower()):
+                        error = "The generated LTL formula does not satisfy the signature restrictions."
+                    result, spec_error = evaluator(traces_smv_dir, spec_path)
+                    if spec_error:
+                        error = spec_error
+                else:
                     result = False
-
-            else:
+                    error = "Syntax error in the candidate formula."
+            except Exception as e:
+                logging.error(f"Error processing LTL formula: {e}")
                 result = False
-                error = syntax_error
-        
-        except Exception as e:
-            logging.error(f"Error processing LTL formula: {e}")
-            result = False
-            response = None
-            f2i_response = None
-            spec_path = None
+                response = None
+                f2i_response = None
+                error = str(e)
 
-        durations.append(time.time() - start_time)
-
-        result_path = os.path.join(results_dir, f"attempt_{attempt}.txt")
-        with open(result_path, 'w') as file:
-            file.write(f"Attempt: {attempt}\nPrompt: {prompt}\nResponse: {response}\nF2I Response: {f2i_response}\nError: {error}\nSpec Path: {spec_path if spec_path else 'None'}\nEvaluated Result: {result}\n")
-            logging.info(f"Attempt {attempt} results saved to: {result_path}")
-        if result:
+            durations.append(time.time() - start_time)
+            result_path = os.path.join(results_dir, f"attempt_{attempt}.txt")
+            with open(result_path, 'w') as file:
+                file.write(f"Attempt: {attempt}\nPrompt: {prompt}\nResponse: {response}\nF2I Response: {f2i_response}\nError: {error}\nSpec Path: {spec_path if spec_path else 'None'}\nEvaluated Result: {result}\n")
+                logging.info(f"Attempt {attempt} results saved to: {result_path}")
+            if result:
+                return response, durations
             time.sleep(10)
-            return response, durations
-        time.sleep(10)
-
+    except Exception as e:
+        logging.error(f"An error occurred during processing: {e}")
     return None, durations
 
 def main():
 
-    with open("dl_times.csv", 'a', newline='') as file:
+    with open("ltl_times.csv", 'a+', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['Constraint Type', 'Trace', 'Duration', "Result"])
 

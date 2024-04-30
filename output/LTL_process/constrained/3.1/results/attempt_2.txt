@@ -1,7 +1,7 @@
 Attempt: 2
-Prompt: Provide an LTL formula, using only the propositional letters "p", "q" that is satisfied on:
+Prompt: Provide an LTLf formula, using only the propositional letters "p", "q" that is satisfied on:
 
-TRACE 1
+FINITE TRACE 1
 
 1. {  }
 2. { p }
@@ -15,7 +15,7 @@ TRACE 1
 
 and falsified on:
 
-TRACE 2
+FINITE TRACE 2
 
 1. {  }
 2. { p }
@@ -28,8 +28,8 @@ TRACE 2
 9. {  }
 
 Provide the formula only in the form of a string, using the nuXmv syntax.
-Response: G F p & G !F q
-F2I Response: (G(F(p & !End) | End)) & (G(!(F(q & !End)) | End))
+Response: G ( F p -> X ( X ( X ( X (G !p & F q) ) ) ) )
+F2I Response: G((F(p & !End)) -> (X(X(X(X((G(!(p) | End)) & (F(q & !End)) & !End) & !End) & !End) & !End)) | End)
 Error: Candidate evaluation failed [some positive traces do not satisfy the formula].
 Spec Path: output/LTL_process/constrained/3.1/spec/spec2
 Evaluated Result: False

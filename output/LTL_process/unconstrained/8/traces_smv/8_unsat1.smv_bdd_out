@@ -28,7 +28,7 @@ elapse: 0.00 seconds, total: 0.00 seconds
 
 elapse: -0.00 seconds, total: 0.01 seconds
 
--- specification  G ( F (p & !End) -> ( X ( F (r & !End) & !End) | End))  is false
+-- specification  G ((( F (p & !End) &  F (q & !End)) &  F (r & !End)) | End)  is false
 -- as demonstrated by the following execution sequence
 Trace Description: LTL Counterexample 
 Trace Type: Counterexample 

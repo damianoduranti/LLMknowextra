@@ -1,7 +1,7 @@
 Attempt: 2
-Prompt: Provide an LTL formula that is satisfied on:
+Prompt: Provide an LTLf formula that is satisfied on:
 
-TRACE 1
+FINITE TRACE 1
 
 1. { p }
 2. { p }
@@ -15,7 +15,7 @@ TRACE 1
 
 and falsified on:
 
-TRACE 2
+FINITE TRACE 2
 
 1. { p }
 2. { p }
@@ -28,8 +28,8 @@ TRACE 2
 9. {  }
 
 Provide the formula only in the form of a string, using the nuXmv syntax.
-Response: G(p) & F(q) & F(G(r))
-F2I Response: (G(p | End)) & (F(q & !End)) & (F(G(r | End) & !End))
+Response: G F p & G (q -> X r & X X r & X X X r)
+F2I Response: (G(F(p & !End) | End)) & (G((q) -> ((X(r & !End)) & (X(X(r & !End) & !End)) & (X(X(X(r & !End) & !End) & !End))) | End))
 Error: Candidate evaluation failed [some positive traces do not satisfy the formula].
 Spec Path: output/LTL_process/unconstrained/7/spec/spec2
 Evaluated Result: False

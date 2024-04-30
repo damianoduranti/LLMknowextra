@@ -1,7 +1,7 @@
 Attempt: 3
-Prompt: Provide an LTL formula, using only the propositional letters "p", "r" that is satisfied on:
+Prompt: Provide an LTLf formula, using only the propositional letters "p", "r" that is satisfied on:
 
-TRACE 1
+FINITE TRACE 1
 
 1. {  }
 2. { p }
@@ -13,7 +13,7 @@ TRACE 1
 8. { r }
 9. { r }
 
-TRACE 2
+FINITE TRACE 2
 
 1. { p }
 2. {  }
@@ -25,7 +25,7 @@ TRACE 2
 8. { r }
 9. {  }
 
-TRACE 3
+FINITE TRACE 3
 
 1. {  }
 2. { p, r }
@@ -39,7 +39,7 @@ TRACE 3
 
 and falsified on:
 
-TRACE 4
+FINITE TRACE 4
 
 1. { p }
 2. { r }

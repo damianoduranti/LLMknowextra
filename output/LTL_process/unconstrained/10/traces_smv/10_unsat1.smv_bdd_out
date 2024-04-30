@@ -28,7 +28,7 @@ elapse: 0.00 seconds, total: 0.00 seconds
 
 elapse: -0.00 seconds, total: 0.01 seconds
 
--- specification ( G (q | End) &  F ((p & r) & !End))  is false
+-- specification ((((( G (((q & !p) & !r) | End) &  F (((p & r) & !q) & !End)) &  F (((!p & !q) & !r) & !End)) &  X ( G (((q & !p) & !r) | End) & !End)) &  X ( X ( F (((!p & !q) & !r) & !End) & !End) & !End)) &  X ( X ( X ( F (((p & r) & !q) & !End) & !End) & !End) & !End))  is false
 -- as demonstrated by the following execution sequence
 Trace Description: LTL Counterexample 
 Trace Type: Counterexample 
@@ -71,4 +71,4 @@ Trace Type: Counterexample
     pc = 9
   -> State: 1.10 <-
 
-elapse: -0.00 seconds, total: 0.01 seconds
+elapse: 0.00 seconds, total: 0.01 seconds

@@ -6,7 +6,7 @@ echo;
 go;
 time;
 echo;
-check_ltlspec -p "(G(q | End)) & (G(((p) & (r)) -> (X(q & !End)) | End)) & (G(((r) & (!(p))) -> (X(q & !End)) | End)) & (G(((q) & (X((!(p)) & (!(r)) & !End))) -> (X(!(q) & !End)) | End))";
+check_ltlspec -p "(G((q) & (!(p)) & (!(r)) | End)) & (F((p) & (r) & (!(q)) & !End)) & (F((!(p)) & (!(q)) & (!(r)) & !End)) & (X(G((q) & (!(p)) & (!(r)) | End) & !End)) & (X(X(F((!(p)) & (!(q)) & (!(r)) & !End) & !End) & !End)) & (X(X(X(F((p) & (r) & (!(q)) & !End) & !End) & !End) & !End))";
 echo;
 time;
 quit;

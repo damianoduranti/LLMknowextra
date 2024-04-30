@@ -28,6 +28,44 @@ elapse: 0.00 seconds, total: 0.00 seconds
 
 elapse: -0.00 seconds, total: 0.01 seconds
 
--- specification  G ( F (p & !End) -> ( X ( F (r & !End) & !End) | End))  is true
+-- specification  G ((( F (p & !End) &  F (q & !End)) &  F (r & !End)) | End)  is false
+-- as demonstrated by the following execution sequence
+Trace Description: LTL Counterexample 
+Trace Type: Counterexample 
+  -> State: 1.1 <-
+    p = FALSE
+    q = FALSE
+    r = FALSE
+    End = FALSE
+    pc = 1
+  -> State: 1.2 <-
+    pc = 2
+  -> State: 1.3 <-
+    pc = 3
+  -> State: 1.4 <-
+    p = TRUE
+    pc = 4
+  -> State: 1.5 <-
+    p = FALSE
+    pc = 5
+  -> State: 1.6 <-
+    r = TRUE
+    pc = 6
+  -> State: 1.7 <-
+    p = TRUE
+    r = FALSE
+    pc = 7
+  -> State: 1.8 <-
+    p = FALSE
+    pc = 8
+  -> State: 1.9 <-
+    r = TRUE
+    pc = 9
+  -- Loop starts here
+  -> State: 1.10 <-
+    r = FALSE
+    End = TRUE
+    pc = 10
+  -> State: 1.11 <-
 
 elapse: -0.00 seconds, total: 0.01 seconds

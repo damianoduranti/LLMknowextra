@@ -6,7 +6,7 @@ echo;
 go;
 time;
 echo;
-check_ltlspec -p "G(r | End)";
+check_ltlspec -p "G(F(r & !End) | End)";
 echo;
 time;
 quit;
