@@ -13,29 +13,8 @@
 
 ## Abstract
 
-Trustworthy knowledge extraction represents a bottleneck in
-the development of autonomous AI agents capable of inte-
-grating learning and reasoning capabilities. As a founda-
-tional framework of neuro-symbolic knowledge acquisition
-systems from semi-structured data, we introduce an approach
-that combines Large Language Model (LLM) functionali-
-ties with symbolic verification modules. In a process min-
-ing context, we propose to leverage LLMs to generate lin-
-ear temporal logic specifications starting from sets of finite
-traces that represent event logs. In a knowledge represen-
-tation setting, we focus instead on LLM-based extraction of
-description logic concepts to obtain human-readable concep-
-tualizations that separate positive and negative labeled data
-instances. We integrate chat interfaces based on state-of-the-
-art LLMs with formal verification modules: In the process
-mining case, we employ model checking tools for linear tem-
-poral logic on finite traces; and, for description logic concept
-learning, we perform entailment checks using dedicated rea-
-soning engines. First, we perform a proof-of-concept evalua-
-tion of these architectures, comparing the performance of the
-LLMs on each task. We then provide an implementation of
-a GPT-based toolchain to automate the candidate generation
-and verification steps.
+Trustworthy knowledge extraction represents a bottleneck in the development of autonomous AI agents capable of integrating learning and reasoning capabilities. As a foundational framework of neuro-symbolic knowledge acquisition systems from semi-structured data, we introduce an approach
+that combines Large Language Model (LLM) functionalities with symbolic verification modules. In a process mining context, we propose to leverage LLMs to generate linear temporal logic specifications starting from sets of finite traces that represent event logs. In a knowledge representation setting, we focus instead on LLM-based extraction of description logic concepts to obtain human-readable conceptualizations that separate positive and negative labeled data instances. We integrate chat interfaces based on state-of-the-art LLMs with formal verification modules: In the process mining case, we employ model checking tools for linear temporal logic on finite traces; and, for description logic concept learning, we perform entailment checks using dedicated reasoning engines. First, we perform a proof-of-concept evaluation of these architectures, comparing the performance of the LLMs on each task. We then provide an implementation of a GPT-based toolchain to automate the candidate generation and verification steps.
 
 ## Project Structure
 
