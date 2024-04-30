@@ -1,0 +1,35 @@
+Attempt: 2
+Prompt: Provide an LTLf formula that is satisfied on:
+
+FINITE TRACE 1
+
+1. { p }
+2. { p }
+3. { p }
+4. { p }
+5. { p }
+6. { q }
+7. { r }
+8. { r }
+9. { r }
+
+and falsified on:
+
+FINITE TRACE 2
+
+1. { p }
+2. { p }
+3. { p }
+4. { p }
+5. {  }
+6. { q }
+7. { r }
+8. {  }
+9. {  }
+
+Provide the formula only in the form of a string, using the nuXmv syntax.
+Response: G p & F (G q -> X(F r))
+F2I Response: (G(p | End)) & (F((G(q | End)) -> (X(F(r & !End) & !End)) & !End))
+Error: Candidate evaluation failed [some positive traces do not satisfy the formula].
+Spec Path: output/LTL_process/unconstrained/47/spec/spec2
+Evaluated Result: False

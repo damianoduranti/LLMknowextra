@@ -1,0 +1,59 @@
+Attempt: 3
+Prompt: Provide an LTLf formula that is satisfied on:
+
+FINITE TRACE 1
+
+1. { r }
+2. { p }
+3. { q }
+4. {  }
+5. { p, r }
+6. { r }
+7. { q, r }
+8. { p }
+9. { q, r }
+
+FINITE TRACE 2
+
+1. {  }
+2. {  }
+3. { p }
+4. { q }
+5. {  }
+6. {  }
+7. { p }
+8. {  }
+9. { q }
+
+and falsified on:
+
+FINITE TRACE 3
+
+1. { r }
+2. { p, r }
+3. { r }
+4. { r }
+5. { q, r }
+6. { r }
+7. { r }
+8. { p, r }
+9. { r }
+
+FINITE TRACE 4
+
+1. { p, q }
+2. {  }
+3. {  }
+4. { p, q }
+5. { p }
+6. { p }
+7. { p }
+8. { p }
+9. { p }
+
+Provide the formula only in the form of a string, using the nuXmv syntax.
+Response: G((F p) -> (X G(!q W r)))
+F2I Response: (G(F(r & !End) | End)) & (F(G(!(p) | End) & !End)) & (F((p) & (X(q & !End)) & !End))
+Error: formula '(weak_until (not q) r)' is not supported
+Spec Path: None
+Evaluated Result: False

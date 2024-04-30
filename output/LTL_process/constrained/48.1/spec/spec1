@@ -1,0 +1,12 @@
+set on_failure_script_quits;
+unset forward_search;
+unset ltl_tableau_forward_search;
+time;
+echo;
+go;
+time;
+echo;
+check_ltlspec -p "G(((!(p)) & (!(r))) U (((G(p | End)) U (((G((!(p)) & (!(r)) | End)) U (((G(r | End)) U (((G((!(p)) & (!(r)) | End)) U ((G(p | End)) & !End)) & !End)) & !End)) & !End)) & !End) | End)";
+echo;
+time;
+quit;

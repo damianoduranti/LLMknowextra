@@ -1,0 +1,59 @@
+Attempt: 2
+Prompt: Provide an LTLf formula, using only the propositional letter "p" that is satisfied on:
+
+FINITE TRACE 1
+
+1. { r }
+2. { r }
+3. { r }
+4. { r }
+5. { r, p }
+6. { r }
+7. { r }
+8. { r }
+9. { r }
+
+FINITE TRACE 2
+
+1. { r }
+2. { r }
+3. {  }
+4. { r }
+5. { r }
+6. {  }
+7. { r }
+8. { r }
+9. { p }
+
+and falsified on:
+
+FINITE TRACE 3
+
+1. { r }
+2. { r }
+3. { r }
+4. { r }
+5. { r }
+6. { r }
+7. { r }
+8. { r }
+9. { r }
+
+FINITE TRACE 4
+
+1. { q }
+2. {  }
+3. {  }
+4. { q }
+5. {  }
+6. {  }
+7. { q }
+8. {  }
+9. {  }
+
+Provide the formula only in the form of a string, using the nuXmv syntax.
+Response: G F p
+F2I Response: G(F(p & !End) | End)
+Error: Candidate evaluation failed [some positive traces do not satisfy the formula].
+Spec Path: output/LTL_process/constrained/15.1/spec/spec2
+Evaluated Result: False

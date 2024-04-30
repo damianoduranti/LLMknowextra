@@ -1,0 +1,35 @@
+Attempt: 1
+Prompt: Provide an LTLf formula, using only the propositional letter "p" that is satisfied on:
+
+FINITE TRACE 1
+
+1. { r }
+2. { r }
+3. { r }
+4. { r }
+5. { r, p }
+6. { r }
+7. { r }
+8. { r }
+9. { r }
+
+and falsified on:
+
+FINITE TRACE 2
+
+1. { r }
+2. { r }
+3. { r }
+4. { r }
+5. { r }
+6. { r }
+7. { r }
+8. { r }
+9. { r }
+
+Provide the formula only in the form of a string, using the nuXmv syntax.
+Response:  F p 
+F2I Response: F(p & !End)
+Error: None
+Spec Path: output/LTL_process/constrained/34.1/spec/spec1
+Evaluated Result: True

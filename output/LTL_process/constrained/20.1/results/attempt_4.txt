@@ -1,0 +1,70 @@
+Attempt: 4
+Prompt: Provide an LTLf formula, using only the propositional letters "p", "q", "r" that is satisfied on:
+
+FINITE TRACE 1
+
+1. { q }
+2. { p, r }
+3. {  }
+4. { q }
+5. {  }
+6. { p, r }
+
+FINITE TRACE 2
+
+1. { q }
+2. { p, r }
+3. {  }
+4. { q }
+5. {  }
+6. { p, r, q }
+7. { p, q, r }
+
+and falsified on:
+
+FINITE TRACE 3
+
+1. { p, q, r }
+2. { p }
+3. { r }
+4. {  }
+5. { p, q }
+6. { r }
+7. { q }
+8. {  }
+
+FINITE TRACE 4
+
+1. {  }
+2. {  }
+3. {  }
+4. { p, q, r }
+5. {  }
+6. {  }
+7. { q }
+8. {  }
+9. {  }
+
+Provide the formula only in the form of a string, using the nuXmv syntax.
+Response: []( ( (!p & !r) & X(X(q)) ) U (p & r & (q W !r)) )
+F2I Response: G(((p) & (r)) -> ((X(!(p) & !End)) U ((q) & !End)) | End)
+Error: No terminal matches '[' in the current parser context, at line 1 col 1
+
+[]( ( (!p & !r) & X(X(q)) ) U (p & r & (
+^
+Expected one of: 
+	* TT
+	* LEFT_PARENTHESIS
+	* EVENTUALLY
+	* pl__FALSE
+	* WEAK_NEXT
+	* LAST
+	* FF
+	* NOT
+	* pl__TRUE
+	* ALWAYS
+	* NEXT
+	* SYMBOL_NAME
+
+Spec Path: None
+Evaluated Result: False

@@ -1,0 +1,72 @@
+Attempt: 1
+Prompt: Provide an LTLf formula that is satisfied on:
+
+FINITE TRACE 1
+
+1. { q }
+2. { p, r }
+3. {  }
+4. { q }
+5. {  }
+6. { p, r }
+
+FINITE TRACE 2
+
+1. { q }
+2. { p, r }
+3. {  }
+4. { q }
+5. {  }
+6. { p, r, q }
+7. { p, q, r }
+
+and falsified on:
+
+FINITE TRACE 3
+
+1. { p, q, r }
+2. { p }
+3. { r }
+4. {  }
+5. { p, q }
+6. { r }
+7. { q }
+8. {  }
+
+FINITE TRACE 4
+
+1. {  }
+2. {  }
+3. {  }
+4. { p, q, r }
+5. {  }
+6. {  }
+7. { q }
+8. {  }
+9. {  }
+
+Provide the formula only in the form of a string, using the nuXmv syntax.
+Response: None
+F2I Response: None
+Error: No terminal matches 'X' in the current parser context, at line 1 col 30
+
+G p & G r & F !q & G (X q -> XX q)
+                             ^
+Expected one of: 
+	* LAST
+	* TT
+	* pl__FALSE
+	* FF
+	* NOT
+	* SYMBOL_NAME
+	* LEFT_PARENTHESIS
+	* ALWAYS
+	* WEAK_NEXT
+	* EVENTUALLY
+	* pl__TRUE
+	* NEXT
+
+Previous tokens: Token('IMPLY', '->')
+
+Spec Path: None
+Evaluated Result: False

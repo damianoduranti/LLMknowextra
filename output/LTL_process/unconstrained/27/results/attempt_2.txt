@@ -1,0 +1,51 @@
+Attempt: 2
+Prompt: Provide an LTLf formula that is satisfied on:
+
+FINITE TRACE 1
+
+1. { p }
+2. { p }
+3. { p }
+4. { p }
+5. { p }
+6. { q }
+7. { r }
+8. { r }
+9. { r }
+
+and falsified on:
+
+FINITE TRACE 2
+
+1. { p }
+2. { p }
+3. { p }
+4. { p }
+5. {  }
+6. { q }
+7. { r }
+8. {  }
+9. {  }
+
+Provide the formula only in the form of a string, using the nuXmv syntax.
+Response: G(p) & F(q) & (F(r) U!q) & G(F(r))
+F2I Response: (G(F(p & !End) | End)) & (F(q & !End)) & (G((q) -> (X(F(r & !End) & !End)) | End))
+Error: No terminal matches 'U' in the current parser context, at line 1 col 21
+
+G(p) & F(q) & (F(r) U!q) & G(F(r))
+                    ^
+Expected one of: 
+	* OR
+	* IMPLY
+	* RIGHT_PARENTHESIS
+	* RELEASE
+	* UNTIL
+	* EQUIVALENCE
+	* STRONG_RELEASE
+	* AND
+	* WEAK_UNTIL
+
+Previous tokens: Token('RIGHT_PARENTHESIS', ')')
+
+Spec Path: None
+Evaluated Result: False

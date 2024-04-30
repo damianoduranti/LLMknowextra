@@ -1,0 +1,256 @@
+Prompt: Given the following knowledge base K:
+
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/andrea/ontologies/2023/10/5_ontology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/andrea/ontologies/2023/10/5_ontology">
+    <Prefix name="" IRI="http://www.semanticweb.org/andrea/ontologies/2023/10/5_ontology#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#DLOperator"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DLog"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EnjoysBDP"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EnjoysCIP"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EnjoysPBDP"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HLog"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HuLog"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MLOperator"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MLog"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasOperator"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#alc"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#alco"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#alcou"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#diamond"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#exist_restr"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ml"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#mln"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#mlnu"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#EnjoysCIP"/>
+        <Class IRI="#EnjoysPBDP"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EnjoysPBDP"/>
+        <Class IRI="#EnjoysBDP"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MLog"/>
+        <ObjectComplementOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasOperator"/>
+                <Class IRI="#DLOperator"/>
+            </ObjectSomeValuesFrom>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#alc"/>
+            <NamedIndividual IRI="#alco"/>
+            <NamedIndividual IRI="#alcou"/>
+        </ObjectOneOf>
+        <ObjectComplementOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasOperator"/>
+                <Class IRI="#MLOperator"/>
+            </ObjectSomeValuesFrom>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#alc"/>
+            <NamedIndividual IRI="#ml"/>
+        </ObjectOneOf>
+        <Class IRI="#EnjoysCIP"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#alco"/>
+            <NamedIndividual IRI="#mln"/>
+        </ObjectOneOf>
+        <ObjectComplementOf>
+            <Class IRI="#EnjoysBDP"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#alcou"/>
+            <NamedIndividual IRI="#mlnu"/>
+        </ObjectOneOf>
+        <ObjectComplementOf>
+            <Class IRI="#EnjoysPBDP"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#DLog"/>
+        <NamedIndividual IRI="#alc"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#EnjoysCIP"/>
+        <NamedIndividual IRI="#alc"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DLog"/>
+        <NamedIndividual IRI="#alco"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HLog"/>
+        <NamedIndividual IRI="#alco"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DLog"/>
+        <NamedIndividual IRI="#alcou"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#EnjoysBDP"/>
+        <NamedIndividual IRI="#alcou"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HuLog"/>
+        <NamedIndividual IRI="#alcou"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MLOperator"/>
+        <NamedIndividual IRI="#diamond"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DLOperator"/>
+        <NamedIndividual IRI="#exist_restr"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#EnjoysCIP"/>
+        <NamedIndividual IRI="#ml"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MLog"/>
+        <NamedIndividual IRI="#ml"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HLog"/>
+        <NamedIndividual IRI="#mln"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MLog"/>
+        <NamedIndividual IRI="#mln"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#EnjoysBDP"/>
+        <NamedIndividual IRI="#mlnu"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HuLog"/>
+        <NamedIndividual IRI="#mlnu"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MLog"/>
+        <NamedIndividual IRI="#mlnu"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasOperator"/>
+        <NamedIndividual IRI="#alc"/>
+        <NamedIndividual IRI="#exist_restr"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasOperator"/>
+        <NamedIndividual IRI="#alco"/>
+        <NamedIndividual IRI="#exist_restr"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasOperator"/>
+        <NamedIndividual IRI="#alcou"/>
+        <NamedIndividual IRI="#exist_restr"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasOperator"/>
+        <NamedIndividual IRI="#ml"/>
+        <NamedIndividual IRI="#diamond"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasOperator"/>
+        <NamedIndividual IRI="#mln"/>
+        <NamedIndividual IRI="#diamond"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasOperator"/>
+        <NamedIndividual IRI="#mlnu"/>
+        <NamedIndividual IRI="#diamond"/>
+    </ObjectPropertyAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
+
+
+Provide an ALCO Description Logic concept C that strongly separates the positive examples: E+ = {alc}, from the negative examples: E- = {alco, alcou, ml, mln, mlnu}.
+
+This means that:
+
+K |= C(alc)
+
+whereas
+
+K |= ¬C(alco)
+
+K |= ¬C(alcou)
+
+K |= ¬C(ml)
+
+K |= ¬C(mln)
+
+K |= ¬C(mlnu)
+
+Provide the concept using the Owlready2 syntax, in the form of: 
+
+with onto: 
+	class C(...): 
+		equivalent_to = [...]. Do not include anything else in the response.
+Response: with onto:
+	class C(Thing):
+		equivalent_to = [DLog & EnjoysCIP]
+Verified Response: (['alc'], ['alco', 'alcou', 'mln', 'mlnu'])
+Error: Candidate evaluation failed [sep_type=strong - some negative examples not entailed].
+Result: False
