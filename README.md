@@ -122,7 +122,7 @@ Instructions on how to get your project up and running on a local machine for de
 
 ```bash
 git clone https://github.com/damianoduranti/LLMknowextra.git
-cd LLMknowsynth
+cd LLMknowextra
 pip install -r requirements.txt
 ```
 
