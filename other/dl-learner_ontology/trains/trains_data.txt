@@ -1,0 +1,8 @@
+WEAK SEPARATION
+
+C =
+has_car some (short and closed)
+
+P = {east1, east2, east3, east4, east5}
+
+N = {west6, west7, west8, west9, west10}
