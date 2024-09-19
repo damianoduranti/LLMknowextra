@@ -90,7 +90,11 @@ This project is organized as follows:
 │   │   ├── config.py
 │   │   ├── formula_verifier.py
 │   │   └── smv_generator.py
+│   ├── dl_concept.py
+│   ├── dl_trace_gen.py
 │   ├── llm_utils.py
+│   ├── ltl_process.py
+│   ├── ltl_trace_gen.py
 │   └── prompt_generator.py
 │
 ├── .gitignore
