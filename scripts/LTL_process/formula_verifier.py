@@ -76,28 +76,35 @@ def evaluator(directory, script_path):
     """
     results_sat = []
     results_unsat = []
+    failed_files = {'sat': [], 'unsat': []}
+
     for file_path in sorted(glob.glob(os.path.join(directory, '*.smv'))):
         result_path = formula_verifier(file_path, script_path)
-        if "_sat" in str(file_path):
+        if "_sat" in file_path:
             with open(result_path, "r") as f:
                 result = f.read()
                 if "true" in result:
                     results_sat.append(True)
-                elif "false" in result:
+                else:
                     results_sat.append(False)
-        elif "_unsat" in str(file_path):
+                    failed_files['sat'].append(file_path)
+        elif "_unsat" in file_path:
             with open(result_path, "r") as f:
                 result = f.read()
                 if "true" in result:
                     results_unsat.append(True)
-                elif "false" in result:
+                    failed_files['unsat'].append(file_path)
+                else:
                     results_unsat.append(False)
-    error = None
+
+    errors = []
     if not all(results_sat):
-        error = "Candidate evaluation failed [some positive traces do not satisfy the formula]."
+        errors.append(f"Candidate evaluation failed for positive traces: {', '.join(failed_files['sat'])}")
     if any(results_unsat):
-        error = "Candidate evaluation failed [some negative traces satisfy the formula]."
-    return all(results_sat) and not any(results_unsat), error
+        errors.append(f"Candidate evaluation failed for negative traces: {', '.join(failed_files['unsat'])}")
+    
+    error_msg = " | ".join(errors) if errors else None
+    return all(results_sat) and not any(results_unsat), error_msg
 
 def main():
     path = "data/LTL_process/traces_smv/LTL_constrained/1.1/1.1_sat1.smv"

@@ -1,27 +1,16 @@
-from prompt_generator import *
-from llm_utils import *
-from DL_concept.concept_verifier import *
+import logging
+from dl_concept import dl_concept
+from ltl_process import ltl_process
 
 logging.basicConfig(level=logging.INFO)
 
 def main():
 
-    # DL concept prompt generation
-    prompt = generate_dl_prompts_from_json('data/DL_concept/1/1_instances.json', 'data/DL_concept/1/1_ontology.owl', separation_type='strong')
-
-    print(prompt)
-
-    load_api_keys()
-    set_openai_api_configurations()
-    
-    logging.info("Sending prompt to OpenAI API...")
-    response = (send_prompt(prompt))
-    print(response)
+    # LTL trace verification 
+    ltl_process('temp/unconstrained/output_pos5_neg5_symbolss_p_length30_sig.json', 5)
 
     # DL concept verification
-    ontology = load_ontology('data/DL_concept/1/1_ontology.owl')
-    instances = concept_verifier(ontology, response)
-    print(instances)
+    #dl_concept('data/DL_concept/strong_sep/1/1_instances.json', 'data/DL_concept/strong_sep/1/1_ontology.owl', 5)
 
 if __name__ == '__main__':
     main()

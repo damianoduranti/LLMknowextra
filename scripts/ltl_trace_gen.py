@@ -33,12 +33,12 @@ def main():
     all_symbols = ["p", "q", "r", "s", "t"]
     max_count = 5
 
-    for pos_count in range(1, max_count+1):
-        for neg_count in range(1, max_count+1):
+    for pos_count in range(max_count, max_count+1):
+        for neg_count in range(max_count, max_count+1):
             for symbol_count in range(1, len(all_symbols)+1):
                 symbols = random.sample(all_symbols, symbol_count)
-                for length in [5, 10, 15, 20, 25, 30]:
-                    for sig_size in range(1, symbol_count+1):
+                for length in [30]:
+                    for sig_size in range(0, 1):
                         signature = random.sample(symbols, sig_size)
                         json_output = generate_json(pos_count, neg_count, symbols, length, signature)
 
