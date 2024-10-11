@@ -1,0 +1,93 @@
+In LTLf (Linear Temporal Logic on finite traces), a finite trace consists of a finite sequence of instants, and an instant can be represented by number followed by the set of propositional letter that are satisfied at that time point.
+
+For instance, the following finite trace
+
+1. { r }
+2. { }
+3. { p }
+4. { p, q }
+5. { p, q, r }
+
+satisfies: "r" at instant 0; no propositional letter at instant 1; "p" at instant 2; both "p" and "q" at instant 3; and all the propositional letters "p", "q", and "r" at instant 4.
+
+We say that an LTLf formula is satisfied on a finite trace if the formula is true at the first instant of a trace.
+
+For example, the LTLf formula
+
+r & F( p & q & r )
+
+is satisfied on the trace given above, since it is true at the first instant that "r" holds at that instant, and at some future instant (possibly including the present) --- namely at instant 5 --- we have that "p", "q" and "r" are all true.
+
+Our goal is to find an LTLf formula that is satisfied on a given set of finite traces, but not satisfied on another set of finite traces. We say that such formula "separates" the two sets of traces.
+
+For instance, we want to find an LTLf formula that is satisfied on
+
+FINITE TRACE 1
+
+1. { r }
+2. { }
+3. { p }
+4. { p, q }
+5. { p, q, r }
+
+and not satisfied (i.e., not true on the first instant) on
+
+FINITE TRACE 2
+
+1. { r }
+2. { }
+3. { p, q}
+4. { p, q, r }
+5. { p }
+
+In this example, the LTLf formula
+
+G( q -> G(q) )
+
+is satisfied on FINITE TRACE 1, because at instant 1 we have that, at every future instant (including the current one), if "q" holds, then "q" remains true at every future instant (including the current one). Indeed, at instants 1, 2 and 3 we have that "q" is not true, hence the implication q -> G(q) is trivially satisfied; at instant 4, "q" holds and it remains true all the subsequent instants, namely instant 5; at instant 5, "q" holds, and since there are no subsequent instants (being the last one of the trace), it is trivially true that "q" holds always in the future. Therefore, the implication q -> G(q) is true at all instants from 1 to 5, and so G( q -> G(q) ) is true at instant 1 of FINITE TRACE 1.
+
+On the other hand, the formula F( q -> G(q) ) is not satisfied on FINITE TRACE 2, because at instant 4 we have that "q" holds, whereas "q" ceases to be true in the subsequent instant 5. Hence, the formula q -> G(q) is not satisfied on instant 4, and thus G( q -> G(q) ) is not satisfied at instant 1 of FINITE TRACE 2.
+
+We can conclude that the formula
+
+G( q -> G(q) )
+
+correctly separates FINITE TRACE 1 from FINITE TRACE 2.
+
+Finally, we observe that the LTLf formula given above
+
+r & F( p & q & r )
+
+is satisfied both by FINITE TRACE 1 (as observed above, since "r" is true at instant 1, and "p", "q" and "r" hold at instant 5) and by FINITE TRACE 2 (since "r" is true at instant 1, and "p", "q" and "r" hold at instant 4). Hence, this formula does not correctly separate the given traces.
+
+--------------------------------------------------------------
+
+Provide an LTLf formula that is satisfied on:
+
+FINITE TRACE 1
+
+1. { r }
+2. { r }
+3. { r }
+4. { r, p }
+5. { r }
+6. { r, q }
+7. { r }
+8. { r }
+9. { r }
+
+and falsified on:
+
+FINITE TRACE 2
+
+1. { r }
+2. { r }
+3. { r }
+4. { r, p }
+5. { r }
+6. { r, q }
+7. {  }
+8. { r }
+9. { r }
+
+Provide the formula only in the form of a string, using the nuXmv syntax.
