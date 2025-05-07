@@ -1,6 +1,6 @@
 # LLM-Driven Knowledge Extraction: Results in Temporal and Description Logics
 
-> Damiano Duranti, Paolo Giorgini, Andrea Mazzullo, Marco Robol and Marco Roveri
+Duranti, D., Giorgini, P., Mazzullo, A., Robol, M., Roveri, M. (2025). LLM-Driven Knowledge Extraction in Temporal and Description Logics. In: Alam, M., Rospocher, M., van Erp, M., Hollink, L., Gesese, G.A. (eds) Knowledge Engineering and Knowledge Management. EKAW 2024. Lecture Notes in Computer Science(), vol 15370. Springer, Cham. https://doi.org/10.1007/978-3-031-77792-9_12
 
 ## Table of Contents
 
